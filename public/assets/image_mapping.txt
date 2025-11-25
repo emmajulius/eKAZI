@@ -1,0 +1,191 @@
+Image URL to Local Path Mapping
+============================================================
+
+Original URL: https://www.facebook.com/tr?id=259448101706485&ev=PageView&noscript=1
+Local Path: assets/images/image_1.png
+Filename: image_1.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/images/slide.jpg
+Local Path: assets/images/slide.jpg
+Filename: slide.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/images/slide.jpg
+Local Path: assets/images/slide.jpg
+Filename: slide.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/images/slide.jpg
+Local Path: assets/images/slide.jpg
+Filename: slide.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/images/logo2.png
+Local Path: assets/images/logo2.png
+Filename: logo2.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/070723245829669f5bf64ef60_dp world logo.jpg
+Local Path: assets/images/070723245829669f5bf64ef60_dp_world_logo.jpg
+Filename: 070723245829669f5bf64ef60_dp_world_logo.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/07100724204367039118155c4_cfr logo.jpg
+Local Path: assets/images/07100724204367039118155c4_cfr_logo.jpg
+Filename: 07100724204367039118155c4_cfr_logo.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/060805212930610b8585690db_emcl logo.png
+Local Path: assets/images/060805212930610b8585690db_emcl_logo.png
+Filename: 060805212930610b8585690db_emcl_logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/12061124222966684322d42e7_feza school logo.png
+Local Path: assets/images/12061124222966684322d42e7_feza_school_logo.png
+Filename: 12061124222966684322d42e7_feza_school_logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/1107052418156687d5c612fbb_Lake cement logo.jpg
+Local Path: assets/images/1107052418156687d5c612fbb_Lake_cement_logo.jpg
+Filename: 1107052418156687d5c612fbb_Lake_cement_logo.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/08010523331863b687d9ed813_NEI Logo.png
+Local Path: assets/images/08010523331863b687d9ed813_NEI_Logo.png
+Filename: 08010523331863b687d9ed813_NEI_Logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/110708241622668bcbe8934ce_sumet logo.jpg
+Local Path: assets/images/110708241622668bcbe8934ce_sumet_logo.jpg
+Filename: 110708241622668bcbe8934ce_sumet_logo.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/07100124544966fba9a271aa3_tbs logo.jpg
+Local Path: assets/images/07100124544966fba9a271aa3_tbs_logo.jpg
+Filename: 07100124544966fba9a271aa3_tbs_logo.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/06072222454462da475d99e72_download (93).png
+Local Path: assets/images/06072222454462da475d99e72_download__93_.png
+Filename: 06072222454462da475d99e72_download__93_.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/120125210326600eb8db551d5_touch fou.png
+Local Path: assets/images/120125210326600eb8db551d5_touch_fou.png
+Filename: 120125210326600eb8db551d5_touch_fou.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/0907052416236687bb84a3a18_wingu africa logo.jpg
+Local Path: assets/images/0907052416236687bb84a3a18_wingu_africa_logo.jpg
+Filename: 0907052416236687bb84a3a18_wingu_africa_logo.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/070723245829669f5bf64ef60_dp world logo.jpg
+Local Path: assets/images/070723245829669f5bf64ef60_dp_world_logo.jpg
+Filename: 070723245829669f5bf64ef60_dp_world_logo.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/07100724204367039118155c4_cfr logo.jpg
+Local Path: assets/images/07100724204367039118155c4_cfr_logo.jpg
+Filename: 07100724204367039118155c4_cfr_logo.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/060805212930610b8585690db_emcl logo.png
+Local Path: assets/images/060805212930610b8585690db_emcl_logo.png
+Filename: 060805212930610b8585690db_emcl_logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/12061124222966684322d42e7_feza school logo.png
+Local Path: assets/images/12061124222966684322d42e7_feza_school_logo.png
+Filename: 12061124222966684322d42e7_feza_school_logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/1107052418156687d5c612fbb_Lake cement logo.jpg
+Local Path: assets/images/1107052418156687d5c612fbb_Lake_cement_logo.jpg
+Filename: 1107052418156687d5c612fbb_Lake_cement_logo.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/08010523331863b687d9ed813_NEI Logo.png
+Local Path: assets/images/08010523331863b687d9ed813_NEI_Logo.png
+Filename: 08010523331863b687d9ed813_NEI_Logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/110708241622668bcbe8934ce_sumet logo.jpg
+Local Path: assets/images/110708241622668bcbe8934ce_sumet_logo.jpg
+Filename: 110708241622668bcbe8934ce_sumet_logo.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/07100124544966fba9a271aa3_tbs logo.jpg
+Local Path: assets/images/07100124544966fba9a271aa3_tbs_logo.jpg
+Filename: 07100124544966fba9a271aa3_tbs_logo.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/06072222454462da475d99e72_download (93).png
+Local Path: assets/images/06072222454462da475d99e72_download__93_.png
+Filename: 06072222454462da475d99e72_download__93_.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/120125210326600eb8db551d5_touch fou.png
+Local Path: assets/images/120125210326600eb8db551d5_touch_fou.png
+Filename: 120125210326600eb8db551d5_touch_fou.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/0907052416236687bb84a3a18_wingu africa logo.jpg
+Local Path: assets/images/0907052416236687bb84a3a18_wingu_africa_logo.jpg
+Filename: 0907052416236687bb84a3a18_wingu_africa_logo.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/060805212930610b8585690db_emcl logo.png
+Local Path: assets/images/060805212930610b8585690db_emcl_logo.png
+Filename: 060805212930610b8585690db_emcl_logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/060805212930610b8585690db_emcl logo.png
+Local Path: assets/images/060805212930610b8585690db_emcl_logo.png
+Filename: 060805212930610b8585690db_emcl_logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/060805212930610b8585690db_emcl logo.png
+Local Path: assets/images/060805212930610b8585690db_emcl_logo.png
+Filename: 060805212930610b8585690db_emcl_logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/060805212930610b8585690db_emcl logo.png
+Local Path: assets/images/060805212930610b8585690db_emcl_logo.png
+Filename: 060805212930610b8585690db_emcl_logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/060805212930610b8585690db_emcl logo.png
+Local Path: assets/images/060805212930610b8585690db_emcl_logo.png
+Filename: 060805212930610b8585690db_emcl_logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/060805212930610b8585690db_emcl logo.png
+Local Path: assets/images/060805212930610b8585690db_emcl_logo.png
+Filename: 060805212930610b8585690db_emcl_logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/060805212930610b8585690db_emcl logo.png
+Local Path: assets/images/060805212930610b8585690db_emcl_logo.png
+Filename: 060805212930610b8585690db_emcl_logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/060805212930610b8585690db_emcl logo.png
+Local Path: assets/images/060805212930610b8585690db_emcl_logo.png
+Filename: 060805212930610b8585690db_emcl_logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/060805212930610b8585690db_emcl logo.png
+Local Path: assets/images/060805212930610b8585690db_emcl_logo.png
+Filename: 060805212930610b8585690db_emcl_logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/0911132508356915a64c9b1ab_IMG_BD720EA45340-1.jpeg
+Local Path: assets/images/0911132508356915a64c9b1ab_IMG_BD720EA45340-1.jpeg
+Filename: 0911132508356915a64c9b1ab_IMG_BD720EA45340-1.jpeg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/070801252120688c6ab53dc79_Bold _XINYUE_ Text on Canvas (1).png
+Local Path: assets/images/070801252120688c6ab53dc79_Bold__XINYUE__Text_on_Canvas__1_.png
+Filename: 070801252120688c6ab53dc79_Bold__XINYUE__Text_on_Canvas__1_.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/060805212930610b8585690db_emcl logo.png
+Local Path: assets/images/060805212930610b8585690db_emcl_logo.png
+Filename: 060805212930610b8585690db_emcl_logo.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/picture/20250708054914686cb15a0c5d6_IMG-20220824-WA0000.jpg
+Local Path: assets/images/20250708054914686cb15a0c5d6_IMG-20220824-WA0000.jpg
+Filename: 20250708054914686cb15a0c5d6_IMG-20220824-WA0000.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/picture/202505030539486815ac246d250_20250430_184341.jpg
+Local Path: assets/images/202505030539486815ac246d250_20250430_184341.jpg
+Filename: 202505030539486815ac246d250_20250430_184341.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/img/default.png
+Local Path: assets/images/default.png
+Filename: default.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/picture/20231026062819653a07039a579_IMG_2979~2.jpg
+Local Path: assets/images/20231026062819653a07039a579_IMG_2979_2.jpg
+Filename: 20231026062819653a07039a579_IMG_2979_2.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/picture/2025032711534567e53c49a5e57_WILLIAM - PICHA.jpg
+Local Path: assets/images/2025032711534567e53c49a5e57_WILLIAM_-_PICHA.jpg
+Filename: 2025032711534567e53c49a5e57_WILLIAM_-_PICHA.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/uploads/picture/2024031519584665f4a87645a16_Passport size may2022_2.jpg
+Local Path: assets/images/2024031519584665f4a87645a16_Passport_size_may2022_2.jpg
+Filename: 2024031519584665f4a87645a16_Passport_size_may2022_2.jpg
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/images/logo1.png
+Local Path: assets/images/logo1.png
+Filename: logo1.png
+------------------------------------------------------------
+Original URL: https://ekazi.co.tz/images/banner.jpg
+Local Path: assets/images/banner.jpg
+Filename: banner.jpg
+------------------------------------------------------------
