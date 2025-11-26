@@ -7,10 +7,16 @@ This repository is configured with GitHub Actions to automatically build and dep
 ### Initial Setup (One-time)
 
 1. **Enable GitHub Pages in Repository Settings:**
-   - Go to your repository on GitHub
+   - Go to your repository on GitHub: `https://github.com/emmajulius/eKAZI/settings/pages`
    - Navigate to **Settings** → **Pages**
-   - Under **Source**, select **GitHub Actions**
+   - Under **Source**, select **GitHub Actions** (NOT "Deploy from a branch")
+   - **Important**: Make sure you select "GitHub Actions" and NOT a branch like "master" or "/docs"
    - Save the changes
+   
+   **If you see README instead of the app:**
+   - This means GitHub Pages is serving from a branch instead of GitHub Actions
+   - Go to Settings → Pages and change the Source to "GitHub Actions"
+   - Wait a few minutes for the deployment to complete
 
 2. **Verify Repository Name:**
    - The `homepage` field in `package.json` is set to: `https://emmajulius.github.io/eKAZI`
