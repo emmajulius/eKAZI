@@ -31,38 +31,12 @@ const CandidateProfile = () => {
     const sentence1El = document.querySelector('.sentence-1');
     const sentence2El = document.querySelector('.sentence-2');
     const sentence3El = document.querySelector('.sentence-3');
-    const penCursor = document.querySelector('.pen-cursor');
-    const container = document.querySelector('.animated-sentences');
     
-    if (!sentence1El || !sentence2El || !sentence3El || !penCursor || !container) return;
+    if (!sentence1El || !sentence2El || !sentence3El) return;
 
     let currentSentence = 1;
     let currentWordIndex = 0;
     let animationTimeout;
-
-    const updatePenPosition = (element) => {
-      if (!element || !penCursor || !container) return;
-      
-      // Create a temporary span to measure text width
-      const tempSpan = document.createElement('span');
-      tempSpan.style.visibility = 'hidden';
-      tempSpan.style.position = 'absolute';
-      tempSpan.style.fontSize = window.getComputedStyle(element).fontSize;
-      tempSpan.style.fontWeight = window.getComputedStyle(element).fontWeight;
-      tempSpan.style.fontFamily = window.getComputedStyle(element).fontFamily;
-      tempSpan.textContent = element.textContent;
-      document.body.appendChild(tempSpan);
-      
-      const textWidth = tempSpan.offsetWidth;
-      const containerRect = container.getBoundingClientRect();
-      const elementRect = element.getBoundingClientRect();
-      
-      penCursor.style.left = `${elementRect.left - containerRect.left + textWidth + 5}px`;
-      penCursor.style.top = `${elementRect.top - containerRect.top + elementRect.height / 2 - 20}px`;
-      penCursor.classList.add('active');
-      
-      document.body.removeChild(tempSpan);
-    };
 
     const clearAllSentences = () => {
       sentence1El.textContent = '';
@@ -76,7 +50,6 @@ const CandidateProfile = () => {
           sentence1El.textContent = sentence1Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
           clearAllSentences();
           sentence1El.textContent = sentence1Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
-          updatePenPosition(sentence1El);
           currentWordIndex++;
           animationTimeout = setTimeout(writeWord, 300);
         } else {
@@ -89,7 +62,6 @@ const CandidateProfile = () => {
         if (currentWordIndex < sentence2Words.length) {
           clearAllSentences();
           sentence2El.textContent = sentence2Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
-          updatePenPosition(sentence2El);
           currentWordIndex++;
           animationTimeout = setTimeout(writeWord, 300);
         } else {
@@ -102,7 +74,6 @@ const CandidateProfile = () => {
         if (currentWordIndex < sentence3Words.length) {
           clearAllSentences();
           sentence3El.textContent = sentence3Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
-          updatePenPosition(sentence3El);
           currentWordIndex++;
           animationTimeout = setTimeout(writeWord, 300);
         } else {
@@ -118,12 +89,10 @@ const CandidateProfile = () => {
       if (currentSentence === 1) {
         if (currentWordIndex >= 0) {
           sentence1El.textContent = sentence1Words.slice(0, currentWordIndex).join(' ') + (currentWordIndex > 0 ? ' ' : '');
-          updatePenPosition(sentence1El);
           currentWordIndex--;
           animationTimeout = setTimeout(eraseWord, 200);
         } else {
           sentence1El.textContent = '';
-          penCursor.classList.remove('active');
           currentSentence = 2;
           currentWordIndex = 0;
           setTimeout(writeWord, 500);
@@ -131,12 +100,10 @@ const CandidateProfile = () => {
       } else if (currentSentence === 2) {
         if (currentWordIndex >= 0) {
           sentence2El.textContent = sentence2Words.slice(0, currentWordIndex).join(' ') + (currentWordIndex > 0 ? ' ' : '');
-          updatePenPosition(sentence2El);
           currentWordIndex--;
           animationTimeout = setTimeout(eraseWord, 200);
         } else {
           sentence2El.textContent = '';
-          penCursor.classList.remove('active');
           currentSentence = 3;
           currentWordIndex = 0;
           setTimeout(writeWord, 500);
@@ -144,12 +111,10 @@ const CandidateProfile = () => {
       } else {
         if (currentWordIndex >= 0) {
           sentence3El.textContent = sentence3Words.slice(0, currentWordIndex).join(' ') + (currentWordIndex > 0 ? ' ' : '');
-          updatePenPosition(sentence3El);
           currentWordIndex--;
           animationTimeout = setTimeout(eraseWord, 200);
         } else {
           sentence3El.textContent = '';
-          penCursor.classList.remove('active');
           currentSentence = 1;
           currentWordIndex = 0;
           setTimeout(writeWord, 500);
@@ -232,7 +197,6 @@ const CandidateProfile = () => {
       <section className="candidate-featured-wrapper">
         <div className="candidate-shell">
           <div className="animated-writing-container">
-            <div className="pen-cursor"></div>
             <div className="animated-sentences">
               <span className="sentence sentence-1"></span>
               <span className="sentence sentence-2"></span>

@@ -155,7 +155,7 @@ body {
 
 .nav-right {
     margin-left: auto;
-    padding-left: 30px;
+    padding-left: 0;
 }
 
 .nav-menu a {
@@ -3229,46 +3229,6 @@ section {
     display: inline-block;
 }
 
-.pen-cursor {
-    position: absolute;
-    width: 4px;
-    height: 40px;
-    background: #FF9800;
-    border-radius: 2px;
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none;
-    box-shadow: 0 0 10px rgba(255, 152, 0, 0.8);
-}
-
-.pen-cursor::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 10px solid #FF9800;
-}
-
-.pen-cursor.active {
-    opacity: 1;
-    animation: penWrite 0.3s ease-in-out;
-}
-
-@keyframes penWrite {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-3px);
-    }
-}
-
 .candidate-welcome-banner {
     background: linear-gradient(135deg, #2E58A6 0%, #1E4A8C 100%);
     border-radius: 16px;
@@ -4895,7 +4855,7 @@ section {
     
     .hero-profile-image {
         width: 100%;
-        height: 220px;
+        height: 260px;
     }
     
     /* Employers Section Mobile */
@@ -5040,10 +5000,6 @@ section {
         font-size: 22px;
     }
     
-    .pen-cursor {
-        height: 35px;
-    }
-    
     .candidate-welcome-banner {
         padding: 30px 30px;
         margin-bottom: 25px;
@@ -5165,7 +5121,7 @@ section {
     }
     
     .hero-profile-image {
-        height: 180px;
+        height: 210px;
     }
     
     /* Employers Section Small Mobile */
@@ -5247,11 +5203,6 @@ section {
     .sentence {
         font-size: 18px;
         line-height: 1.5;
-    }
-    
-    .pen-cursor {
-        height: 30px;
-        width: 3px;
     }
     
     .candidate-welcome-banner {
@@ -6101,8 +6052,8 @@ section {
     }
     
     .hero-profile-image {
-        width: 250px;
-        height: 250px;
+        width: 280px;
+        height: 280px;
     }
     
     /* Search */
@@ -6453,8 +6404,8 @@ section {
     }
     
     .hero-profile-image {
-        width: 200px;
-        height: 200px;
+        width: 240px;
+        height: 240px;
     }
     
     /* Search Form */
@@ -6629,8 +6580,8 @@ section {
     }
     
     .hero-profile-image {
-        width: 250px;
-        height: 250px;
+        width: 280px;
+        height: 280px;
     }
     
     .search-form-wrapper {
