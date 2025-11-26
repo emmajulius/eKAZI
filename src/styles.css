@@ -4824,41 +4824,53 @@ section {
 @media (max-width: 768px) {
     /* Hero Section Mobile */
     .hero-section {
-        padding: 40px 0 0;
+        padding: 30px 0 0;
+        overflow: visible;
     }
     
     .hero-main-container {
         flex-direction: column;
         padding: 0 20px;
-        gap: 30px;
+        gap: 25px;
         align-items: center;
+        overflow: visible;
     }
     
     .hero-left-content {
         max-width: 100%;
+        width: 100%;
         text-align: center;
         padding-top: 0;
+        overflow: visible;
+        z-index: 2;
+        position: relative;
     }
     
     .hero-headline {
-        font-size: 32px;
+        font-size: 28px;
         white-space: normal;
-        line-height: 1.3;
+        line-height: 1.4;
         margin-bottom: 15px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        display: block;
+        width: 100%;
     }
     
     .hero-subheadline {
-        font-size: 16px;
+        font-size: 15px;
+        margin-top: 10px;
     }
     
     .hero-right-image {
         width: 100%;
-        max-width: 300px;
+        max-width: 280px;
+        order: -1;
     }
     
     .hero-profile-image {
         width: 100%;
-        height: 250px;
+        height: 220px;
     }
     
     /* Employers Section Mobile */
@@ -4883,24 +4895,33 @@ section {
     
     /* Banner Section Mobile */
     .promotional-banner {
-        margin-top: -100px;
-        padding: 15px 0 30px 0;
+        margin-top: -80px;
+        padding: 10px 0 25px 0;
+        overflow: hidden;
     }
     
     .promo-main-container {
-        padding: 0 20px;
+        padding: 0 15px;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
     
     .banner-image-container {
         margin-left: 0;
         max-width: 100%;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
     }
     
     .banner-image {
         width: 100%;
         height: auto;
-        min-height: 200px;
+        max-height: 250px;
         object-fit: cover;
+        object-position: center;
+        display: block;
     }
     
     .banner-carousel-control {
@@ -5055,26 +5076,46 @@ section {
 @media (max-width: 480px) {
     /* Hero Section Small Mobile */
     .hero-section {
-        padding: 30px 0 0;
+        padding: 20px 0 0;
+        overflow: visible;
     }
     
     .hero-main-container {
         padding: 0 15px;
         gap: 20px;
+        overflow: visible;
+    }
+    
+    .hero-left-content {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
     }
     
     .hero-headline {
-        font-size: 24px;
-        line-height: 1.4;
+        font-size: 22px;
+        line-height: 1.5;
         margin-bottom: 12px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        display: block;
+        width: 100%;
+        padding: 0;
     }
     
     .hero-subheadline {
         font-size: 14px;
+        margin-top: 8px;
+    }
+    
+    .hero-right-image {
+        max-width: 250px;
+        width: 100%;
     }
     
     .hero-profile-image {
-        height: 200px;
+        height: 180px;
     }
     
     /* Employers Section Small Mobile */
@@ -5104,17 +5145,32 @@ section {
     
     /* Banner Section Small Mobile */
     .promotional-banner {
-        margin-top: -80px;
-        padding: 10px 0 25px 0;
+        margin-top: -60px;
+        padding: 8px 0 20px 0;
+        overflow: hidden;
     }
     
     .promo-main-container {
-        padding: 0 15px;
+        padding: 0 10px;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+    
+    .banner-image-container {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
     
     .banner-image {
-        min-height: 180px;
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: cover;
+        object-position: center;
         border-radius: 6px;
+        display: block;
     }
     
     .banner-carousel-control {
