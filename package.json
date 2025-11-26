@@ -2,6 +2,7 @@
   "name": "ekazi-react",
   "version": "1.0.0",
   "description": "eKazi - A place where employers meets potential candidates",
+  "homepage": "https://emmajulius.github.io/eKAZI",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
