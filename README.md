@@ -214,12 +214,13 @@ The `build` folder can be deployed to any static hosting service:
 
 This project is private and proprietary.
 
-## 👥 Authors
+## 👥 Author
 
-- eKazi Development Team
+Emanuel Julius Lomayani
 
 ## 🙏 Acknowledgments
 
+-Software Developer Team at Exact manpower consulting
 - React team for the amazing framework
 - Bootstrap for the CSS framework
 - Font Awesome for the icon library
