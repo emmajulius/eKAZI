@@ -1200,10 +1200,9 @@ body {
     overflow: hidden;
     width: 100%;
     position: relative;
-    padding: 0;
-    max-width: 1100px;
+    padding: 0 40px;
+    max-width: 1200px;
     margin: 0 auto;
-    margin-left: 40px;
 }
 
 .employer-marquee {
@@ -4944,7 +4943,7 @@ section {
     .banner-image {
         width: 100%;
         height: auto;
-        max-height: 300px;
+        max-height: 340px;
         object-fit: cover;
         object-position: center;
         display: block;
@@ -6150,7 +6149,7 @@ section {
     
     /* Job Categories */
     .job-categories-title {
-        font-size: 20px;
+        font-size: 22px;
     }
     
     .categories-tabs-list {
@@ -6195,6 +6194,17 @@ section {
     
     .candidate-actions-row {
         flex-wrap: wrap;
+        gap: 6px;
+    }
+    
+    .candidate-action-item {
+        justify-content: center;
+        gap: 4px;
+    }
+    
+    .candidate-action-item i {
+        position: relative;
+        top: -2px;
     }
     
     /* Candidate Profile */
@@ -6521,7 +6531,7 @@ section {
     }
     
     .job-categories-title {
-        font-size: 18px;
+        font-size: 20px;
         padding: 0 10px;
     }
     
