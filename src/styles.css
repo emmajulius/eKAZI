@@ -2642,7 +2642,7 @@ section {
 
 /* Footer */
 .footer {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.95);
     color: #333;
     padding-top: 40px;
     border-top: 1px solid #e5e5e5;
@@ -2803,6 +2803,10 @@ section {
     width: 70px;
     height: 70px;
     display: block;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .footer-bottom {
@@ -5591,6 +5595,7 @@ section {
     
     .nav-right {
         padding-left: 0;
+        margin-left: 0;
     }
 }
 
