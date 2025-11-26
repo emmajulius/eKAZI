@@ -1,4 +1,5 @@
 import React from 'react';
+import whatsappLogo from '../assets/images/watsapp.jpeg';
 
 const Footer = ({ onLoginClick }) => {
 
@@ -98,7 +99,7 @@ const Footer = ({ onLoginClick }) => {
                 <a href="tel:+255677014718">+255 677 014 718</a>
               </div>
               <a className="whatsapp-button" href="https://wa.me/+255677975251" target="_blank" rel="noreferrer" aria-label="Chat with us on WhatsApp">
-                <img src="./assets/images/watsapp.jpeg" alt="WhatsApp" />
+                <img src={whatsappLogo} alt="WhatsApp" />
               </a>
             </div>
           </div>
