@@ -536,7 +536,7 @@ export const fullCandidatesData = {
         likes: 0,
         email: "christina.tarimo@example.com",
         phone: "+255 123 456 791",
-        image: "/assets/images/2024031519584665f4a87645a16_Passport_size_may2022_2.jpg",
+        image: "/assets/images/default.png",
         about: "I'm an experienced logistics expert overseeing supply chain operations, coordinating procurement, warehousing, and transportation, leveraging logistics software to monitor shipments, and collaborating with diverse teams to achieve company goals.",
         careerObjectives: "To secure a managerial role where I can utilize my experience and expertise with a company that offers opportunities for professional growth and advancement.",
         experience: [
@@ -807,7 +807,7 @@ export const fullCandidatesData = {
         likes: 0,
         email: "dickson.kihamba@example.com",
         phone: "+255 123 456 794",
-        image: "/assets/images/default.png",
+        image: "/assets/images/2024031519584665f4a87645a16_Passport_size_may2022_2.jpg",
         about: "Dickson is a seasoned technology executive with deep expertise in IT infrastructure and ERP solutions. With a background in computer science and an MBA, he leverages emerging technologies to drive digital transformation and process automation across telecom, manufacturing, logistics, trading, and insurance.",
         careerObjectives: "Driving and leading digital transformation and process automation.",
         experience: [
