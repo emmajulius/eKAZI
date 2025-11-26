@@ -22,6 +22,8 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     background-color: var(--white);
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .container {
@@ -4848,6 +4850,7 @@ section {
     .hero-left-content {
         max-width: 100%;
         width: 100%;
+        min-width: 100%;
         text-align: center;
         padding-top: 0;
         overflow: visible;
