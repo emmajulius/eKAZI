@@ -3229,6 +3229,35 @@ section {
     display: inline-block;
 }
 
+.animated-caret {
+    position: absolute;
+    width: 4px;
+    height: 42px;
+    background: #FF9800;
+    border-radius: 2px;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.animated-caret.active {
+    opacity: 1;
+    animation: caretBlink 0.8s steps(2, start) infinite;
+}
+
+@keyframes caretBlink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .candidate-welcome-banner {
     background: linear-gradient(135deg, #2E58A6 0%, #1E4A8C 100%);
     border-radius: 16px;
@@ -5000,6 +5029,10 @@ section {
         font-size: 22px;
     }
     
+    .animated-caret {
+        height: 34px;
+    }
+    
     .candidate-welcome-banner {
         padding: 30px 30px;
         margin-bottom: 25px;
@@ -5203,6 +5236,10 @@ section {
     .sentence {
         font-size: 18px;
         line-height: 1.5;
+    }
+    
+    .animated-caret {
+        height: 28px;
     }
     
     .candidate-welcome-banner {
@@ -6596,6 +6633,10 @@ section {
     .featured-candidates .featured-card-row > .col-md-4 {
         flex: 0 0 50%;
         max-width: 50%;
+    }
+    
+    .animated-caret {
+        height: 36px;
     }
 }
 

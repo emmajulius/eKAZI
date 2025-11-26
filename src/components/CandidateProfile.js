@@ -31,12 +31,37 @@ const CandidateProfile = () => {
     const sentence1El = document.querySelector('.sentence-1');
     const sentence2El = document.querySelector('.sentence-2');
     const sentence3El = document.querySelector('.sentence-3');
+    const caret = document.querySelector('.animated-caret');
+    const container = document.querySelector('.animated-sentences');
     
-    if (!sentence1El || !sentence2El || !sentence3El) return;
+    if (!sentence1El || !sentence2El || !sentence3El || !caret || !container) return;
 
     let currentSentence = 1;
     let currentWordIndex = 0;
     let animationTimeout;
+
+    const updateCaretPosition = (element) => {
+      if (!element || !caret || !container) return;
+      
+      const tempSpan = document.createElement('span');
+      tempSpan.style.visibility = 'hidden';
+      tempSpan.style.position = 'absolute';
+      tempSpan.style.fontSize = window.getComputedStyle(element).fontSize;
+      tempSpan.style.fontWeight = window.getComputedStyle(element).fontWeight;
+      tempSpan.style.fontFamily = window.getComputedStyle(element).fontFamily;
+      tempSpan.textContent = element.textContent;
+      document.body.appendChild(tempSpan);
+      
+      const textWidth = tempSpan.offsetWidth;
+      const containerRect = container.getBoundingClientRect();
+      const elementRect = element.getBoundingClientRect();
+      
+      caret.style.left = `${elementRect.left - containerRect.left + textWidth + 4}px`;
+      caret.style.top = `${elementRect.top - containerRect.top + elementRect.height / 2 - caret.offsetHeight / 2}px`;
+      caret.classList.add('active');
+      
+      document.body.removeChild(tempSpan);
+    };
 
     const clearAllSentences = () => {
       sentence1El.textContent = '';
@@ -50,6 +75,7 @@ const CandidateProfile = () => {
           sentence1El.textContent = sentence1Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
           clearAllSentences();
           sentence1El.textContent = sentence1Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
+          updateCaretPosition(sentence1El);
           currentWordIndex++;
           animationTimeout = setTimeout(writeWord, 300);
         } else {
@@ -62,6 +88,7 @@ const CandidateProfile = () => {
         if (currentWordIndex < sentence2Words.length) {
           clearAllSentences();
           sentence2El.textContent = sentence2Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
+          updateCaretPosition(sentence2El);
           currentWordIndex++;
           animationTimeout = setTimeout(writeWord, 300);
         } else {
@@ -74,6 +101,7 @@ const CandidateProfile = () => {
         if (currentWordIndex < sentence3Words.length) {
           clearAllSentences();
           sentence3El.textContent = sentence3Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
+          updateCaretPosition(sentence3El);
           currentWordIndex++;
           animationTimeout = setTimeout(writeWord, 300);
         } else {
@@ -89,10 +117,12 @@ const CandidateProfile = () => {
       if (currentSentence === 1) {
         if (currentWordIndex >= 0) {
           sentence1El.textContent = sentence1Words.slice(0, currentWordIndex).join(' ') + (currentWordIndex > 0 ? ' ' : '');
+          updateCaretPosition(sentence1El);
           currentWordIndex--;
           animationTimeout = setTimeout(eraseWord, 200);
         } else {
           sentence1El.textContent = '';
+          caret.classList.remove('active');
           currentSentence = 2;
           currentWordIndex = 0;
           setTimeout(writeWord, 500);
@@ -100,10 +130,12 @@ const CandidateProfile = () => {
       } else if (currentSentence === 2) {
         if (currentWordIndex >= 0) {
           sentence2El.textContent = sentence2Words.slice(0, currentWordIndex).join(' ') + (currentWordIndex > 0 ? ' ' : '');
+          updateCaretPosition(sentence2El);
           currentWordIndex--;
           animationTimeout = setTimeout(eraseWord, 200);
         } else {
           sentence2El.textContent = '';
+          caret.classList.remove('active');
           currentSentence = 3;
           currentWordIndex = 0;
           setTimeout(writeWord, 500);
@@ -111,10 +143,12 @@ const CandidateProfile = () => {
       } else {
         if (currentWordIndex >= 0) {
           sentence3El.textContent = sentence3Words.slice(0, currentWordIndex).join(' ') + (currentWordIndex > 0 ? ' ' : '');
+          updateCaretPosition(sentence3El);
           currentWordIndex--;
           animationTimeout = setTimeout(eraseWord, 200);
         } else {
           sentence3El.textContent = '';
+          caret.classList.remove('active');
           currentSentence = 1;
           currentWordIndex = 0;
           setTimeout(writeWord, 500);
@@ -125,6 +159,7 @@ const CandidateProfile = () => {
     writeWord();
 
     return () => {
+      caret?.classList.remove('active');
       if (animationTimeout) clearTimeout(animationTimeout);
     };
   }, [id, sentence1, sentence2, sentence3]);
@@ -201,6 +236,7 @@ const CandidateProfile = () => {
               <span className="sentence sentence-1"></span>
               <span className="sentence sentence-2"></span>
               <span className="sentence sentence-3"></span>
+              <div className="animated-caret"></div>
             </div>
           </div>
           <div className="modern-card profile-header-card">
