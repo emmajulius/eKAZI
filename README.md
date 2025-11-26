@@ -28,7 +28,7 @@ Before you begin, ensure you have the following installed on your system:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/ekazi-react.git
+git clone https://github.com/emmajulius/ekazi-react.git
 cd ekazi-react
 ```
 
