@@ -6181,18 +6181,17 @@ section {
     }
     
     .candidate-actions-row {
-        flex-wrap: wrap;
-        gap: 6px;
-    }
-    
-    .candidate-action-item {
-        justify-content: center;
+        flex-wrap: nowrap;
         gap: 4px;
     }
     
-    .candidate-action-item i {
-        position: relative;
-        top: -2px;
+    .candidate-action-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        flex: 1;
+        min-width: 0;
     }
     
     /* Candidate Profile */
