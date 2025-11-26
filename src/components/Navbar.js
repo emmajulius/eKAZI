@@ -46,7 +46,7 @@ const Navbar = ({ onLoginClick, onRegisterClick }) => {
               <img 
                 alt="eKazi Logo" 
                 style={{ height: '80px', maxHeight: '80px', width: 'auto' }}
-                src="/assets/images/logo1.png" 
+                src="./assets/images/logo1.png" 
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}

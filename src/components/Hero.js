@@ -1,7 +1,7 @@
 import React from 'react';
 const Hero = () => {
   const handleImageError = (e) => {
-    e.target.src = '/assets/images/default.png';
+    e.target.src = './assets/images/default.png';
   };
 
   return (
@@ -21,7 +21,7 @@ const Hero = () => {
         <div className="hero-right-image">
           <div className="hero-profile-image">
             <img 
-              src="/assets/images/hero.jpg" 
+              src="./assets/images/hero.jpg" 
               alt="Hero Profile" 
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               onError={handleImageError}

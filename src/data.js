@@ -270,7 +270,7 @@ export const candidatesData = [
         status: "Available for Job Vacancies",
         views: 564,
         rating: 0,
-        image: "/assets/images/20250708054914686cb15a0c5d6_IMG-20220824-WA0000.jpg"
+        image: "./assets/images/20250708054914686cb15a0c5d6_IMG-20220824-WA0000.jpg"
     },
     {
         id: 2,
@@ -280,7 +280,7 @@ export const candidatesData = [
         status: "Available for Job Vacancies",
         views: 1013,
         rating: 0,
-        image: "/assets/images/202505030539486815ac246d250_20250430_184341.jpg"
+        image: "./assets/images/202505030539486815ac246d250_20250430_184341.jpg"
     },
     {
         id: 3,
@@ -290,7 +290,7 @@ export const candidatesData = [
         status: "Available for Job Vacancies",
         views: 636,
         rating: 0,
-        image: "/assets/images/default.png"
+        image: "./assets/images/default.png"
     },
     {
         id: 4,
@@ -300,7 +300,7 @@ export const candidatesData = [
         status: "Available for Job Vacancies",
         views: 831,
         rating: 0,
-        image: "/assets/images/20231026062819653a07039a579_IMG_2979_2.jpg"
+        image: "./assets/images/20231026062819653a07039a579_IMG_2979_2.jpg"
     },
     {
         id: 5,
@@ -310,7 +310,7 @@ export const candidatesData = [
         status: "Available for Job Vacancies",
         views: 1022,
         rating: 0,
-        image: "/assets/images/2025032711534567e53c49a5e57_WILLIAM_-_PICHA.jpg"
+        image: "./assets/images/2025032711534567e53c49a5e57_WILLIAM_-_PICHA.jpg"
     },
     {
         id: 6,
@@ -320,7 +320,7 @@ export const candidatesData = [
         status: "Available for Job Vacancies",
         views: 921,
         rating: 0,
-        image: "/assets/images/2024031519584665f4a87645a16_Passport_size_may2022_2.jpg"
+        image: "./assets/images/2024031519584665f4a87645a16_Passport_size_may2022_2.jpg"
     }
 ];
 
@@ -337,7 +337,7 @@ export const fullCandidatesData = {
         likes: 0,
         email: "ommyibra98@gmail.com",
         phone: "+255 123 456 789",
-        image: "/assets/images/20250708054914686cb15a0c5d6_IMG-20220824-WA0000.jpg",
+        image: "./assets/images/20250708054914686cb15a0c5d6_IMG-20220824-WA0000.jpg",
         about: "A dedicated HR professional with a passion for talent acquisition and employee engagement.",
         careerObjectives: "Seeking to grow my career by taking up a leading role in HR by working on new HR process and policies coupled with their implementation for organization and employees' development.",
         experience: [
@@ -412,7 +412,7 @@ export const fullCandidatesData = {
         likes: 0,
         email: "jesca.ngowi@example.com",
         phone: "+255 123 456 790",
-        image: "/assets/images/202505030539486815ac246d250_20250430_184341.jpg",
+        image: "./assets/images/202505030539486815ac246d250_20250430_184341.jpg",
         about: "I hold a bachelor of Human resource management and am interested to work on any related field.",
         careerObjectives: "To recruit qualified employees, enhance organizational development, foster a culture of togetherness between employees and management, and provide training that helps the organization achieve its goals.",
         experience: [
@@ -536,7 +536,7 @@ export const fullCandidatesData = {
         likes: 0,
         email: "christina.tarimo@example.com",
         phone: "+255 123 456 791",
-        image: "/assets/images/default.png",
+        image: "./assets/images/default.png",
         about: "I'm an experienced logistics expert overseeing supply chain operations, coordinating procurement, warehousing, and transportation, leveraging logistics software to monitor shipments, and collaborating with diverse teams to achieve company goals.",
         careerObjectives: "To secure a managerial role where I can utilize my experience and expertise with a company that offers opportunities for professional growth and advancement.",
         experience: [
@@ -594,7 +594,7 @@ export const fullCandidatesData = {
         likes: 0,
         email: "derick.cyriacus@example.com",
         phone: "+255 123 456 792",
-        image: "/assets/images/20231026062819653a07039a579_IMG_2979_2.jpg",
+        image: "./assets/images/20231026062819653a07039a579_IMG_2979_2.jpg",
         about: "I am a self-motivated problem solver who can work under minimum supervision, adapt to new environments, and collaborate with people from different backgrounds.",
         careerObjectives: "To get an opportunity where I can make the best of my potential and contribute to the organization's growth.",
         experience: [
@@ -692,7 +692,7 @@ export const fullCandidatesData = {
         likes: 0,
         email: "william.simsokwe@example.com",
         phone: "+255 123 456 793",
-        image: "/assets/images/2025032711534567e53c49a5e57_WILLIAM_-_PICHA.jpg",
+        image: "./assets/images/2025032711534567e53c49a5e57_WILLIAM_-_PICHA.jpg",
         about: "I have 5+ years of experience in manufacturing, logistics, hospitality, and catering services, covering the full spectrum of HR functions including recruitment, onboarding, payroll, performance, training, discipline, employee engagement, and statutory compliance.",
         careerObjectives: "To grow in Human Resources by driving recruitment, performance management, employee engagement, retention strategies, payroll administration, and disciplinary solutions with efficiency and impact.",
         experience: [
@@ -807,7 +807,7 @@ export const fullCandidatesData = {
         likes: 0,
         email: "dickson.kihamba@example.com",
         phone: "+255 123 456 794",
-        image: "/assets/images/2024031519584665f4a87645a16_Passport_size_may2022_2.jpg",
+        image: "./assets/images/2024031519584665f4a87645a16_Passport_size_may2022_2.jpg",
         about: "Dickson is a seasoned technology executive with deep expertise in IT infrastructure and ERP solutions. With a background in computer science and an MBA, he leverages emerging technologies to drive digital transformation and process automation across telecom, manufacturing, logistics, trading, and insurance.",
         careerObjectives: "Driving and leading digital transformation and process automation.",
         experience: [
@@ -933,16 +933,16 @@ export const fullCandidatesData = {
 
 // Employer logos data
 export const employerLogos = [
-    { name: "DP World", image: "/assets/images/070723245829669f5bf64ef60_dp_world_logo.jpg" },
-    { name: "CFR", image: "/assets/images/07100724204367039118155c4_cfr_logo.jpg" },
-    { name: "EMCL", image: "/assets/images/060805212930610b8585690db_emcl_logo.png" },
-    { name: "Feza Schools", image: "/assets/images/12061124222966684322d42e7_feza_school_logo.png" },
-    { name: "Lake Cement", image: "/assets/images/1107052418156687d5c612fbb_Lake_cement_logo.jpg" },
-    { name: "NEI", image: "/assets/images/08010523331863b687d9ed813_NEI_Logo.png" },
-    { name: "Sumet Tanzania", image: "/assets/images/110708241622668bcbe8934ce_sumet_logo.jpg" },
-    { name: "TBS", image: "/assets/images/07100124544966fba9a271aa3_tbs_logo.jpg" },
-    { name: "TCF", image: "/assets/images/06072222454462da475d99e72_download__93_.png" },
-    { name: "Touch Foundation", image: "/assets/images/120125210326600eb8db551d5_touch_fou.png" },
-    { name: "Wingu Africa", image: "/assets/images/0907052416236687bb84a3a18_wingu_africa_logo.jpg" }
+    { name: "DP World", image: "./assets/images/070723245829669f5bf64ef60_dp_world_logo.jpg" },
+    { name: "CFR", image: "./assets/images/07100724204367039118155c4_cfr_logo.jpg" },
+    { name: "EMCL", image: "./assets/images/060805212930610b8585690db_emcl_logo.png" },
+    { name: "Feza Schools", image: "./assets/images/12061124222966684322d42e7_feza_school_logo.png" },
+    { name: "Lake Cement", image: "./assets/images/1107052418156687d5c612fbb_Lake_cement_logo.jpg" },
+    { name: "NEI", image: "./assets/images/08010523331863b687d9ed813_NEI_Logo.png" },
+    { name: "Sumet Tanzania", image: "./assets/images/110708241622668bcbe8934ce_sumet_logo.jpg" },
+    { name: "TBS", image: "./assets/images/07100124544966fba9a271aa3_tbs_logo.jpg" },
+    { name: "TCF", image: "./assets/images/06072222454462da475d99e72_download__93_.png" },
+    { name: "Touch Foundation", image: "./assets/images/120125210326600eb8db551d5_touch_fou.png" },
+    { name: "Wingu Africa", image: "./assets/images/0907052416236687bb84a3a18_wingu_africa_logo.jpg" }
 ];
 

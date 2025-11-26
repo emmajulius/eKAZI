@@ -190,7 +190,7 @@ const CandidateProfile = () => {
   };
 
   const handleImageError = (event) => {
-    event.target.src = '/assets/images/default.png';
+    event.target.src = './assets/images/default.png';
   };
 
   const educationPrimary = candidate.education?.[0];
@@ -251,7 +251,7 @@ const CandidateProfile = () => {
                 <div className="profile-image-wrapper">
                   <div className="profile-image-frame">
                     <img
-                      src={candidate.image || '/assets/images/default.png'}
+                      src={candidate.image || './assets/images/default.png'}
                       alt={candidate.name}
                       className="profile-avatar"
                       onError={handleImageError}

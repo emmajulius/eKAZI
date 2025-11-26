@@ -55,7 +55,7 @@ const Employers = () => {
                     height="25" 
                     maxWidth="50"
                     onError={(e) => {
-                      e.target.src = '/assets/images/default.png';
+                      e.target.src = './assets/images/default.png';
                     }}
                   />
                 </a>

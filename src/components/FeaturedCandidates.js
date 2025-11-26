@@ -29,7 +29,7 @@ const FeaturedCandidates = () => {
                     <div className="col-4 col-md-3 text-center" style={{ paddingLeft: 0, paddingRight: 0 }}>
                       <img 
                         alt="Applicant Image" 
-                        src={candidate.image || '/assets/images/default.png'} 
+                        src={candidate.image || './assets/images/default.png'} 
                         style={{ 
                           transition: 'height 2s ease-in-out', 
                           maxWidth: '80px', 
@@ -37,7 +37,7 @@ const FeaturedCandidates = () => {
                           borderRadius: 0 
                         }}
                         onError={(e) => {
-                          e.target.src = '/assets/images/default.png';
+                          e.target.src = './assets/images/default.png';
                         }}
                       />
                     </div>

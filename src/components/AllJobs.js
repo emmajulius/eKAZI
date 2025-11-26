@@ -35,10 +35,10 @@ const AllJobs = () => {
                         <div className="p-2">
                           <img 
                             alt={job.company} 
-                            src="/assets/images/060805212930610b8585690db_emcl_logo.png" 
+                            src="./assets/images/060805212930610b8585690db_emcl_logo.png" 
                             className="company-logo-img"
                             onError={(e) => {
-                              e.target.src = '/assets/images/default.png';
+                              e.target.src = './assets/images/default.png';
                             }}
                           />
                         </div>

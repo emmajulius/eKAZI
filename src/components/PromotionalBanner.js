@@ -3,7 +3,7 @@ import { jobCategoriesData } from '../data';
 
 const PromotionalBanner = () => {
   const handleImageError = (e) => {
-    e.target.src = '/assets/images/default.png';
+    e.target.src = './assets/images/default.png';
   };
 
   const allCategories = [
@@ -35,7 +35,7 @@ const PromotionalBanner = () => {
       <div className="promo-main-container">
         <div className="banner-image-container">
           <img 
-            src="/assets/images/bunner.jpg" 
+            src="./assets/images/bunner.jpg" 
             alt="Banner" 
             className="banner-image"
             onError={handleImageError}
