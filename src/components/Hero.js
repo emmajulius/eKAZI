@@ -10,8 +10,7 @@ const Hero = () => {
         <div className="hero-left-content">
           <h1 className="hero-headline">
             <b>
-              A place where{' '}
-              <span className="hero-highlight">employers</span>
+              A place where <span className="hero-highlight">employers</span>
               <br />
               meets potential candidates
             </b>
