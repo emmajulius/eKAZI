@@ -225,7 +225,7 @@ This project is private and proprietary.
 
 ## 📞 Support
 
-For support, email support@ekazi.co.tz or open an issue in the repository.
+For support, email emmajulius2512@gmail.com or open an issue in the repository.
 
 ---
 
