@@ -1,5 +1,7 @@
 # eKazi React Application
 
+(Consider Live Link https://emmajulius.github.io/eKAZI)
+
 A modern React-based job portal platform that connects employers with potential candidates. eKazi provides a seamless experience for job seekers to browse opportunities and for employers to discover talented professionals.
 
 ## 📋 Project Description
