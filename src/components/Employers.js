@@ -52,8 +52,6 @@ const Employers = () => {
                   <img 
                     src={employer.image} 
                     alt={employer.name} 
-                    height="25" 
-                    maxWidth="50"
                     onError={(e) => {
                       e.target.src = './assets/images/default.png';
                     }}
