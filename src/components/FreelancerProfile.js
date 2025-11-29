@@ -199,6 +199,7 @@ const FreelancerProfile = () => {
                 backgroundColor: '#fff',
                 borderRadius: '12px',
                 padding: '20px',
+                marginTop: '30px',
                 marginBottom: '20px',
                 boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
               }}>
