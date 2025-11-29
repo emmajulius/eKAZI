@@ -34,7 +34,7 @@ function Home() {
   };
 
   return (
-    <div>
+    <div style={{ overflowX: 'hidden', width: '100%', maxWidth: '100%' }}>
       <Navbar 
         onLoginClick={() => setShowLoginModal(true)}
         onRegisterClick={() => alert('Register functionality would be implemented here.')}

@@ -17,19 +17,29 @@
     --success-color: #28a745;
 }
 
+html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-color);
     line-height: 1.6;
     background-color: var(--white);
     width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
+    position: relative;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Navigation */
@@ -293,7 +303,8 @@ body {
     position: relative;
     margin-bottom: 0;
     padding-bottom: 30px;
-    overflow: visible;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .hero-left-content {
@@ -486,7 +497,7 @@ body {
     flex-shrink: 0;
     position: relative;
     margin-top: -30px;
-    margin-left: -80px;
+    margin-left: 0;
     z-index: 1;
 }
 
@@ -567,6 +578,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .banner-image-container {
@@ -577,7 +590,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1;
-    margin-left: -20px;
+    margin-left: 0;
 }
 
 .banner-carousel-control {
