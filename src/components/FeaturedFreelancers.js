@@ -1,63 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
-// Sample freelancer data - matching the image structure
-const freelancersData = [
-  {
-    id: 1,
-    name: "JACKSON SAMWEL",
-    profession: "Graphic Designer",
-    location: "Dar es Salaam",
-    status: "Freelancer",
-    rating: 3,
-    image: "./assets/images/default.png"
-  },
-  {
-    id: 2,
-    name: "JACKSON SAMWEL",
-    profession: "Graphic Designer",
-    location: "Dar es Salaam",
-    status: "Freelancer",
-    rating: 3,
-    image: "./assets/images/default.png"
-  },
-  {
-    id: 3,
-    name: "JACKSON SAMWEL",
-    profession: "Graphic Designer",
-    location: "Dar es Salaam",
-    status: "Freelancer",
-    rating: 3,
-    image: "./assets/images/default.png"
-  },
-  {
-    id: 4,
-    name: "JACKSON SAMWEL",
-    profession: "Graphic Designer",
-    location: "Dar es Salaam",
-    status: "Freelancer",
-    rating: 3,
-    image: "./assets/images/default.png"
-  },
-  {
-    id: 5,
-    name: "JACKSON SAMWEL",
-    profession: "Graphic Designer",
-    location: "Dar es Salaam",
-    status: "Freelancer",
-    rating: 3,
-    image: "./assets/images/default.png"
-  },
-  {
-    id: 6,
-    name: "JACKSON SAMWEL",
-    profession: "Graphic Designer",
-    location: "Dar es Salaam",
-    status: "Freelancer",
-    rating: 3,
-    image: "./assets/images/default.png"
-  }
-];
+import { freelancersData } from '../data';
 
 const FeaturedFreelancers = () => {
   const navigate = useNavigate();
@@ -152,7 +95,7 @@ const FeaturedFreelancers = () => {
                     <div className="freelancer-action-item" style={{ flex: 1, textAlign: 'center', padding: '0 3px' }}>
                       <span style={{ fontSize: '11px', color: '#333', whiteSpace: 'nowrap' }}>
                         Rating
-                        {Array.from({ length: freelancer.rating }).map((_, i) => (
+                        {Array.from({ length: 3 }).map((_, i) => (
                           <i key={i} className="fa fa-star" style={{ color: '#D36314', marginLeft: '3px' }}></i>
                         ))}
                       </span>
