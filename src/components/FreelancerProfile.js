@@ -193,6 +193,148 @@ const FreelancerProfile = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Location Card */}
+              <div className="freelancer-location-card" style={{
+                backgroundColor: '#fff',
+                borderRadius: '12px',
+                padding: '20px',
+                marginBottom: '20px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+              }}>
+                <h3 style={{ 
+                  fontSize: '18px', 
+                  fontWeight: 'bold', 
+                  marginBottom: '15px',
+                  color: '#333'
+                }}>
+                  Location {freelancer.mapLocation?.address || `${freelancer.location}, Tanzania`}
+                </h3>
+                <div style={{ 
+                  width: '100%', 
+                  height: '300px', 
+                  borderRadius: '8px',
+                  overflow: 'hidden',
+                  border: '1px solid #e0e0e0'
+                }}>
+                  <iframe
+                    src={`https://www.google.com/maps?q=${encodeURIComponent(freelancer.mapLocation?.address || `${freelancer.location}, Tanzania`)}&output=embed`}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Location Map"
+                  ></iframe>
+                </div>
+              </div>
+
+              {/* Social Media Accounts Card */}
+              <div className="freelancer-social-card" style={{
+                backgroundColor: '#fff',
+                borderRadius: '12px',
+                padding: '20px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+              }}>
+                <h3 style={{ 
+                  fontSize: '18px', 
+                  fontWeight: 'bold', 
+                  marginBottom: '15px',
+                  color: '#333'
+                }}>
+                  Social Media Accounts
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                  {freelancer.socialMedia?.facebook && (
+                    <a 
+                      href={freelancer.socialMedia.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        textDecoration: 'none',
+                        color: '#333',
+                        fontSize: '14px'
+                      }}
+                    >
+                      <div style={{
+                        width: '32px',
+                        height: '32px',
+                        borderRadius: '50%',
+                        backgroundColor: '#1877F2',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginRight: '12px',
+                        flexShrink: 0
+                      }}>
+                        <i className="fa fa-facebook" style={{ color: '#fff', fontSize: '16px' }}></i>
+                      </div>
+                      <span>{freelancer.socialMedia.facebook}</span>
+                    </a>
+                  )}
+                  {freelancer.socialMedia?.twitter && (
+                    <a 
+                      href={freelancer.socialMedia.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        textDecoration: 'none',
+                        color: '#333',
+                        fontSize: '14px'
+                      }}
+                    >
+                      <div style={{
+                        width: '32px',
+                        height: '32px',
+                        borderRadius: '50%',
+                        backgroundColor: '#1DA1F2',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginRight: '12px',
+                        flexShrink: 0
+                      }}>
+                        <i className="fa fa-twitter" style={{ color: '#fff', fontSize: '16px' }}></i>
+                      </div>
+                      <span>{freelancer.socialMedia.twitter}</span>
+                    </a>
+                  )}
+                  {freelancer.socialMedia?.instagram && (
+                    <a 
+                      href={freelancer.socialMedia.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        textDecoration: 'none',
+                        color: '#333',
+                        fontSize: '14px'
+                      }}
+                    >
+                      <div style={{
+                        width: '32px',
+                        height: '32px',
+                        borderRadius: '50%',
+                        background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginRight: '12px',
+                        flexShrink: 0
+                      }}>
+                        <i className="fa fa-instagram" style={{ color: '#fff', fontSize: '16px' }}></i>
+                      </div>
+                      <span>{freelancer.socialMedia.instagram}</span>
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
 
             {/* Right Column */}
@@ -337,153 +479,6 @@ const FreelancerProfile = () => {
                       {language}
                     </span>
                   ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Location and Social Media Section */}
-          <div className="row" style={{ marginTop: '20px' }}>
-            <div className="col-md-12">
-              {/* Location Card */}
-              <div className="freelancer-location-card" style={{
-                backgroundColor: '#fff',
-                borderRadius: '12px',
-                padding: '20px',
-                marginBottom: '20px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-              }}>
-                <h3 style={{ 
-                  fontSize: '18px', 
-                  fontWeight: 'bold', 
-                  marginBottom: '15px',
-                  color: '#333'
-                }}>
-                  Location {freelancer.mapLocation?.address || `${freelancer.location}, Tanzania`}
-                </h3>
-                <div style={{ 
-                  width: '100%', 
-                  height: '400px', 
-                  borderRadius: '8px',
-                  overflow: 'hidden',
-                  border: '1px solid #e0e0e0'
-                }}>
-                  <iframe
-                    src={`https://www.google.com/maps?q=${encodeURIComponent(freelancer.mapLocation?.address || `${freelancer.location}, Tanzania`)}&output=embed`}
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Location Map"
-                  ></iframe>
-                </div>
-              </div>
-
-              {/* Social Media Accounts Card */}
-              <div className="freelancer-social-card" style={{
-                backgroundColor: '#fff',
-                borderRadius: '12px',
-                padding: '20px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-              }}>
-                <h3 style={{ 
-                  fontSize: '18px', 
-                  fontWeight: 'bold', 
-                  marginBottom: '15px',
-                  color: '#333'
-                }}>
-                  Social Media Accounts
-                </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                  {freelancer.socialMedia?.facebook && (
-                    <a 
-                      href={freelancer.socialMedia.facebook}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        textDecoration: 'none',
-                        color: '#333',
-                        fontSize: '14px'
-                      }}
-                    >
-                      <div style={{
-                        width: '32px',
-                        height: '32px',
-                        borderRadius: '50%',
-                        backgroundColor: '#1877F2',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginRight: '12px',
-                        flexShrink: 0
-                      }}>
-                        <i className="fa fa-facebook" style={{ color: '#fff', fontSize: '16px' }}></i>
-                      </div>
-                      <span>{freelancer.socialMedia.facebook}</span>
-                    </a>
-                  )}
-                  {freelancer.socialMedia?.twitter && (
-                    <a 
-                      href={freelancer.socialMedia.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        textDecoration: 'none',
-                        color: '#333',
-                        fontSize: '14px'
-                      }}
-                    >
-                      <div style={{
-                        width: '32px',
-                        height: '32px',
-                        borderRadius: '50%',
-                        backgroundColor: '#1DA1F2',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginRight: '12px',
-                        flexShrink: 0
-                      }}>
-                        <i className="fa fa-twitter" style={{ color: '#fff', fontSize: '16px' }}></i>
-                      </div>
-                      <span>{freelancer.socialMedia.twitter}</span>
-                    </a>
-                  )}
-                  {freelancer.socialMedia?.instagram && (
-                    <a 
-                      href={freelancer.socialMedia.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        textDecoration: 'none',
-                        color: '#333',
-                        fontSize: '14px'
-                      }}
-                    >
-                      <div style={{
-                        width: '32px',
-                        height: '32px',
-                        borderRadius: '50%',
-                        background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginRight: '12px',
-                        flexShrink: 0
-                      }}>
-                        <i className="fa fa-instagram" style={{ color: '#fff', fontSize: '16px' }}></i>
-                      </div>
-                      <span>{freelancer.socialMedia.instagram}</span>
-                    </a>
-                  )}
                 </div>
               </div>
             </div>
