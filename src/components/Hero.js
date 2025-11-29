@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="hero-left-content">
           <h1 className="hero-headline">
             <b>
-              <span className="hero-headline-first-line">A place where <span className="hero-highlight">employers</span></span> <br />meets potential candidates
+              <span className="hero-headline-first-line">A place where <span className="hero-highlight">employers</span></span> <br /><span className="hero-headline-second-line">meets potential candidates</span>
             </b>
           </h1>
           <p className="hero-subheadline">Set your career in motion with ekazi.</p>

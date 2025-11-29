@@ -340,6 +340,11 @@ body {
     display: inline;
 }
 
+.hero-headline .hero-headline-second-line {
+    white-space: nowrap;
+    display: inline;
+}
+
 .hero-headline .headline-bold {
     font-weight: 700;
     color: #2E58A6;
@@ -4976,6 +4981,11 @@ section {
         display: inline;
     }
     
+    .hero-headline .hero-headline-second-line {
+        white-space: nowrap;
+        display: inline;
+    }
+    
     .hero-subheadline {
         font-size: 15px;
         margin-top: 10px;
@@ -5250,6 +5260,11 @@ section {
     }
     
     .hero-headline .hero-headline-first-line {
+        white-space: nowrap;
+        display: inline;
+    }
+    
+    .hero-headline .hero-headline-second-line {
         white-space: nowrap;
         display: inline;
     }
