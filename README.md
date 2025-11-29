@@ -1,5 +1,7 @@
 # eKazi React Application
 
+(Consider Live Link https://emmajulius.github.io/eKAZI)
+
 A modern React-based job portal platform that connects employers with potential candidates. eKazi provides a seamless experience for job seekers to browse opportunities and for employers to discover talented professionals.
 
 ## 📋 Project Description
@@ -26,8 +28,8 @@ Before you begin, ensure you have the following installed on your system:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/ekazi-react.git
-cd ekazi-react
+git clone https://github.com/emmajulius/eKAZI.git
+cd eKAZI
 ```
 
 ### Step 2: Install Dependencies
@@ -212,12 +214,13 @@ The `build` folder can be deployed to any static hosting service:
 
 This project is private and proprietary.
 
-## 👥 Authors
+## 👥 Author
 
-- eKazi Development Team
+Emanuel Julius Lomayani
 
 ## 🙏 Acknowledgments
 
+-Software Developer Team at Exact manpower consulting
 - React team for the amazing framework
 - Bootstrap for the CSS framework
 - Font Awesome for the icon library
@@ -225,7 +228,7 @@ This project is private and proprietary.
 
 ## 📞 Support
 
-For support, email support@ekazi.co.tz or open an issue in the repository.
+For support, email emmajulius2512@gmail.com or open an issue in the repository.
 
 ---
 
