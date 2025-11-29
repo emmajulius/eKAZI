@@ -13,6 +13,20 @@ const FeaturedFreelancers = () => {
     navigate(`/freelancer/${freelancerId}`);
   };
 
+  const normalizeImagePath = (path) => {
+    if (!path) return '/assets/images/pas1.png';
+    // Convert relative paths to absolute
+    if (path.startsWith('./')) {
+      return path.replace('./', '/');
+    }
+    // Already absolute path
+    if (path.startsWith('/')) {
+      return path;
+    }
+    // Default fallback
+    return '/assets/images/pas1.png';
+  };
+
   return (
     <section className="featured-freelancers" id="freelancers">
       <div className="container">
@@ -29,7 +43,7 @@ const FeaturedFreelancers = () => {
                     <div className="col-4 col-md-3 text-center" style={{ paddingLeft: 0, paddingRight: 0 }}>
                       <img 
                         alt="Freelancer Image" 
-                        src={freelancer.image || '/assets/images/pas1.png'} 
+                        src={normalizeImagePath(freelancer.image)} 
                         style={{ 
                           width: '90px',
                           height: '90px',
