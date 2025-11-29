@@ -29,7 +29,7 @@ const FeaturedFreelancers = () => {
                     <div className="col-4 col-md-3 text-center" style={{ paddingLeft: 0, paddingRight: 0 }}>
                       <img 
                         alt="Freelancer Image" 
-                        src={freelancer.image || './assets/images/default.png'} 
+                        src="./assets/images/pas1.png" 
                         style={{ 
                           width: '90px',
                           height: '90px',
@@ -92,7 +92,7 @@ const FeaturedFreelancers = () => {
                         Hire Me
                       </a>
                     </div>
-                    <div className="freelancer-action-item" style={{ flex: 1, textAlign: 'center', padding: '0 3px' }}>
+                    <div className="freelancer-action-item" style={{ flex: 1, textAlign: 'center', padding: '0 3px', marginRight: '20px' }}>
                       <span style={{ fontSize: '11px', color: '#333', whiteSpace: 'nowrap' }}>
                         Rating
                         {Array.from({ length: 3 }).map((_, i) => (
