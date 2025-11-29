@@ -945,7 +945,7 @@ export const freelancersData = [
     experience: "5 Years",
     website: "johnmathew.co.tz",
     profileCompleteness: 90,
-    image: "./assets/images/default.png",
+    image: "./assets/images/20250708054914686cb15a0c5d6_IMG-20220824-WA0000.jpg",
     about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     skills: ["Html", "CSS", "Wordpress", "JavaScript", "JQuery"],
     languages: ["English", "French", "Swahili"]
@@ -979,7 +979,7 @@ export const freelancersData = [
     experience: "6 Years",
     website: "freelancer3.co.tz",
     profileCompleteness: 88,
-    image: "./assets/images/default.png",
+    image: "./assets/images/202505030539486815ac246d250_20250430_184341.jpg",
     about: "Creative professional with extensive experience in graphic design and digital media.",
     skills: ["Html", "CSS", "Wordpress", "JavaScript"],
     languages: ["English", "French", "Swahili"]
@@ -996,7 +996,7 @@ export const freelancersData = [
     experience: "3 Years",
     website: "freelancer4.co.tz",
     profileCompleteness: 80,
-    image: "./assets/images/default.png",
+    image: "./assets/images/20231026062819653a07039a579_IMG_2979_2.jpg",
     about: "Talented graphic designer specializing in modern web design and user interface development.",
     skills: ["Html", "CSS", "Wordpress", "JavaScript", "JQuery"],
     languages: ["English", "Swahili"]
@@ -1013,7 +1013,7 @@ export const freelancersData = [
     experience: "7 Years",
     website: "freelancer5.co.tz",
     profileCompleteness: 92,
-    image: "./assets/images/default.png",
+    image: "./assets/images/2025032711534567e53c49a5e57_WILLIAM_-_PICHA.jpg",
     about: "Senior graphic designer with expertise in branding, web design, and digital marketing.",
     skills: ["Html", "CSS", "Wordpress", "JavaScript", "JQuery", "React"],
     languages: ["English", "French", "Swahili"]
@@ -1030,7 +1030,7 @@ export const freelancersData = [
     experience: "2 Years",
     website: "freelancer6.co.tz",
     profileCompleteness: 75,
-    image: "./assets/images/default.png",
+    image: "./assets/images/2024031519584665f4a87645a16_Passport_size_may2022_2.jpg",
     about: "Upcoming graphic designer with fresh ideas and modern design approaches.",
     skills: ["Html", "CSS", "Wordpress"],
     languages: ["English", "Swahili"]
