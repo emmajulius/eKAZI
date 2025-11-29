@@ -30,7 +30,7 @@ const FeaturedFreelancers = () => {
                     <div className="col-4 col-md-3 text-center" style={{ paddingLeft: 0, paddingRight: 0 }}>
                       <img 
                         alt="Freelancer Image" 
-                        src={freelancer.image || './assets/images/default.png'} 
+                        src={freelancer.image || './assets/images/Engineer_pass.jpg'} 
                         style={{ 
                           width: '90px',
                           height: '90px',
@@ -41,7 +41,7 @@ const FeaturedFreelancers = () => {
                           margin: '0 auto'
                         }}
                         onError={(e) => {
-                          e.target.src = './assets/images/default.png';
+                          e.target.src = './assets/images/Engineer_pass.jpg';
                         }}
                       />
                     </div>

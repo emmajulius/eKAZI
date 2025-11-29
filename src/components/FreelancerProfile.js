@@ -30,7 +30,7 @@ const FreelancerProfile = () => {
   };
 
   const handleImageError = (event) => {
-    event.target.src = './assets/images/default.png';
+    event.target.src = './assets/images/Engineer_pass.jpg';
   };
 
   const renderStars = (rating) => {
@@ -72,7 +72,7 @@ const FreelancerProfile = () => {
               }}>
                 <div style={{ marginBottom: '20px' }}>
                   <img
-                    src={freelancer.image || './assets/images/default.png'}
+                    src={freelancer.image || './assets/images/Engineer_pass.jpg'}
                     alt={freelancer.name}
                     style={{
                       width: '150px',
