@@ -2276,6 +2276,91 @@ section {
     font-weight: 400;
 }
 
+/* Featured Freelancers Section */
+.featured-freelancers {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.featured-freelancers-title {
+    color: #2E58A6;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.featured-freelancer-card-row {
+    margin: 0 -15px;
+}
+
+.freelancer-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.freelancer-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.freelancer-actions-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0;
+}
+
+.freelancer-action-item {
+    flex: 1;
+    text-align: center;
+    padding: 0 3px;
+}
+
+.btn-browse-all-freelancers {
+    background-color: #D36314;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-browse-all-freelancers:hover {
+    background-color: #b8520f;
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(211, 99, 20, 0.3);
+}
+
+.browse-all-freelancers {
+    text-align: center;
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .featured-freelancers {
+        padding: 40px 0;
+    }
+    
+    .featured-freelancer-card-row {
+        margin: 0;
+    }
+    
+    .freelancer-card {
+        margin-bottom: 15px;
+    }
+}
+
 /* Legacy candidate card styles (kept for compatibility) */
 .candidate-card {
     background: var(--white);

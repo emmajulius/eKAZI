@@ -7,6 +7,7 @@ import Employers from '../components/Employers';
 import JobCategories from '../components/JobCategories';
 import AllJobs from '../components/AllJobs';
 import FeaturedCandidates from '../components/FeaturedCandidates';
+import FeaturedFreelancers from '../components/FeaturedFreelancers';
 import JobTitles from '../components/JobTitles';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
@@ -45,6 +46,7 @@ function Home() {
       <JobCategories />
       <AllJobs />
       <FeaturedCandidates />
+      <FeaturedFreelancers />
       <JobTitles />
       <Newsletter />
       <Footer onLoginClick={() => setShowLoginModal(true)} />
