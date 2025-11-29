@@ -1056,7 +1056,17 @@ export const fullFreelancersData = {
     portfolio: "Check out my portfolio showcasing various design projects including web design, branding, and digital marketing materials.",
     ratings: "Highly rated freelancer with excellent client feedback and successful project completions.",
     skills: ["Html", "CSS", "Wordpress", "JavaScript", "JQuery"],
-    languages: ["English", "French", "Swahili"]
+    languages: ["English", "French", "Swahili"],
+    socialMedia: {
+      facebook: "https://www.facebook.com/",
+      twitter: "https://www.twitter.com/",
+      instagram: "https://www.instagram.com/"
+    },
+    mapLocation: {
+      address: "Dar Es Salaam, Tanzania",
+      lat: -6.7924,
+      lng: 39.2083
+    }
   },
   2: {
     id: 2,
@@ -1075,7 +1085,17 @@ export const fullFreelancersData = {
     portfolio: "Portfolio includes various successful projects in web design and branding.",
     ratings: "Good ratings from satisfied clients.",
     skills: ["Html", "CSS", "Wordpress", "JavaScript", "JQuery", "Photoshop"],
-    languages: ["English", "Swahili"]
+    languages: ["English", "Swahili"],
+    socialMedia: {
+      facebook: "https://www.facebook.com/",
+      twitter: "https://www.twitter.com/",
+      instagram: "https://www.instagram.com/"
+    },
+    mapLocation: {
+      address: "Dar Es Salaam, Tanzania",
+      lat: -6.7924,
+      lng: 39.2083
+    }
   },
   3: {
     id: 3,
@@ -1094,7 +1114,17 @@ export const fullFreelancersData = {
     portfolio: "Extensive portfolio of design work.",
     ratings: "Excellent ratings and client satisfaction.",
     skills: ["Html", "CSS", "Wordpress", "JavaScript"],
-    languages: ["English", "French", "Swahili"]
+    languages: ["English", "French", "Swahili"],
+    socialMedia: {
+      facebook: "https://www.facebook.com/",
+      twitter: "https://www.twitter.com/",
+      instagram: "https://www.instagram.com/"
+    },
+    mapLocation: {
+      address: "Dar Es Salaam, Tanzania",
+      lat: -6.7924,
+      lng: 39.2083
+    }
   },
   4: {
     id: 4,
@@ -1113,7 +1143,17 @@ export const fullFreelancersData = {
     portfolio: "Modern web design portfolio.",
     ratings: "Good client feedback.",
     skills: ["Html", "CSS", "Wordpress", "JavaScript", "JQuery"],
-    languages: ["English", "Swahili"]
+    languages: ["English", "Swahili"],
+    socialMedia: {
+      facebook: "https://www.facebook.com/",
+      twitter: "https://www.twitter.com/",
+      instagram: "https://www.instagram.com/"
+    },
+    mapLocation: {
+      address: "Dar Es Salaam, Tanzania",
+      lat: -6.7924,
+      lng: 39.2083
+    }
   },
   5: {
     id: 5,
@@ -1132,7 +1172,17 @@ export const fullFreelancersData = {
     portfolio: "Comprehensive portfolio of senior-level work.",
     ratings: "Outstanding ratings from clients.",
     skills: ["Html", "CSS", "Wordpress", "JavaScript", "JQuery", "React"],
-    languages: ["English", "French", "Swahili"]
+    languages: ["English", "French", "Swahili"],
+    socialMedia: {
+      facebook: "https://www.facebook.com/",
+      twitter: "https://www.twitter.com/",
+      instagram: "https://www.instagram.com/"
+    },
+    mapLocation: {
+      address: "Dar Es Salaam, Tanzania",
+      lat: -6.7924,
+      lng: 39.2083
+    }
   },
   6: {
     id: 6,
@@ -1151,7 +1201,17 @@ export const fullFreelancersData = {
     portfolio: "Growing portfolio of creative work.",
     ratings: "Positive ratings from early clients.",
     skills: ["Html", "CSS", "Wordpress"],
-    languages: ["English", "Swahili"]
+    languages: ["English", "Swahili"],
+    socialMedia: {
+      facebook: "https://www.facebook.com/",
+      twitter: "https://www.twitter.com/",
+      instagram: "https://www.instagram.com/"
+    },
+    mapLocation: {
+      address: "Dar Es Salaam, Tanzania",
+      lat: -6.7924,
+      lng: 39.2083
+    }
   }
 };
 
