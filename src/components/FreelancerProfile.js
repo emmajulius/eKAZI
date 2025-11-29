@@ -12,9 +12,158 @@ const FreelancerProfile = () => {
   const [activeTab, setActiveTab] = useState('Profile');
   const freelancer = fullFreelancersData[Number(id)];
 
+  const sentence1 = "Explore featured freelancers information";
+  const sentence2 = "Discover skilled professionals ready to work on your projects";
+  const sentence3 = "Connect with talented freelancers and build your dream team.";
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
+
+  useEffect(() => {
+    const freelancerSection = document.querySelector('.freelancer-profile-section');
+    if (!freelancerSection) return;
+    
+    const sentence1Words = sentence1.split(' ');
+    const sentence2Words = sentence2.split(' ');
+    const sentence3Words = sentence3.split(' ');
+    const container = freelancerSection.querySelector('.animated-sentences');
+    if (!container) return;
+    
+    const sentence1El = container.querySelector('.freelancer-sentence-1');
+    const sentence2El = container.querySelector('.freelancer-sentence-2');
+    const sentence3El = container.querySelector('.freelancer-sentence-3');
+    const caret = container.querySelector('.freelancer-animated-caret');
+    
+    if (!sentence1El || !sentence2El || !sentence3El || !caret || !container) return;
+
+    let currentSentence = 1;
+    let currentWordIndex = 0;
+    let animationTimeout;
+
+    const updateCaretPosition = (element) => {
+      if (!element || !caret || !container) return;
+      
+      const tempSpan = document.createElement('span');
+      tempSpan.style.visibility = 'hidden';
+      tempSpan.style.position = 'absolute';
+      tempSpan.style.fontSize = window.getComputedStyle(element).fontSize;
+      tempSpan.style.fontWeight = window.getComputedStyle(element).fontWeight;
+      tempSpan.style.fontFamily = window.getComputedStyle(element).fontFamily;
+      tempSpan.textContent = element.textContent;
+      document.body.appendChild(tempSpan);
+      
+      const textWidth = tempSpan.offsetWidth;
+      const containerRect = container.getBoundingClientRect();
+      const elementRect = element.getBoundingClientRect();
+      
+      caret.style.left = `${elementRect.left - containerRect.left + textWidth + 4}px`;
+      caret.style.top = `${elementRect.top - containerRect.top + elementRect.height / 2 - caret.offsetHeight / 2}px`;
+      caret.classList.add('active');
+      
+      document.body.removeChild(tempSpan);
+    };
+
+    const clearAllSentences = () => {
+      sentence1El.textContent = '';
+      sentence2El.textContent = '';
+      sentence3El.textContent = '';
+    };
+
+    const writeWord = () => {
+      if (currentSentence === 1) {
+        if (currentWordIndex < sentence1Words.length) {
+          sentence1El.textContent = sentence1Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
+          clearAllSentences();
+          sentence1El.textContent = sentence1Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
+          updateCaretPosition(sentence1El);
+          currentWordIndex++;
+          animationTimeout = setTimeout(writeWord, 300);
+        } else {
+          setTimeout(() => {
+            currentWordIndex = sentence1Words.length - 1;
+            eraseWord();
+          }, 2000);
+        }
+      } else if (currentSentence === 2) {
+        if (currentWordIndex < sentence2Words.length) {
+          clearAllSentences();
+          sentence2El.textContent = sentence2Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
+          updateCaretPosition(sentence2El);
+          currentWordIndex++;
+          animationTimeout = setTimeout(writeWord, 300);
+        } else {
+          setTimeout(() => {
+            currentWordIndex = sentence2Words.length - 1;
+            eraseWord();
+          }, 2000);
+        }
+      } else {
+        if (currentWordIndex < sentence3Words.length) {
+          clearAllSentences();
+          sentence3El.textContent = sentence3Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
+          updateCaretPosition(sentence3El);
+          currentWordIndex++;
+          animationTimeout = setTimeout(writeWord, 300);
+        } else {
+          setTimeout(() => {
+            currentWordIndex = sentence3Words.length - 1;
+            eraseWord();
+          }, 2000);
+        }
+      }
+    };
+
+    const eraseWord = () => {
+      if (currentSentence === 1) {
+        if (currentWordIndex >= 0) {
+          sentence1El.textContent = sentence1Words.slice(0, currentWordIndex).join(' ') + (currentWordIndex > 0 ? ' ' : '');
+          updateCaretPosition(sentence1El);
+          currentWordIndex--;
+          animationTimeout = setTimeout(eraseWord, 200);
+        } else {
+          sentence1El.textContent = '';
+          caret.classList.remove('active');
+          currentSentence = 2;
+          currentWordIndex = 0;
+          setTimeout(writeWord, 500);
+        }
+      } else if (currentSentence === 2) {
+        if (currentWordIndex >= 0) {
+          sentence2El.textContent = sentence2Words.slice(0, currentWordIndex).join(' ') + (currentWordIndex > 0 ? ' ' : '');
+          updateCaretPosition(sentence2El);
+          currentWordIndex--;
+          animationTimeout = setTimeout(eraseWord, 200);
+        } else {
+          sentence2El.textContent = '';
+          caret.classList.remove('active');
+          currentSentence = 3;
+          currentWordIndex = 0;
+          setTimeout(writeWord, 500);
+        }
+      } else {
+        if (currentWordIndex >= 0) {
+          sentence3El.textContent = sentence3Words.slice(0, currentWordIndex).join(' ') + (currentWordIndex > 0 ? ' ' : '');
+          updateCaretPosition(sentence3El);
+          currentWordIndex--;
+          animationTimeout = setTimeout(eraseWord, 200);
+        } else {
+          sentence3El.textContent = '';
+          caret.classList.remove('active');
+          currentSentence = 1;
+          currentWordIndex = 0;
+          setTimeout(writeWord, 500);
+        }
+      }
+    };
+
+    writeWord();
+
+    return () => {
+      caret?.classList.remove('active');
+      if (animationTimeout) clearTimeout(animationTimeout);
+    };
+  }, [id, sentence1, sentence2, sentence3]);
 
   if (!freelancer) {
     return (
@@ -58,6 +207,16 @@ const FreelancerProfile = () => {
 
       <section className="freelancer-profile-section" style={{ padding: '40px 0', backgroundColor: '#f5f5f5', minHeight: '80vh' }}>
         <div className="container">
+          <div className="candidate-shell">
+            <div className="animated-writing-container">
+              <div className="animated-sentences">
+                <span className="sentence freelancer-sentence-1"></span>
+                <span className="sentence freelancer-sentence-2"></span>
+                <span className="sentence freelancer-sentence-3"></span>
+                <div className="animated-caret freelancer-animated-caret"></div>
+              </div>
+            </div>
+          </div>
           <div className="row">
             {/* Left Column */}
             <div className="col-md-4">
