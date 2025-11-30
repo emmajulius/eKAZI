@@ -103,7 +103,7 @@ const Footer = ({ onLoginClick }) => {
                 </div>
                 <div className="col-md-2">
                   <a className="whatsapp-button" href="https://wa.me/+255677975251" target="_blank" rel="noreferrer" aria-label="Chat with us on WhatsApp">
-                    <i className="fa fa-whatsapp" style={{ color: '#25d366', fontSize: '30px' }}></i>
+                    <img src={whatsappLogo} alt="WhatsApp" />
                   </a>
                 </div>
               </div>
