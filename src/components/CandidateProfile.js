@@ -119,7 +119,7 @@ const CandidateProfile = () => {
         const currentText = text.substring(0, currentTextIndex);
         updateTextAndCaret(element, currentText, text);
         
-        const deletingSpeed = 25; // Faster deleting speed
+        const deletingSpeed = 15; // Faster deleting speed
         animationTimeout = setTimeout(type, deletingSpeed);
       } else {
         // Finished deleting, move to next sentence
