@@ -3338,10 +3338,16 @@ section {
     font-weight: 600;
     color: #fff;
     line-height: 1.6;
-    white-space: pre-wrap;
-    display: inline-block;
+    white-space: normal;
+    display: block;
     text-align: center;
-    margin: 0 auto;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 120px);
+    max-width: 100%;
 }
 
 .animated-caret {
