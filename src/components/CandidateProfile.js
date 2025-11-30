@@ -14,7 +14,19 @@ const CandidateProfile = () => {
   const navigate = useNavigate();
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
+  const [expandedSections, setExpandedSections] = useState({
+    about: false,
+    experience: false,
+    skills: false
+  });
   const candidate = fullCandidatesData[Number(id)];
+  
+  const toggleSection = (section) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  };
 
   const sentence1 = "Explore featured candidates information";
   const sentence2 = "Discover talented professionals ready to join your team";
@@ -201,9 +213,27 @@ const CandidateProfile = () => {
 
   const renderSkillsRow = (label, values) => (
     values && values.length > 0 ? (
-      <div className="skills-row" key={label}>
-        <div className="skills-row-label">{label}</div>
-        <div className="skills-row-value">{values.join(', ')}</div>
+      <div key={label} style={{ marginBottom: '15px' }}>
+        <h4 style={{ fontSize: '15px', fontWeight: '600', color: '#333', marginBottom: '10px' }}>
+          {label}
+        </h4>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+          {values.map((value, idx) => (
+            <span
+              key={`${label}-${idx}`}
+              style={{
+                backgroundColor: '#f0f0f0',
+                color: '#333',
+                padding: '8px 15px',
+                borderRadius: '20px',
+                fontSize: '13px',
+                fontWeight: '500'
+              }}
+            >
+              {value}
+            </span>
+          ))}
+        </div>
       </div>
     ) : null
   );
@@ -222,305 +252,509 @@ const CandidateProfile = () => {
               <div className="animated-caret"></div>
             </div>
           </div>
-          <div className="modern-card profile-header-card">
-            <div className="card-header">
-              <div className="card-icon">
-                <i className="fa fa-user-circle"></i>
-              </div>
-              <h3 className="card-title">Profile Overview</h3>
-            </div>
-            <div className="card-content">
-              <div className="profile-header-content">
-                <div className="profile-image-wrapper">
-                  <div className="profile-image-frame">
+          <div className="container">
+            <div className="row">
+              {/* Left Column */}
+              <div className="col-md-4">
+                {/* Profile Overview Card */}
+                <div className="freelancer-profile-card" style={{
+                  backgroundColor: '#fff',
+                  borderRadius: '12px',
+                  padding: '20px',
+                  marginBottom: '20px',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                  textAlign: 'center'
+                }}>
+                  <div style={{ marginBottom: '20px' }}>
                     <img
                       src={candidate.image || './assets/images/default.png'}
                       alt={candidate.name}
-                      className="profile-avatar"
+                      style={{
+                        width: '150px',
+                        height: '150px',
+                        borderRadius: '12px',
+                        objectFit: 'cover',
+                        backgroundColor: '#E3F2FD',
+                        marginBottom: '15px'
+                      }}
                       onError={handleImageError}
                     />
-                    <div className="profile-image-badge">
-                      <i className="fa fa-check-circle"></i>
-                    </div>
                   </div>
-                </div>
-                <div className="profile-main-info">
-                  <h2 className="profile-name">{candidate.name}</h2>
-                  <div className="profile-position">
-                    <i className="fa fa-briefcase"></i>
-                    <span>{candidate.position || 'No Position Records'}</span>
+                  <h2 style={{ 
+                    fontSize: '20px', 
+                    fontWeight: 'bold', 
+                    marginBottom: '10px',
+                    textTransform: 'uppercase',
+                    color: '#333'
+                  }}>
+                    {candidate.name}
+                  </h2>
+                  <p style={{ 
+                    fontSize: '16px', 
+                    color: '#666', 
+                    marginBottom: '15px' 
+                  }}>
+                    {candidate.position || 'No Position Records'}
+                  </p>
+                  <div style={{ marginBottom: '20px', fontSize: '14px', color: '#666' }}>
+                    {candidate.location && (
+                      <p style={{ margin: '5px 0' }}>
+                        <i className="fa fa-map-marker-alt" style={{ marginRight: '8px', color: '#D36314' }}></i>
+                        {candidate.location}, Tanzania
+                      </p>
+                    )}
+                    {candidate.phone && (
+                      <p style={{ margin: '5px 0' }}>
+                        <i className="fa fa-phone" style={{ marginRight: '8px', color: '#D36314' }}></i>
+                        {candidate.phone}
+                      </p>
+                    )}
+                    {candidate.email && (
+                      <p style={{ margin: '5px 0' }}>
+                        <i className="fa fa-envelope" style={{ marginRight: '8px', color: '#D36314' }}></i>
+                        {candidate.email}
+                      </p>
+                    )}
                   </div>
-                  <button className="hire-me-btn" onClick={handleHireCandidate}>
-                    <i className="fa fa-handshake"></i>
-                    Hire Me
+                  <button
+                    onClick={handleHireCandidate}
+                    style={{
+                      backgroundColor: '#D36314',
+                      color: '#fff',
+                      border: 'none',
+                      padding: '12px 30px',
+                      borderRadius: '6px',
+                      fontSize: '14px',
+                      fontWeight: '600',
+                      cursor: 'pointer',
+                      width: '100%',
+                      transition: 'background-color 0.3s'
+                    }}
+                    onMouseOver={(e) => e.target.style.backgroundColor = '#b8520f'}
+                    onMouseOut={(e) => e.target.style.backgroundColor = '#D36314'}
+                  >
+                    <i className="fa fa-handshake"></i> Hire Me
                   </button>
                 </div>
-              </div>
-              <div className="profile-details-grid">
-                <div className="profile-detail-item">
-                  <div className="detail-icon location">
-                    <i className="fa fa-map-marker-alt"></i>
-                  </div>
-                  <div className="detail-content">
-                    <span className="detail-label">Location</span>
-                    <span className="detail-value">
-                      {candidate.location ? `${candidate.location}, Tanzania` : 'Not specified'}
-                    </span>
-                  </div>
-                </div>
-                <div className="profile-detail-item">
-                  <div className="detail-icon contacts">
-                    <i className="fa fa-phone"></i>
-                  </div>
-                  <div className="detail-content">
-                    <span className="detail-label">Contacts</span>
-                    <div className="detail-contacts">
-                      {candidate.phone && (
-                        <span className="contact-item">
-                          <i className="fa fa-phone"></i> {candidate.phone}
-                        </span>
-                      )}
-                      {candidate.email && (
-                        <span className="contact-item">
-                          <i className="fa fa-envelope"></i> {candidate.email}
-                        </span>
-                      )}
-                      {!candidate.phone && !candidate.email && (
-                        <span className="detail-value">No contact info</span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-                <div className="profile-detail-item">
-                  <div className="detail-icon institute">
-                    <i className="fa fa-university"></i>
-                  </div>
-                  <div className="detail-content">
-                    <span className="detail-label">Institute</span>
-                    <span className="detail-value">
-                      {educationPrimary ? educationPrimary.institution : 'Not specified'}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div className="candidate-content-grid">
-            <div className="content-main-column">
-              <div className="modern-card about-card">
-                <div className="card-header">
-                  <div className="card-icon">
-                    <i className="fa fa-user-circle"></i>
-                  </div>
-                  <h3 className="card-title">About</h3>
-                </div>
-                <div className="card-content">
-                  <p className="about-text">{candidate.about || 'No about information available.'}</p>
-            {candidate.careerObjectives && (
-                    <div className="career-objectives-block">
-                      <h4 className="subsection-title">
-                        <i className="fa fa-bullseye"></i> Career Objectives
-                      </h4>
-                <p>{candidate.careerObjectives}</p>
-              </div>
-            )}
-                </div>
-              </div>
-
-              <div className="modern-card experience-card">
-                <div className="card-header">
-                  <div className="card-icon">
-                    <i className="fa fa-briefcase"></i>
-                  </div>
-                  <h3 className="card-title">Professional Experience</h3>
-                </div>
-                <div className="card-content">
-                  {candidate.experience?.length ? (
-                    <div className="experience-timeline">
-                      {candidate.experience.map((experience, index) => (
-                        <div className="timeline-item" key={`${experience.title}-${index}`}>
-                          <div className="timeline-marker"></div>
-                          <div className="timeline-content">
-                            <div className="experience-title-row">
-                              <h4 className="experience-title">{experience.title}</h4>
-                              <span className="experience-badge">{experience.period}</span>
-                            </div>
-                            <div className="experience-company-row">
-                              <span className="experience-company">
-                                <i className="fa fa-building"></i> {experience.company}
-                              </span>
-                              {experience.location && (
-                                <span className="experience-location">
-                                  <i className="fa fa-map-marker"></i> {experience.location}
-                                </span>
-                              )}
-                            </div>
-                            {experience.industry && (
-                              <span className="experience-industry">
-                                <i className="fa fa-industry"></i> {experience.industry}
-                              </span>
-                            )}
-                            {experience.description && (
-                              <p className="experience-description">{experience.description}</p>
-                            )}
-                  {experience.responsibilities?.length ? (
-                              <div className="responsibilities-list">
-                                <h5 className="responsibilities-title">Key Responsibilities:</h5>
-                                <ul>
-                      {experience.responsibilities.map((item, idx) => (
-                                    <li key={`${experience.title}-resp-${idx}`}>
-                                      <i className="fa fa-check-circle"></i> {item}
-                                    </li>
-                      ))}
-                    </ul>
-                              </div>
-                            ) : null}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="no-data-message">No work experience records available.</p>
-                  )}
-                </div>
-              </div>
-
-              <div className="modern-card education-card">
-                <div className="card-header">
-                  <div className="card-icon">
-                    <i className="fa fa-graduation-cap"></i>
-                  </div>
-                  <h3 className="card-title">Education</h3>
-                </div>
-                <div className="card-content">
-            {candidate.education?.length ? (
-                    <div className="education-list">
+                {/* Education Card */}
+                {candidate.education?.length ? (
+                  <div className="freelancer-info-card" style={{
+                    backgroundColor: '#fff',
+                    borderRadius: '12px',
+                    padding: '20px',
+                    marginBottom: '20px',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                  }}>
+                    <h3 style={{ 
+                      fontSize: '18px', 
+                      fontWeight: 'bold', 
+                      marginBottom: '15px',
+                      color: '#333'
+                    }}>
+                      <i className="fa fa-graduation-cap" style={{ marginRight: '10px', color: '#D36314' }}></i>
+                      Education
+                    </h3>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                       {candidate.education.map((education, index) => (
-                        <div className="education-item" key={`${education.institution}-${index}`}>
-                          <div className="education-header">
-                            <h4 className="education-institution">
-                              <i className="fa fa-university"></i> {education.institution}
-                            </h4>
-                            {education.year && (
-                              <span className="education-year">{education.year}</span>
-                            )}
-                          </div>
-                  <p className="education-degree">
-                            <i className="fa fa-certificate"></i> {education.degree}
-                  </p>
-                          {education.description && (
-                            <p className="education-description">{education.description}</p>
+                        <div key={`${education.institution}-${index}`} style={{ textAlign: 'left' }}>
+                          <h4 style={{ fontSize: '15px', fontWeight: '600', color: '#333', marginBottom: '5px' }}>
+                            {education.institution}
+                          </h4>
+                          <p style={{ fontSize: '13px', color: '#666', marginBottom: '5px' }}>
+                            {education.degree}
+                          </p>
+                          {education.year && (
+                            <p style={{ fontSize: '12px', color: '#999' }}>{education.year}</p>
                           )}
                         </div>
                       ))}
                     </div>
-                  ) : (
-                    <p className="no-data-message">No education records available.</p>
-                  )}
-                </div>
-              </div>
+                  </div>
+                ) : null}
 
-          {candidate.skills ? (
-                <div className="modern-card skills-card">
-                  <div className="card-header">
-                    <div className="card-icon">
-                      <i className="fa fa-star"></i>
-                    </div>
-                    <h3 className="card-title">Skills & Endorsements</h3>
-                  </div>
-                  <div className="card-content">
-                    <div className="skills-categories">
-                {renderSkillsRow('Culture Fit', candidate.skills.cultureFit)}
-                {renderSkillsRow('Personality', candidate.skills.personality)}
-                {renderSkillsRow('Skills & Knowledge', candidate.skills.skillsKnowledge)}
-                {renderSkillsRow('Software', candidate.skills.software)}
-                {renderSkillsRow('Tools', candidate.skills.tools)}
-              </div>
-                  </div>
-                </div>
-              ) : null}
-            </div>
-
-            <div className="content-sidebar-column">
-              {candidate.certifications?.length ? (
-                <div className="modern-card certifications-card">
-                  <div className="card-header">
-                    <div className="card-icon">
-                      <i className="fa fa-certificate"></i>
-                    </div>
-                    <h3 className="card-title">Certifications</h3>
-                  </div>
-                  <div className="card-content">
-                    <div className="certifications-list">
+                {/* Certifications Card */}
+                {candidate.certifications?.length ? (
+                  <div className="freelancer-info-card" style={{
+                    backgroundColor: '#fff',
+                    borderRadius: '12px',
+                    padding: '20px',
+                    marginBottom: '20px',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                  }}>
+                    <h3 style={{ 
+                      fontSize: '18px', 
+                      fontWeight: 'bold', 
+                      marginBottom: '15px',
+                      color: '#333'
+                    }}>
+                      <i className="fa fa-certificate" style={{ marginRight: '10px', color: '#D36314' }}></i>
+                      Certifications
+                    </h3>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                       {candidate.certifications.map((certification, index) => (
-                        <div className="certification-item" key={`${certification.name}-${index}`}>
-                          <i className="fa fa-check-circle"></i>
+                        <div key={`${certification.name}-${index}`} style={{ 
+                          display: 'flex', 
+                          alignItems: 'center',
+                          fontSize: '14px',
+                          color: '#333'
+                        }}>
+                          <i className="fa fa-check-circle" style={{ marginRight: '10px', color: '#D36314' }}></i>
                           <span>{certification.name}</span>
                         </div>
                       ))}
                     </div>
                   </div>
-                </div>
-              ) : null}
+                ) : null}
 
-              {candidate.training?.length ? (
-                <div className="modern-card training-card">
-                  <div className="card-header">
-                    <div className="card-icon">
-                      <i className="fa fa-chalkboard-teacher"></i>
-                    </div>
-                    <h3 className="card-title">Training & Workshops</h3>
-                  </div>
-                  <div className="card-content">
-                    <div className="training-list">
-                      {candidate.training.map((session, index) => (
-                        <div className="training-item" key={`${session.name}-${index}`}>
-                          <i className="fa fa-book"></i>
-                          <span>{session.name}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ) : null}
-
-              {languages.length ? (
-                <div className="modern-card languages-card">
-                  <div className="card-header">
-                    <div className="card-icon">
-                      <i className="fa fa-language"></i>
-                    </div>
-                    <h3 className="card-title">Languages</h3>
-                  </div>
-                  <div className="card-content">
-                    <div className="languages-tags">
+                {/* Languages Card */}
+                {languages.length ? (
+                  <div className="freelancer-info-card" style={{
+                    backgroundColor: '#fff',
+                    borderRadius: '12px',
+                    padding: '20px',
+                    marginBottom: '20px',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                  }}>
+                    <h3 style={{ 
+                      fontSize: '18px', 
+                      fontWeight: 'bold', 
+                      marginBottom: '15px',
+                      color: '#333'
+                    }}>
+                      <i className="fa fa-language" style={{ marginRight: '10px', color: '#D36314' }}></i>
+                      Languages
+                    </h3>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
                       {languages.map((language, index) => (
-                        <span className="language-badge" key={`${language.name}-${index}`}>
+                        <span
+                          key={`${language.name}-${index}`}
+                          style={{
+                            backgroundColor: '#f0f0f0',
+                            color: '#333',
+                            padding: '8px 15px',
+                            borderRadius: '20px',
+                            fontSize: '13px',
+                            fontWeight: '500'
+                          }}
+                        >
                           {language.name}
                         </span>
                       ))}
                     </div>
                   </div>
-                </div>
-          ) : null}
+                ) : null}
 
-          {candidate.jobFit && Object.keys(candidate.jobFit).length ? (
-                <div className="modern-card jobfit-card">
-                  <div className="card-header">
-                    <div className="card-icon">
-                      <i className="fa fa-briefcase"></i>
+                {/* Profile Assessment Card */}
+                <div className="freelancer-info-card" style={{
+                  backgroundColor: '#fff',
+                  borderRadius: '12px',
+                  padding: '20px',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                }}>
+                  <h3 style={{ 
+                    fontSize: '18px', 
+                    fontWeight: 'bold', 
+                    marginBottom: '15px',
+                    color: '#333'
+                  }}>
+                    <i className="fa fa-chart-line" style={{ marginRight: '10px', color: '#D36314' }}></i>
+                    Profile Assessment
+                  </h3>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                    <div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                        <span style={{ fontSize: '14px', color: '#333' }}>Views</span>
+                        <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{stats.views}</span>
+                      </div>
                     </div>
-                    <h3 className="card-title">Job Fit</h3>
+                    <div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                        <span style={{ fontSize: '14px', color: '#333' }}>Likes</span>
+                        <button 
+                          type="button" 
+                          onClick={handleLikeClick}
+                          style={{ 
+                            fontSize: '14px', 
+                            color: '#333', 
+                            fontWeight: '600',
+                            background: 'none',
+                            border: 'none',
+                            cursor: 'pointer',
+                            padding: 0
+                          }}
+                        >
+                          {stats.likes}
+                        </button>
+                      </div>
+                    </div>
+                    <div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                        <span style={{ fontSize: '14px', color: '#333' }}>Rating</span>
+                        <button 
+                          type="button" 
+                          onClick={handleRateClick}
+                          style={{ 
+                            fontSize: '14px', 
+                            color: '#333', 
+                            fontWeight: '600',
+                            background: 'none',
+                            border: 'none',
+                            cursor: 'pointer',
+                            padding: 0
+                          }}
+                        >
+                          {ratingValue} ({ratingCount})
+                        </button>
+                      </div>
+                      <div style={{ fontSize: '14px' }}>{renderRatingStars()}</div>
+                    </div>
+                    <div style={{ borderTop: '1px solid #e0e0e0', paddingTop: '15px' }}>
+                      <div style={{ marginBottom: '10px' }}>
+                        <span style={{ fontSize: '14px', color: '#666' }}>Skills Score: </span>
+                        <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{stats.skillsRating}</span>
+                      </div>
+                      <div>
+                        <span style={{ fontSize: '14px', color: '#666' }}>Average Rating: </span>
+                        <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{stats.average}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="card-content">
-                    <div className="jobfit-categories">
-              {Object.entries(candidate.jobFit).map(([category, roles]) => (
-                        <div className="jobfit-category" key={category}>
-                          <h4 className="jobfit-category-title">{category}</h4>
-                          <div className="jobfit-roles">
+                </div>
+              </div>
+
+              {/* Right Column */}
+              <div className="col-md-8">
+                {/* Collapsible About Section */}
+                <div className="freelancer-tabs-card" style={{
+                  backgroundColor: '#fff',
+                  borderRadius: '12px',
+                  padding: '20px',
+                  marginBottom: '20px',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                }}>
+                  <div 
+                    style={{ 
+                      display: 'flex', 
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      cursor: 'pointer',
+                      borderBottom: '2px solid #e0e0e0',
+                      paddingBottom: '10px',
+                      marginBottom: expandedSections.about ? '20px' : '0'
+                    }}
+                    onClick={() => toggleSection('about')}
+                  >
+                    <h3 style={{ 
+                      fontSize: '18px', 
+                      fontWeight: 'bold',
+                      color: '#333',
+                      margin: 0
+                    }}>
+                      About
+                    </h3>
+                    <i 
+                      className={`fa fa-chevron-${expandedSections.about ? 'up' : 'down'}`}
+                      style={{ color: '#D36314', fontSize: '14px' }}
+                    ></i>
+                  </div>
+                  {expandedSections.about && (
+                    <div style={{ fontSize: '14px', color: '#666', lineHeight: '1.8', paddingTop: '10px' }}>
+                      <p>{candidate.about || 'No about information available.'}</p>
+                      {candidate.careerObjectives && (
+                        <div style={{ marginTop: '15px' }}>
+                          <h4 style={{ fontSize: '16px', fontWeight: '600', color: '#333', marginBottom: '10px' }}>
+                            <i className="fa fa-bullseye" style={{ marginRight: '8px', color: '#D36314' }}></i>
+                            Career Objectives
+                          </h4>
+                          <p>{candidate.careerObjectives}</p>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                {/* Collapsible Professional Experience Section */}
+                <div className="freelancer-tabs-card" style={{
+                  backgroundColor: '#fff',
+                  borderRadius: '12px',
+                  padding: '20px',
+                  marginBottom: '20px',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                }}>
+                  <div 
+                    style={{ 
+                      display: 'flex', 
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      cursor: 'pointer',
+                      borderBottom: '2px solid #e0e0e0',
+                      paddingBottom: '10px',
+                      marginBottom: expandedSections.experience ? '20px' : '0'
+                    }}
+                    onClick={() => toggleSection('experience')}
+                  >
+                    <h3 style={{ 
+                      fontSize: '18px', 
+                      fontWeight: 'bold',
+                      color: '#333',
+                      margin: 0
+                    }}>
+                      Professional Experience
+                    </h3>
+                    <i 
+                      className={`fa fa-chevron-${expandedSections.experience ? 'up' : 'down'}`}
+                      style={{ color: '#D36314', fontSize: '14px' }}
+                    ></i>
+                  </div>
+                  {expandedSections.experience && (
+                    <div style={{ fontSize: '14px', color: '#666', lineHeight: '1.8', paddingTop: '10px' }}>
+                      {candidate.experience?.length ? (
+                        <div className="experience-timeline">
+                          {candidate.experience.map((experience, index) => (
+                            <div className="timeline-item" key={`${experience.title}-${index}`} style={{ marginBottom: '25px' }}>
+                              <div className="timeline-content">
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                                  <h4 style={{ fontSize: '16px', fontWeight: '600', color: '#333', margin: 0 }}>
+                                    {experience.title}
+                                  </h4>
+                                  <span style={{ 
+                                    fontSize: '12px', 
+                                    color: '#666',
+                                    backgroundColor: '#f0f0f0',
+                                    padding: '4px 10px',
+                                    borderRadius: '4px'
+                                  }}>
+                                    {experience.period}
+                                  </span>
+                                </div>
+                                <div style={{ marginBottom: '8px' }}>
+                                  <span style={{ fontSize: '14px', color: '#666', marginRight: '15px' }}>
+                                    <i className="fa fa-building" style={{ marginRight: '5px', color: '#D36314' }}></i>
+                                    {experience.company}
+                                  </span>
+                                  {experience.location && (
+                                    <span style={{ fontSize: '14px', color: '#666' }}>
+                                      <i className="fa fa-map-marker" style={{ marginRight: '5px', color: '#D36314' }}></i>
+                                      {experience.location}
+                                    </span>
+                                  )}
+                                </div>
+                                {experience.industry && (
+                                  <p style={{ fontSize: '13px', color: '#999', marginBottom: '10px' }}>
+                                    <i className="fa fa-industry" style={{ marginRight: '5px' }}></i>
+                                    {experience.industry}
+                                  </p>
+                                )}
+                                {experience.responsibilities?.length ? (
+                                  <div style={{ marginTop: '10px' }}>
+                                    <h5 style={{ fontSize: '14px', fontWeight: '600', color: '#333', marginBottom: '8px' }}>
+                                      Key Responsibilities:
+                                    </h5>
+                                    <ul style={{ paddingLeft: '20px', margin: 0 }}>
+                                      {experience.responsibilities.map((item, idx) => (
+                                        <li key={`${experience.title}-resp-${idx}`} style={{ marginBottom: '5px', fontSize: '13px' }}>
+                                          {item}
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                ) : null}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <p>No work experience records available.</p>
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                {/* Collapsible Skills & Endorsements Section */}
+                {candidate.skills && (
+                  <div className="freelancer-tabs-card" style={{
+                    backgroundColor: '#fff',
+                    borderRadius: '12px',
+                    padding: '20px',
+                    marginBottom: '20px',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                  }}>
+                    <div 
+                      style={{ 
+                        display: 'flex', 
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        cursor: 'pointer',
+                        borderBottom: '2px solid #e0e0e0',
+                        paddingBottom: '10px',
+                        marginBottom: expandedSections.skills ? '20px' : '0'
+                      }}
+                      onClick={() => toggleSection('skills')}
+                    >
+                      <h3 style={{ 
+                        fontSize: '18px', 
+                        fontWeight: 'bold',
+                        color: '#333',
+                        margin: 0
+                      }}>
+                        Skills & Endorsements
+                      </h3>
+                      <i 
+                        className={`fa fa-chevron-${expandedSections.skills ? 'up' : 'down'}`}
+                        style={{ color: '#D36314', fontSize: '14px' }}
+                      ></i>
+                    </div>
+                    {expandedSections.skills && (
+                      <div style={{ fontSize: '14px', color: '#666', lineHeight: '1.8', paddingTop: '10px' }}>
+                        <div className="skills-categories">
+                          {renderSkillsRow('Culture Fit', candidate.skills.cultureFit)}
+                          {renderSkillsRow('Personality', candidate.skills.personality)}
+                          {renderSkillsRow('Skills & Knowledge', candidate.skills.skillsKnowledge)}
+                          {renderSkillsRow('Software', candidate.skills.software)}
+                          {renderSkillsRow('Tools', candidate.skills.tools)}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Job Fit Card */}
+                {candidate.jobFit && Object.keys(candidate.jobFit).length ? (
+                  <div className="freelancer-skills-card" style={{
+                    backgroundColor: '#fff',
+                    borderRadius: '12px',
+                    padding: '20px',
+                    marginBottom: '20px',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                  }}>
+                    <h3 style={{ 
+                      fontSize: '18px', 
+                      fontWeight: 'bold', 
+                      marginBottom: '15px',
+                      color: '#333'
+                    }}>
+                      Job Fit
+                    </h3>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                      {Object.entries(candidate.jobFit).map(([category, roles]) => (
+                        <div key={category}>
+                          <h4 style={{ fontSize: '15px', fontWeight: '600', color: '#333', marginBottom: '10px' }}>
+                            {category}
+                          </h4>
+                          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
                             {roles.map((role, idx) => (
-                              <span className="jobfit-role-tag" key={`${category}-${idx}`}>
+                              <span
+                                key={`${category}-${idx}`}
+                                style={{
+                                  backgroundColor: '#f0f0f0',
+                                  color: '#333',
+                                  padding: '8px 15px',
+                                  borderRadius: '20px',
+                                  fontSize: '13px',
+                                  fontWeight: '500'
+                                }}
+                              >
                                 {role}
                               </span>
                             ))}
@@ -529,73 +763,39 @@ const CandidateProfile = () => {
                       ))}
                     </div>
                   </div>
-                </div>
-          ) : null}
+                ) : null}
 
-              <div className="modern-card assessment-card">
-                <div className="card-header">
-                  <div className="card-icon">
-                    <i className="fa fa-chart-line"></i>
-                  </div>
-                  <h3 className="card-title">Profile Assessment</h3>
-                </div>
-                <div className="card-content">
-                  <div className="assessment-stats-grid">
-                    <div className="assessment-stat-item">
-                      <div className="stat-icon views">
-                        <i className="fa fa-eye"></i>
-                      </div>
-                      <div className="stat-info">
-                        <span className="stat-label">Views</span>
-                        <span className="stat-value">{stats.views}</span>
-                      </div>
-                    </div>
-                    <div className="assessment-stat-item">
-                      <div className="stat-icon likes">
-                        <i className="fa fa-thumbs-up"></i>
-              </div>
-                      <div className="stat-info">
-                        <span className="stat-label">Likes</span>
-                        <button type="button" className="stat-value-btn" onClick={handleLikeClick}>
-                          {stats.likes}
-                </button>
-              </div>
-                    </div>
-                    <div className="assessment-stat-item rating-item">
-                      <div className="stat-icon rating">
-                        <i className="fa fa-star"></i>
-                      </div>
-                      <div className="stat-info">
-                        <span className="stat-label">Rating</span>
-                        <button type="button" className="stat-rating-btn" onClick={handleRateClick}>
-                          <span className="rating-score">{ratingValue}</span>
-                          <span className="rating-stars-display">{renderRatingStars()}</span>
-                          <span className="rating-count">({ratingCount})</span>
-                </button>
-              </div>
-            </div>
-                  </div>
-                  <div className="assessment-scores">
-                    <div className="score-card">
-                      <div className="score-icon">
-                        <i className="fa fa-trophy"></i>
-                      </div>
-                      <div className="score-details">
-                        <span className="score-label">Skills Score</span>
-                        <span className="score-value">{stats.skillsRating}</span>
-                      </div>
-                    </div>
-                    <div className="score-card">
-                      <div className="score-icon">
-                        <i className="fa fa-chart-bar"></i>
-                      </div>
-                      <div className="score-details">
-                        <span className="score-label">Average Rating</span>
-                        <span className="score-value">{stats.average}</span>
-                      </div>
+                {/* Training & Workshops Card */}
+                {candidate.training?.length ? (
+                  <div className="freelancer-language-card" style={{
+                    backgroundColor: '#fff',
+                    borderRadius: '12px',
+                    padding: '20px',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                  }}>
+                    <h3 style={{ 
+                      fontSize: '18px', 
+                      fontWeight: 'bold', 
+                      marginBottom: '15px',
+                      color: '#333'
+                    }}>
+                      Training & Workshops
+                    </h3>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                      {candidate.training.map((session, index) => (
+                        <div key={`${session.name}-${index}`} style={{ 
+                          display: 'flex', 
+                          alignItems: 'center',
+                          fontSize: '14px',
+                          color: '#333'
+                        }}>
+                          <i className="fa fa-book" style={{ marginRight: '10px', color: '#D36314' }}></i>
+                          <span>{session.name}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
-              </div>
+                ) : null}
               </div>
             </div>
           </div>
