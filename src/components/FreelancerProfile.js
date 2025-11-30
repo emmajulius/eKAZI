@@ -221,7 +221,12 @@ const FreelancerProfile = () => {
                 boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
                 textAlign: 'center'
               }}>
-                <div style={{ marginBottom: '20px' }}>
+                <div style={{ 
+                  marginBottom: '20px', 
+                  display: 'flex', 
+                  justifyContent: 'center', 
+                  alignItems: 'center' 
+                }}>
                   <img
                     src={freelancer.image || './assets/images/Engineer_pass.jpg'}
                     alt={freelancer.name}
@@ -231,7 +236,8 @@ const FreelancerProfile = () => {
                       borderRadius: '12px',
                       objectFit: 'cover',
                       backgroundColor: '#E3F2FD',
-                      marginBottom: '15px'
+                      marginBottom: '15px',
+                      display: 'block'
                     }}
                     onError={handleImageError}
                   />
