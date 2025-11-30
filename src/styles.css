@@ -5043,12 +5043,12 @@ section {
     /* Banner Section Mobile */
     .promotional-banner {
         margin-top: -80px;
-        padding: 10px 0 25px 0;
+        padding: 5px 0 25px 0;
         overflow: hidden;
     }
     
     .banner-search-container {
-        margin-bottom: 10px;
+        margin-bottom: 0px;
     }
     
     .promo-main-container {
@@ -5352,12 +5352,12 @@ section {
     /* Banner Section Small Mobile */
     .promotional-banner {
         margin-top: -60px;
-        padding: 8px 0 20px 0;
+        padding: 3px 0 20px 0;
         overflow: hidden;
     }
     
     .banner-search-container {
-        margin-bottom: 10px;
+        margin-bottom: 0px;
     }
     
     .promo-main-container {
