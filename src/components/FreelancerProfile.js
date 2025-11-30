@@ -68,34 +68,58 @@ const FreelancerProfile = () => {
     const updateTextAndCaret = (element, currentText, fullText) => {
       if (!element || !caret || !container) return;
       
-      // Only recalculate container width if it's not cached or changed
-      if (cachedContainerWidth === 0 || Math.abs(cachedContainerWidth - container.offsetWidth) > 1) {
-        cachedContainerWidth = container.offsetWidth;
-      }
+      // Check if we're on mobile (screen width <= 768px)
+      const isMobile = window.innerWidth <= 768;
       
       // Set the current text
       element.textContent = currentText;
       
-      // Calculate positions using cached width
-      const containerCenterX = cachedContainerWidth / 2;
-      const fullTextWidth = getTextWidth(fullText);
-      const currentTextWidth = getTextWidth(currentText);
-      
-      // Position element to center the full text (so it stays centered as it expands)
-      // The text element is positioned so the full sentence will be centered
-      const fullTextLeft = containerCenterX - (fullTextWidth / 2);
-      element.style.position = 'absolute';
-      element.style.left = `${fullTextLeft}px`;
-      element.style.top = 'calc(50% + 25px)';
-      element.style.transform = 'translateY(-50%)';
-      
-      // Position caret: starts at center, moves right as text expands
-      // Cursor position = full text left edge + current text width
-      const caretPosition = fullTextLeft + currentTextWidth;
-      caret.style.left = `${caretPosition}px`;
-      caret.style.top = 'calc(50% + 25px)';
-      caret.style.transform = 'translateY(-50%)';
-      caret.classList.add('active');
+      if (isMobile) {
+        // On mobile: use relative positioning to allow text wrapping
+        element.style.position = 'relative';
+        element.style.left = 'auto';
+        element.style.top = 'auto';
+        element.style.transform = 'none';
+        element.style.textAlign = 'center';
+        element.style.width = '100%';
+        element.style.maxWidth = '100%';
+        
+        // Position caret at the center bottom of the text area on mobile
+        // Since text wraps, we position it at the bottom center
+        caret.style.position = 'absolute';
+        caret.style.left = '50%';
+        caret.style.transform = 'translateX(-50%)';
+        caret.style.top = 'auto';
+        caret.style.bottom = '10px';
+        caret.classList.add('active');
+      } else {
+        // On desktop: use absolute positioning for centered text
+        // Only recalculate container width if it's not cached or changed
+        if (cachedContainerWidth === 0 || Math.abs(cachedContainerWidth - container.offsetWidth) > 1) {
+          cachedContainerWidth = container.offsetWidth;
+        }
+        
+        // Calculate positions using cached width
+        const containerCenterX = cachedContainerWidth / 2;
+        const fullTextWidth = getTextWidth(fullText);
+        const currentTextWidth = getTextWidth(currentText);
+        
+        // Position element to center the full text (so it stays centered as it expands)
+        // The text element is positioned so the full sentence will be centered
+        const fullTextLeft = containerCenterX - (fullTextWidth / 2);
+        element.style.position = 'absolute';
+        element.style.left = `${fullTextLeft}px`;
+        element.style.top = 'calc(50% + 25px)';
+        element.style.transform = 'translateY(-50%)';
+        
+        // Position caret: starts at center, moves right as text expands
+        // Cursor position = full text left edge + current text width
+        const caretPosition = fullTextLeft + currentTextWidth;
+        caret.style.left = `${caretPosition}px`;
+        caret.style.top = 'calc(50% + 25px)';
+        caret.style.transform = 'translateY(-50%)';
+        caret.classList.add('active');
+      }
     };
 
     const clearAllSentences = () => {
