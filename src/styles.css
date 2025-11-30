@@ -3290,16 +3290,16 @@ section {
 .animated-writing-container {
     background: linear-gradient(135deg, #2E58A6 0%, #1E4A8C 100%);
     border-radius: 16px;
-    padding: 40px 60px;
+    padding: 25px 60px;
     margin-bottom: 30px;
     margin-top: -150px;
     box-shadow: 0 20px 55px rgba(0, 0, 0, 0.12);
     position: relative;
-    min-height: 120px;
+    min-height: 75px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .animated-writing-container::before {
@@ -3326,11 +3326,11 @@ section {
     position: relative;
     z-index: 1;
     text-align: center;
-    min-height: 120px;
+    min-height: 75px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: visible;
+    width: 100%;
 }
 
 .sentence {
@@ -3340,6 +3340,8 @@ section {
     line-height: 1.6;
     white-space: pre-wrap;
     display: inline-block;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .animated-caret {
@@ -5154,9 +5156,9 @@ section {
     }
     
     .animated-writing-container {
-        padding: 35px 30px;
+        padding: 25px 30px;
         margin-bottom: 25px;
-        min-height: 100px;
+        min-height: 80px;
     }
     
     .sentence {
@@ -5372,9 +5374,9 @@ section {
     }
     
     .animated-writing-container {
-        padding: 30px 20px;
+        padding: 20px 20px;
         margin-bottom: 20px;
-        min-height: 90px;
+        min-height: 70px;
     }
     
     .sentence {
