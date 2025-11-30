@@ -100,7 +100,7 @@ const FreelancerProfile = () => {
         updateTextAndCaret(element, currentText, text);
         currentTextIndex++;
         
-        const typingSpeed = 100 + Math.random() * 50; // Variable typing speed like real typing
+        const typingSpeed = 50 + Math.random() * 30; // Faster typing speed
         animationTimeout = setTimeout(type, typingSpeed);
       } else if (!isDeleting && currentTextIndex === text.length) {
         // Show completed sentence and wait 2 seconds
