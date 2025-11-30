@@ -5122,10 +5122,10 @@ section {
         padding-right: 15px !important;
     }
     
-    /* Second row: For Employer and Tel Hotline */
+    /* Second row: For Employer */
     .footer-employer-section,
     .footer-employer-section.col-md-3 {
-        order: 4;
+        order: 5;
         flex: 0 0 50% !important;
         max-width: 50% !important;
         width: 50% !important;
@@ -5134,16 +5134,17 @@ section {
         padding-right: 5px !important;
     }
     
+    /* Tel Hotline below For Freelancer */
     .footer-hotline-section,
     .footer-hotline-section.col-md-3 {
-        order: 5;
+        order: 4;
         flex: 0 0 50% !important;
         max-width: 50% !important;
         width: 50% !important;
         box-sizing: border-box;
-        padding-left: 5px !important;
-        padding-right: 15px !important;
-        margin-top: 0;
+        padding-left: 15px !important;
+        padding-right: 5px !important;
+        margin-top: 20px;
     }
     
     .footer-hotline-section .footer-contact-block {
@@ -5530,10 +5531,10 @@ section {
         padding-right: 15px !important;
     }
     
-    /* Second row: For Employer and Tel Hotline */
+    /* Second row: For Employer */
     .footer-employer-section,
     .footer-employer-section.col-md-3 {
-        order: 4;
+        order: 5;
         flex: 0 0 50% !important;
         max-width: 50% !important;
         width: 50% !important;
@@ -5542,16 +5543,17 @@ section {
         padding-right: 5px !important;
     }
     
+    /* Tel Hotline below For Freelancer */
     .footer-hotline-section,
     .footer-hotline-section.col-md-3 {
-        order: 5;
+        order: 4;
         flex: 0 0 50% !important;
         max-width: 50% !important;
         width: 50% !important;
         box-sizing: border-box;
-        padding-left: 5px !important;
-        padding-right: 15px !important;
-        margin-top: 0;
+        padding-left: 15px !important;
+        padding-right: 5px !important;
+        margin-top: 20px;
     }
     
     .footer-hotline-section .footer-contact-block {
