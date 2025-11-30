@@ -76,7 +76,7 @@ const Footer = ({ onLoginClick }) => {
             </ul>
           </div>
 
-          <div className="col-md-3 footer-links">
+          <div className="col-md-3 footer-links footer-employer-section">
             <h6>FOR EMPLOYER</h6>
             <ul>
               <li>
@@ -88,12 +88,12 @@ const Footer = ({ onLoginClick }) => {
                 </a>
               </li>
             </ul>
+          </div>
 
+          <div className="col-md-3 footer-links footer-hotline-section">
+            <h6>TEL HOTLINE</h6>
             <div className="footer-contact-block">
               <div className="footer-contact-details">
-                <p className="footer-contact-label">
-                  <i className="fa fa-phone" aria-hidden="true"></i> Tel Hotline:
-                </p>
                 <a href="tel:+255677400206">+255 677 400 206</a>
                 <a href="tel:+255677400205">+255 677 400 205</a>
                 <a href="tel:+255677014718">+255 677 014 718</a>

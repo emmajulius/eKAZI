@@ -5080,6 +5080,62 @@ section {
         margin-left: 0;
     }
     
+    /* Footer mobile layout - arrange in two rows */
+    .footer-main-row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .footer-about {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 30px;
+        order: 1;
+    }
+    
+    /* First row: About and For Freelancer */
+    .footer-links:nth-of-type(2) {
+        order: 2;
+        flex: 0 0 50%;
+        max-width: 50%;
+        box-sizing: border-box;
+        padding-right: 10px;
+    }
+    
+    .footer-links:nth-of-type(3) {
+        order: 3;
+        flex: 0 0 50%;
+        max-width: 50%;
+        box-sizing: border-box;
+        padding-left: 10px;
+    }
+    
+    /* Second row: For Employer and Tel Hotline */
+    .footer-employer-section {
+        order: 4;
+        flex: 0 0 50%;
+        max-width: 50%;
+        box-sizing: border-box;
+        padding-right: 10px;
+    }
+    
+    .footer-hotline-section {
+        order: 5;
+        flex: 0 0 50%;
+        max-width: 50%;
+        box-sizing: border-box;
+        padding-left: 10px;
+        margin-top: 0;
+    }
+    
+    .footer-hotline-section .footer-contact-block {
+        margin-top: 0;
+    }
+    
+    .footer-hotline-section h6 {
+        display: none;
+    }
+    
     .banner-image {
         width: 100%;
         height: auto;
@@ -5416,6 +5472,58 @@ section {
     .banner-image-container .slider-indicators {
         top: 80%;
         gap: 8px;
+    }
+    
+    /* Footer mobile layout - arrange in two rows (small mobile) */
+    .footer-main-row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .footer-about {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 30px;
+        order: 1;
+    }
+    
+    /* First row: About and For Freelancer */
+    .footer-links:nth-of-type(2) {
+        order: 2;
+        flex: 0 0 50%;
+        max-width: 50%;
+        box-sizing: border-box;
+        padding-right: 10px;
+    }
+    
+    .footer-links:nth-of-type(3) {
+        order: 3;
+        flex: 0 0 50%;
+        max-width: 50%;
+        box-sizing: border-box;
+        padding-left: 10px;
+    }
+    
+    /* Second row: For Employer and Tel Hotline */
+    .footer-employer-section {
+        order: 4;
+        flex: 0 0 50%;
+        max-width: 50%;
+        box-sizing: border-box;
+        padding-right: 10px;
+    }
+    
+    .footer-hotline-section {
+        order: 5;
+        flex: 0 0 50%;
+        max-width: 50%;
+        box-sizing: border-box;
+        padding-left: 10px;
+        margin-top: 0;
+    }
+    
+    .footer-hotline-section .footer-contact-block {
+        margin-top: 0;
     }
     
     .animated-writing-container {
