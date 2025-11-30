@@ -536,7 +536,7 @@ export const fullCandidatesData = {
         likes: 0,
         email: "christina.tarimo@example.com",
         phone: "+255 123 456 791",
-        image: "./assets/images/Engineer_pass.jpg",
+        image: "./assets/images/default.png",
         about: "I'm an experienced logistics expert overseeing supply chain operations, coordinating procurement, warehousing, and transportation, leveraging logistics software to monitor shipments, and collaborating with diverse teams to achieve company goals.",
         careerObjectives: "To secure a managerial role where I can utilize my experience and expertise with a company that offers opportunities for professional growth and advancement.",
         experience: [
@@ -594,7 +594,7 @@ export const fullCandidatesData = {
         likes: 0,
         email: "derick.cyriacus@example.com",
         phone: "+255 123 456 792",
-        image: "./assets/images/Engineer_pass.jpg",
+        image: "./assets/images/20231026062819653a07039a579_IMG_2979_2.jpg",
         about: "I am a self-motivated problem solver who can work under minimum supervision, adapt to new environments, and collaborate with people from different backgrounds.",
         careerObjectives: "To get an opportunity where I can make the best of my potential and contribute to the organization's growth.",
         experience: [
@@ -692,7 +692,7 @@ export const fullCandidatesData = {
         likes: 0,
         email: "william.simsokwe@example.com",
         phone: "+255 123 456 793",
-        image: "./assets/images/Engineer_pass.jpg",
+        image: "./assets/images/2025032711534567e53c49a5e57_WILLIAM_-_PICHA.jpg",
         about: "I have 5+ years of experience in manufacturing, logistics, hospitality, and catering services, covering the full spectrum of HR functions including recruitment, onboarding, payroll, performance, training, discipline, employee engagement, and statutory compliance.",
         careerObjectives: "To grow in Human Resources by driving recruitment, performance management, employee engagement, retention strategies, payroll administration, and disciplinary solutions with efficiency and impact.",
         experience: [
@@ -807,7 +807,7 @@ export const fullCandidatesData = {
         likes: 0,
         email: "dickson.kihamba@example.com",
         phone: "+255 123 456 794",
-        image: "./assets/images/Engineer_pass.jpg",
+        image: "./assets/images/2024031519584665f4a87645a16_Passport_size_may2022_2.jpg",
         about: "Dickson is a seasoned technology executive with deep expertise in IT infrastructure and ERP solutions. With a background in computer science and an MBA, he leverages emerging technologies to drive digital transformation and process automation across telecom, manufacturing, logistics, trading, and insurance.",
         careerObjectives: "Driving and leading digital transformation and process automation.",
         experience: [
