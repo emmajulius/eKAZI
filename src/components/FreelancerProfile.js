@@ -115,7 +115,7 @@ const FreelancerProfile = () => {
         const currentText = text.substring(0, currentTextIndex);
         updateTextAndCaret(element, currentText, text);
         
-        const deletingSpeed = 3; // Extremely fast deleting speed
+        const deletingSpeed = 1; // Maximum speed deleting
         animationTimeout = setTimeout(type, deletingSpeed);
       } else {
         // Finished deleting, move to next sentence
