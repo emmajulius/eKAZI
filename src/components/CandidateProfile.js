@@ -98,7 +98,7 @@ const CandidateProfile = () => {
       const { text, element } = getCurrentSentence();
       clearAllSentences();
 
-      if (!isDeleting && currentTextIndex <= text.length) {
+      if (!isDeleting && currentTextIndex < text.length) {
         // Typing forward
         const currentText = text.substring(0, currentTextIndex);
         updateTextAndCaret(element, currentText, text);
@@ -106,9 +106,12 @@ const CandidateProfile = () => {
         
         const typingSpeed = 100 + Math.random() * 50; // Variable typing speed like real typing
         animationTimeout = setTimeout(type, typingSpeed);
-      } else if (!isDeleting && currentTextIndex > text.length) {
-        // Finished typing, wait then start deleting
+      } else if (!isDeleting && currentTextIndex === text.length) {
+        // Show completed sentence and wait 2 seconds
+        const currentText = text.substring(0, currentTextIndex);
+        updateTextAndCaret(element, currentText, text);
         isDeleting = true;
+        currentTextIndex = text.length; // Keep it at full length
         animationTimeout = setTimeout(type, 2000);
       } else if (isDeleting && currentTextIndex > 0) {
         // Deleting backward
@@ -116,7 +119,7 @@ const CandidateProfile = () => {
         const currentText = text.substring(0, currentTextIndex);
         updateTextAndCaret(element, currentText, text);
         
-        const deletingSpeed = 50; // Faster deleting
+        const deletingSpeed = 25; // Faster deleting speed
         animationTimeout = setTimeout(type, deletingSpeed);
       } else {
         // Finished deleting, move to next sentence
