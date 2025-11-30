@@ -100,7 +100,7 @@ const FreelancerProfile = () => {
         updateTextAndCaret(element, currentText, text);
         currentTextIndex++;
         
-        const typingSpeed = 50 + Math.random() * 30; // Faster typing speed
+        const typingSpeed = 30 + Math.random() * 20; // Very fast typing speed
         animationTimeout = setTimeout(type, typingSpeed);
       } else if (!isDeleting && currentTextIndex === text.length) {
         // Show completed sentence and wait 2 seconds
@@ -115,7 +115,7 @@ const FreelancerProfile = () => {
         const currentText = text.substring(0, currentTextIndex);
         updateTextAndCaret(element, currentText, text);
         
-        const deletingSpeed = 1; // Maximum speed deleting
+        const deletingSpeed = 0; // Instant deleting
         animationTimeout = setTimeout(type, deletingSpeed);
       } else {
         // Finished deleting, move to next sentence
