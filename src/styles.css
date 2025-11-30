@@ -3369,6 +3369,8 @@ section {
 
 .freelancer-profile-section .animated-sentences {
     min-height: 100px;
+    align-items: flex-start;
+    padding-top: 15px;
 }
 
 .animated-caret.active {
