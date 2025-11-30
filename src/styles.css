@@ -4141,7 +4141,7 @@ section {
 /* Experience Timeline */
 .experience-timeline {
     position: relative;
-    padding-left: 0;
+    padding-left: 30px;
 }
 
 .experience-timeline::before {
@@ -4174,6 +4174,7 @@ section {
     background: #f8f9fa;
     border-radius: 12px;
     padding: 20px;
+    border-left: 4px solid #2E58A6;
 }
 
 .experience-title-row {
