@@ -377,7 +377,6 @@ body {
 
 .banner-search-container {
     margin-bottom: 30px;
-    margin-top: 20px;
 }
 
 .search-form-wrapper {
@@ -5048,6 +5047,10 @@ section {
         overflow: hidden;
     }
     
+    .banner-search-container {
+        margin-bottom: 10px;
+    }
+    
     .promo-main-container {
         padding: 0 15px;
         width: 100%;
@@ -5351,6 +5354,10 @@ section {
         margin-top: -60px;
         padding: 8px 0 20px 0;
         overflow: hidden;
+    }
+    
+    .banner-search-container {
+        margin-bottom: 10px;
     }
     
     .promo-main-container {
