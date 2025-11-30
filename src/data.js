@@ -337,7 +337,7 @@ export const fullCandidatesData = {
         likes: 0,
         email: "ommyibra98@gmail.com",
         phone: "+255 123 456 789",
-        image: "./assets/images/Engineer_pass.jpg",
+        image: "./assets/images/20250708054914686cb15a0c5d6_IMG-20220824-WA0000.jpg",
         about: "A dedicated HR professional with a passion for talent acquisition and employee engagement.",
         careerObjectives: "Seeking to grow my career by taking up a leading role in HR by working on new HR process and policies coupled with their implementation for organization and employees' development.",
         experience: [
@@ -412,7 +412,7 @@ export const fullCandidatesData = {
         likes: 0,
         email: "jesca.ngowi@example.com",
         phone: "+255 123 456 790",
-        image: "./assets/images/Engineer_pass.jpg",
+        image: "./assets/images/202505030539486815ac246d250_20250430_184341.jpg",
         about: "I hold a bachelor of Human resource management and am interested to work on any related field.",
         careerObjectives: "To recruit qualified employees, enhance organizational development, foster a culture of togetherness between employees and management, and provide training that helps the organization achieve its goals.",
         experience: [
