@@ -5189,19 +5189,20 @@ section {
         padding-top: 10px;
     }
     
-    .sentence {
+    .sentence,
+    .freelancer-profile-section .sentence {
         font-size: 20px;
-        white-space: pre-wrap;
+        white-space: pre-wrap !important;
         word-wrap: break-word;
         word-break: break-word;
-        max-width: calc(100% - 60px);
-        width: auto;
+        max-width: calc(100% - 60px) !important;
+        width: auto !important;
         position: relative !important;
         left: auto !important;
         top: auto !important;
         transform: none !important;
-        text-align: center;
-        display: block;
+        text-align: center !important;
+        display: block !important;
     }
     
     .animated-caret {
@@ -5435,20 +5436,21 @@ section {
         padding-top: 10px;
     }
     
-    .sentence {
+    .sentence,
+    .freelancer-profile-section .sentence {
         font-size: 16px;
         line-height: 1.5;
-        white-space: pre-wrap;
+        white-space: pre-wrap !important;
         word-wrap: break-word;
         word-break: break-word;
-        max-width: calc(100% - 40px);
-        width: auto;
+        max-width: calc(100% - 40px) !important;
+        width: auto !important;
         position: relative !important;
         left: auto !important;
         top: auto !important;
         transform: none !important;
-        text-align: center;
-        display: block;
+        text-align: center !important;
+        display: block !important;
     }
     
     .animated-caret {

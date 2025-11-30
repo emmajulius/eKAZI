@@ -76,13 +76,14 @@ const FreelancerProfile = () => {
       
       if (isMobile) {
         // On mobile: use relative positioning to allow text wrapping
-        element.style.position = 'relative';
-        element.style.left = 'auto';
-        element.style.top = 'auto';
-        element.style.transform = 'none';
-        element.style.textAlign = 'center';
-        element.style.width = '100%';
-        element.style.maxWidth = '100%';
+        // Don't set inline styles that would override CSS - let CSS handle wrapping
+        element.style.position = '';
+        element.style.left = '';
+        element.style.top = '';
+        element.style.transform = '';
+        element.style.textAlign = '';
+        element.style.width = '';
+        element.style.maxWidth = '';
         
         // Position caret at the center bottom of the text area on mobile
         // Since text wraps, we position it at the bottom center
