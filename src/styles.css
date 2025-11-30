@@ -5119,6 +5119,7 @@ section {
         flex-wrap: wrap !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
+        gap: 10px !important;
     }
     
     .footer-about,
@@ -5126,59 +5127,93 @@ section {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         width: 100% !important;
-        margin-bottom: 30px;
+        margin-bottom: 10px !important;
         order: 1;
         padding-left: 15px !important;
         padding-right: 15px !important;
     }
     
-    /* First row: About and For Freelancer */
+    /* First row: About links, For Freelancer, For Employer */
     .footer-links:nth-of-type(2),
     .footer-links:nth-of-type(2).col-md-2 {
         order: 2;
-        flex: 0 0 50% !important;
-        max-width: 50% !important;
-        width: 50% !important;
+        flex: 0 0 calc(33.333% - 7px) !important;
+        max-width: calc(33.333% - 7px) !important;
+        width: calc(33.333% - 7px) !important;
         box-sizing: border-box;
         padding-left: 15px !important;
         padding-right: 5px !important;
+        margin-bottom: 10px !important;
     }
     
-    .footer-links:nth-of-type(3),
-    .footer-links:nth-of-type(3).col-md-2 {
+    .footer-freelancer-section,
+    .footer-freelancer-section.col-md-2 {
         order: 3;
-        flex: 0 0 50% !important;
-        max-width: 50% !important;
-        width: 50% !important;
+        flex: 0 0 calc(33.333% - 7px) !important;
+        max-width: calc(33.333% - 7px) !important;
+        width: calc(33.333% - 7px) !important;
         box-sizing: border-box;
         padding-left: 5px !important;
-        padding-right: 15px !important;
-        margin-bottom: 0 !important;
+        padding-right: 5px !important;
+        margin-bottom: 10px !important;
     }
     
-    /* Second row: For Employer */
     .footer-employer-section,
     .footer-employer-section.col-md-3 {
         order: 4;
-        flex: 0 0 50% !important;
-        max-width: 50% !important;
-        width: 50% !important;
+        flex: 0 0 calc(33.333% - 7px) !important;
+        max-width: calc(33.333% - 7px) !important;
+        width: calc(33.333% - 7px) !important;
         box-sizing: border-box;
         padding-left: 5px !important;
         padding-right: 15px !important;
+        margin-bottom: 10px !important;
     }
     
-    /* Nested sections within columns */
-    .footer-links .footer-hotline-section {
-        margin-top: 20px;
+    /* Second row: Tel Hotline and WhatsApp */
+    .footer-hotline-standalone,
+    .footer-hotline-standalone.col-md-2 {
+        order: 5;
+        flex: 0 0 calc(50% - 5px) !important;
+        max-width: calc(50% - 5px) !important;
+        width: calc(50% - 5px) !important;
+        box-sizing: border-box;
+        padding-left: 15px !important;
+        padding-right: 5px !important;
+        margin-bottom: 10px !important;
+        display: block !important;
     }
     
-    .footer-links .footer-hotline-section .footer-contact-details {
-        margin-top: 0;
+    .footer-whatsapp-standalone,
+    .footer-whatsapp-standalone.col-md-2 {
+        order: 6;
+        flex: 0 0 calc(50% - 5px) !important;
+        max-width: calc(50% - 5px) !important;
+        width: calc(50% - 5px) !important;
+        box-sizing: border-box;
+        padding-left: 5px !important;
+        padding-right: 15px !important;
+        margin-bottom: 10px !important;
+        display: block !important;
     }
     
-    .footer-employer-section .footer-whatsapp-section {
-        margin-top: 20px;
+    /* Hide nested sections on mobile */
+    .footer-hotline-nested,
+    .footer-whatsapp-nested {
+        display: none !important;
+    }
+    
+    /* Hide standalone sections on desktop */
+    @media (min-width: 769px) {
+        .footer-hotline-standalone,
+        .footer-whatsapp-standalone {
+            display: none !important;
+        }
+        
+        .footer-hotline-nested,
+        .footer-whatsapp-nested {
+            display: block !important;
+        }
     }
     
     .banner-image {
@@ -5525,6 +5560,7 @@ section {
         flex-wrap: wrap !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
+        gap: 10px !important;
     }
     
     .footer-about,
@@ -5532,59 +5568,80 @@ section {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         width: 100% !important;
-        margin-bottom: 30px;
+        margin-bottom: 10px !important;
         order: 1;
         padding-left: 15px !important;
         padding-right: 15px !important;
     }
     
-    /* First row: About and For Freelancer */
+    /* First row: About links, For Freelancer, For Employer */
     .footer-links:nth-of-type(2),
     .footer-links:nth-of-type(2).col-md-2 {
         order: 2;
-        flex: 0 0 50% !important;
-        max-width: 50% !important;
-        width: 50% !important;
+        flex: 0 0 calc(33.333% - 7px) !important;
+        max-width: calc(33.333% - 7px) !important;
+        width: calc(33.333% - 7px) !important;
         box-sizing: border-box;
         padding-left: 15px !important;
         padding-right: 5px !important;
+        margin-bottom: 10px !important;
     }
     
-    .footer-links:nth-of-type(3),
-    .footer-links:nth-of-type(3).col-md-2 {
+    .footer-freelancer-section,
+    .footer-freelancer-section.col-md-2 {
         order: 3;
-        flex: 0 0 50% !important;
-        max-width: 50% !important;
-        width: 50% !important;
+        flex: 0 0 calc(33.333% - 7px) !important;
+        max-width: calc(33.333% - 7px) !important;
+        width: calc(33.333% - 7px) !important;
         box-sizing: border-box;
         padding-left: 5px !important;
-        padding-right: 15px !important;
-        margin-bottom: 0 !important;
+        padding-right: 5px !important;
+        margin-bottom: 10px !important;
     }
     
-    /* Second row: For Employer */
     .footer-employer-section,
     .footer-employer-section.col-md-3 {
         order: 4;
-        flex: 0 0 50% !important;
-        max-width: 50% !important;
-        width: 50% !important;
+        flex: 0 0 calc(33.333% - 7px) !important;
+        max-width: calc(33.333% - 7px) !important;
+        width: calc(33.333% - 7px) !important;
         box-sizing: border-box;
         padding-left: 5px !important;
         padding-right: 15px !important;
+        margin-bottom: 10px !important;
     }
     
-    /* Nested sections within columns */
-    .footer-links .footer-hotline-section {
-        margin-top: 20px;
+    /* Second row: Tel Hotline and WhatsApp */
+    .footer-hotline-standalone,
+    .footer-hotline-standalone.col-md-2 {
+        order: 5;
+        flex: 0 0 calc(50% - 5px) !important;
+        max-width: calc(50% - 5px) !important;
+        width: calc(50% - 5px) !important;
+        box-sizing: border-box;
+        padding-left: 15px !important;
+        padding-right: 5px !important;
+        margin-bottom: 10px !important;
+        display: block !important;
     }
     
-    .footer-links .footer-hotline-section .footer-contact-details {
-        margin-top: 0;
+    .footer-whatsapp-standalone,
+    .footer-whatsapp-standalone.col-md-2 {
+        order: 6;
+        flex: 0 0 calc(50% - 5px) !important;
+        max-width: calc(50% - 5px) !important;
+        width: calc(50% - 5px) !important;
+        box-sizing: border-box;
+        padding-left: 5px !important;
+        padding-right: 15px !important;
+        margin-bottom: 10px !important;
+        display: block !important;
     }
     
-    .footer-employer-section .footer-whatsapp-section {
-        margin-top: 20px;
+    /* Hide nested sections on mobile */
+    .footer-hotline-nested,
+    .footer-whatsapp-nested {
+        display: none !important;
     }
     
     .animated-writing-container {
