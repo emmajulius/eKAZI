@@ -3290,16 +3290,16 @@ section {
 .animated-writing-container {
     background: linear-gradient(135deg, #2E58A6 0%, #1E4A8C 100%);
     border-radius: 16px;
-    padding: 25px 60px;
+    padding: 40px 60px;
     margin-bottom: 30px;
     margin-top: -150px;
     box-shadow: 0 20px 55px rgba(0, 0, 0, 0.12);
     position: relative;
-    min-height: 60px;
+    min-height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .animated-writing-container::before {
@@ -3326,10 +3326,11 @@ section {
     position: relative;
     z-index: 1;
     text-align: center;
-    min-height: 60px;
+    min-height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: visible;
 }
 
 .sentence {
