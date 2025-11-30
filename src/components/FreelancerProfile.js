@@ -40,27 +40,47 @@ const FreelancerProfile = () => {
       return { text: sentence3, element: sentence3El };
     };
 
-    const updateCaretPosition = (element) => {
-      if (!element || !caret || !container) return;
-      
+    const getTextWidth = (text) => {
       const tempSpan = document.createElement('span');
       tempSpan.style.visibility = 'hidden';
       tempSpan.style.position = 'absolute';
       tempSpan.style.whiteSpace = 'pre';
-      tempSpan.style.fontSize = window.getComputedStyle(element).fontSize;
-      tempSpan.style.fontWeight = window.getComputedStyle(element).fontWeight;
-      tempSpan.style.fontFamily = window.getComputedStyle(element).fontFamily;
-      tempSpan.textContent = element.textContent;
+      tempSpan.style.fontSize = window.getComputedStyle(sentence1El).fontSize;
+      tempSpan.style.fontWeight = window.getComputedStyle(sentence1El).fontWeight;
+      tempSpan.style.fontFamily = window.getComputedStyle(sentence1El).fontFamily;
+      tempSpan.textContent = text;
       document.body.appendChild(tempSpan);
-      
-      const textWidth = tempSpan.offsetWidth;
+      const width = tempSpan.offsetWidth;
       document.body.removeChild(tempSpan);
+      return width;
+    };
+
+    const updateTextAndCaret = (element, currentText, fullText) => {
+      if (!element || !caret || !container) return;
       
+      // Set the current text
+      element.textContent = currentText;
+      
+      // Calculate positions
       const containerRect = container.getBoundingClientRect();
-      const elementRect = element.getBoundingClientRect();
+      const containerCenterX = containerRect.width / 2;
+      const fullTextWidth = getTextWidth(fullText);
+      const currentTextWidth = getTextWidth(currentText);
       
-      caret.style.left = `${elementRect.left - containerRect.left + textWidth + 4}px`;
-      caret.style.top = `${elementRect.top - containerRect.top + elementRect.height / 2 - caret.offsetHeight / 2}px`;
+      // Position element to center the full text (so it stays centered as it expands)
+      // The text element is positioned so the full sentence will be centered
+      const fullTextLeft = containerCenterX - (fullTextWidth / 2);
+      element.style.position = 'absolute';
+      element.style.left = `${fullTextLeft}px`;
+      element.style.top = '50%';
+      element.style.transform = 'translateY(-50%)';
+      
+      // Position caret: starts at center, moves right as text expands
+      // Cursor position = full text left edge + current text width
+      const caretPosition = fullTextLeft + currentTextWidth;
+      caret.style.left = `${caretPosition}px`;
+      caret.style.top = '50%';
+      caret.style.transform = 'translateY(-50%)';
       caret.classList.add('active');
     };
 
@@ -76,8 +96,8 @@ const FreelancerProfile = () => {
 
       if (!isDeleting && currentTextIndex <= text.length) {
         // Typing forward
-        element.textContent = text.substring(0, currentTextIndex);
-        updateCaretPosition(element);
+        const currentText = text.substring(0, currentTextIndex);
+        updateTextAndCaret(element, currentText, text);
         currentTextIndex++;
         
         const typingSpeed = 100 + Math.random() * 50; // Variable typing speed like real typing
@@ -89,8 +109,8 @@ const FreelancerProfile = () => {
       } else if (isDeleting && currentTextIndex > 0) {
         // Deleting backward
         currentTextIndex--;
-        element.textContent = text.substring(0, currentTextIndex);
-        updateCaretPosition(element);
+        const currentText = text.substring(0, currentTextIndex);
+        updateTextAndCaret(element, currentText, text);
         
         const deletingSpeed = 50; // Faster deleting
         animationTimeout = setTimeout(type, deletingSpeed);
@@ -98,6 +118,10 @@ const FreelancerProfile = () => {
         // Finished deleting, move to next sentence
         isDeleting = false;
         element.textContent = '';
+        element.style.position = '';
+        element.style.left = '';
+        element.style.top = '';
+        element.style.transform = '';
         caret.classList.remove('active');
         
         currentSentence = currentSentence === 3 ? 1 : currentSentence + 1;
