@@ -2919,6 +2919,7 @@ section {
 
 .footer-hotline-section {
     margin-top: 24px;
+    display: block;
 }
 
 .footer-hotline-section h6 {
@@ -2928,8 +2929,25 @@ section {
     margin-bottom: 12px;
 }
 
+.footer-hotline-section .footer-contact-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-hotline-section .footer-contact-details a {
+    color: #007bff;
+    display: block;
+    text-decoration: none;
+    margin-bottom: 4px;
+}
+
+.footer-hotline-section .footer-contact-details a:hover {
+    color: #D36314;
+}
+
 .footer-whatsapp-section {
     margin-top: 18px;
+    display: block;
 }
 
 .footer-bottom {
