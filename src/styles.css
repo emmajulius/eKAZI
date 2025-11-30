@@ -5117,9 +5117,14 @@ section {
     .footer-main-row.row {
         display: flex !important;
         flex-wrap: wrap !important;
+        flex-direction: row !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
         gap: 10px !important;
+    }
+    
+    .footer-main-row.row > * {
+        display: block !important;
     }
     
     .footer-about,
@@ -5134,6 +5139,8 @@ section {
     }
     
     /* First row: About links, For Freelancer, For Employer */
+    .footer-about-links,
+    .footer-about-links.col-md-2,
     .footer-links:nth-of-type(2),
     .footer-links:nth-of-type(2).col-md-2 {
         order: 2;
@@ -5172,8 +5179,9 @@ section {
     
     /* Second row: Tel Hotline and WhatsApp */
     .footer-hotline-standalone,
-    .footer-hotline-standalone.col-md-2 {
-        order: 5;
+    .footer-hotline-standalone.col-md-2,
+    .footer-main-row .footer-hotline-standalone {
+        order: 5 !important;
         flex: 0 0 calc(50% - 5px) !important;
         max-width: calc(50% - 5px) !important;
         width: calc(50% - 5px) !important;
@@ -5182,11 +5190,14 @@ section {
         padding-right: 5px !important;
         margin-bottom: 10px !important;
         display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .footer-whatsapp-standalone,
-    .footer-whatsapp-standalone.col-md-2 {
-        order: 6;
+    .footer-whatsapp-standalone.col-md-2,
+    .footer-main-row .footer-whatsapp-standalone {
+        order: 6 !important;
         flex: 0 0 calc(50% - 5px) !important;
         max-width: calc(50% - 5px) !important;
         width: calc(50% - 5px) !important;
@@ -5195,6 +5206,8 @@ section {
         padding-right: 15px !important;
         margin-bottom: 10px !important;
         display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     /* Hide nested sections on mobile */
@@ -5558,9 +5571,14 @@ section {
     .footer-main-row.row {
         display: flex !important;
         flex-wrap: wrap !important;
+        flex-direction: row !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
         gap: 10px !important;
+    }
+    
+    .footer-main-row.row > * {
+        display: block !important;
     }
     
     .footer-about,
@@ -5575,6 +5593,8 @@ section {
     }
     
     /* First row: About links, For Freelancer, For Employer */
+    .footer-about-links,
+    .footer-about-links.col-md-2,
     .footer-links:nth-of-type(2),
     .footer-links:nth-of-type(2).col-md-2 {
         order: 2;
@@ -5613,8 +5633,9 @@ section {
     
     /* Second row: Tel Hotline and WhatsApp */
     .footer-hotline-standalone,
-    .footer-hotline-standalone.col-md-2 {
-        order: 5;
+    .footer-hotline-standalone.col-md-2,
+    .footer-main-row .footer-hotline-standalone {
+        order: 5 !important;
         flex: 0 0 calc(50% - 5px) !important;
         max-width: calc(50% - 5px) !important;
         width: calc(50% - 5px) !important;
@@ -5623,11 +5644,14 @@ section {
         padding-right: 5px !important;
         margin-bottom: 10px !important;
         display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .footer-whatsapp-standalone,
-    .footer-whatsapp-standalone.col-md-2 {
-        order: 6;
+    .footer-whatsapp-standalone.col-md-2,
+    .footer-main-row .footer-whatsapp-standalone {
+        order: 6 !important;
         flex: 0 0 calc(50% - 5px) !important;
         max-width: calc(50% - 5px) !important;
         width: calc(50% - 5px) !important;
@@ -5636,6 +5660,8 @@ section {
         padding-right: 15px !important;
         margin-bottom: 10px !important;
         display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     /* Hide nested sections on mobile */

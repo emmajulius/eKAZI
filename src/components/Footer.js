@@ -29,7 +29,7 @@ const Footer = ({ onLoginClick }) => {
             </p>
           </div>
 
-          <div className="col-md-2 footer-links mb-4 mb-md-0">
+          <div className="col-md-2 footer-links footer-about-links mb-4 mb-md-0">
             <h6>ABOUT</h6>
             <ul>
               <li>
