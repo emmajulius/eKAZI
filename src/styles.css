@@ -3356,6 +3356,16 @@ section {
     pointer-events: none;
 }
 
+/* Freelancer Profile - Increased animated container height */
+.freelancer-profile-section .animated-writing-container {
+    padding: 35px 60px;
+    min-height: 100px;
+}
+
+.freelancer-profile-section .animated-sentences {
+    min-height: 100px;
+}
+
 .animated-caret.active {
     opacity: 1;
     animation: caretBlink 0.8s steps(2, start) infinite;
@@ -5161,6 +5171,15 @@ section {
         min-height: 80px;
     }
     
+    .freelancer-profile-section .animated-writing-container {
+        padding: 30px 30px;
+        min-height: 90px;
+    }
+    
+    .freelancer-profile-section .animated-sentences {
+        min-height: 90px;
+    }
+    
     .sentence {
         font-size: 22px;
     }
@@ -5377,6 +5396,15 @@ section {
         padding: 20px 20px;
         margin-bottom: 20px;
         min-height: 70px;
+    }
+    
+    .freelancer-profile-section .animated-writing-container {
+        padding: 25px 20px;
+        min-height: 85px;
+    }
+    
+    .freelancer-profile-section .animated-sentences {
+        min-height: 85px;
     }
     
     .sentence {
