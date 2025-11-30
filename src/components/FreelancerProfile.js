@@ -86,14 +86,14 @@ const FreelancerProfile = () => {
       const fullTextLeft = containerCenterX - (fullTextWidth / 2);
       element.style.position = 'absolute';
       element.style.left = `${fullTextLeft}px`;
-      element.style.top = '50%';
+      element.style.top = 'calc(50% + 15px)';
       element.style.transform = 'translateY(-50%)';
       
       // Position caret: starts at center, moves right as text expands
       // Cursor position = full text left edge + current text width
       const caretPosition = fullTextLeft + currentTextWidth;
       caret.style.left = `${caretPosition}px`;
-      caret.style.top = '50%';
+      caret.style.top = 'calc(50% + 15px)';
       caret.style.transform = 'translateY(-50%)';
       caret.classList.add('active');
     };
