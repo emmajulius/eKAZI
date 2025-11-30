@@ -311,63 +311,83 @@ const FreelancerProfile = () => {
                 </button>
               </div>
 
-              {/* Contact/Completeness/Ratings Card */}
-              <div className="freelancer-info-card" style={{
+              {/* Website Card */}
+              <div className="freelancer-website-card" style={{
                 backgroundColor: '#fff',
                 borderRadius: '12px',
                 padding: '20px',
+                marginBottom: '20px',
                 boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
               }}>
-                <div style={{ marginBottom: '20px' }}>
-                  <p style={{ fontSize: '14px', color: '#666', margin: 0 }}>
-                    {freelancer.website}
-                  </p>
+                <p style={{ fontSize: '14px', color: '#666', margin: 0 }}>
+                  {freelancer.website}
+                </p>
+              </div>
+
+              {/* Profile Completeness Card */}
+              <div className="freelancer-completeness-card" style={{
+                backgroundColor: '#fff',
+                borderRadius: '12px',
+                padding: '20px',
+                marginBottom: '20px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '14px', color: '#333' }}>Profile Completeness</span>
+                  <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{freelancer.profileCompleteness}%</span>
                 </div>
-                
-                <div style={{ marginBottom: '20px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                    <span style={{ fontSize: '14px', color: '#333' }}>Profile Completeness</span>
-                    <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{freelancer.profileCompleteness}%</span>
-                  </div>
+                <div style={{
+                  width: '100%',
+                  height: '8px',
+                  backgroundColor: '#e0e0e0',
+                  borderRadius: '4px',
+                  overflow: 'hidden'
+                }}>
                   <div style={{
-                    width: '100%',
-                    height: '8px',
-                    backgroundColor: '#e0e0e0',
-                    borderRadius: '4px',
-                    overflow: 'hidden'
-                  }}>
-                    <div style={{
-                      width: `${freelancer.profileCompleteness}%`,
-                      height: '100%',
-                      backgroundColor: '#D36314',
-                      transition: 'width 0.3s'
-                    }}></div>
-                  </div>
+                    width: `${freelancer.profileCompleteness}%`,
+                    height: '100%',
+                    backgroundColor: '#D36314',
+                    transition: 'width 0.3s'
+                  }}></div>
                 </div>
+              </div>
 
-                <div style={{ marginBottom: '20px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                    <span style={{ fontSize: '14px', color: '#333' }}>Ratings</span>
-                    <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{freelancer.rating}</span>
-                  </div>
-                  <div style={{ fontSize: '18px' }}>
-                    {renderStars(freelancer.rating)}
-                  </div>
+              {/* Rating Card */}
+              <div className="freelancer-rating-card" style={{
+                backgroundColor: '#fff',
+                borderRadius: '12px',
+                padding: '20px',
+                marginBottom: '20px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '14px', color: '#333' }}>Ratings</span>
+                  <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{freelancer.rating}</span>
                 </div>
+                <div style={{ fontSize: '18px' }}>
+                  {renderStars(freelancer.rating)}
+                </div>
+              </div>
 
-                <div style={{ borderTop: '1px solid #e0e0e0', paddingTop: '15px' }}>
-                  <div style={{ marginBottom: '10px' }}>
-                    <span style={{ fontSize: '14px', color: '#666' }}>Hourly Rate: </span>
-                    <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{freelancer.hourlyRate}</span>
-                  </div>
-                  <div style={{ marginBottom: '10px' }}>
-                    <span style={{ fontSize: '14px', color: '#666' }}>Age: </span>
-                    <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{freelancer.age}</span>
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '14px', color: '#666' }}>Experience: </span>
-                    <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{freelancer.experience}</span>
-                  </div>
+              {/* Working Rate Card */}
+              <div className="freelancer-rate-card" style={{
+                backgroundColor: '#fff',
+                borderRadius: '12px',
+                padding: '20px',
+                marginBottom: '20px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+              }}>
+                <div style={{ marginBottom: '10px' }}>
+                  <span style={{ fontSize: '14px', color: '#666' }}>Hourly Rate: </span>
+                  <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{freelancer.hourlyRate}</span>
+                </div>
+                <div style={{ marginBottom: '10px' }}>
+                  <span style={{ fontSize: '14px', color: '#666' }}>Age: </span>
+                  <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{freelancer.age}</span>
+                </div>
+                <div>
+                  <span style={{ fontSize: '14px', color: '#666' }}>Experience: </span>
+                  <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{freelancer.experience}</span>
                 </div>
               </div>
 
