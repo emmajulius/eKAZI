@@ -465,7 +465,10 @@ const CandidateProfile = () => {
                     <div>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                         <span style={{ fontSize: '14px', color: '#333' }}>Views</span>
-                        <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{stats.views}</span>
+                        <span style={{ fontSize: '14px', color: '#333', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <i className="fa fa-eye" style={{ color: '#2E58A6' }}></i>
+                          {stats.views}
+                        </span>
                       </div>
                     </div>
                     <div>
@@ -481,9 +484,16 @@ const CandidateProfile = () => {
                             background: 'none',
                             border: 'none',
                             cursor: 'pointer',
-                            padding: 0
+                            padding: 0,
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            transition: 'color 0.2s ease'
                           }}
+                          onMouseOver={(e) => e.currentTarget.style.color = '#D36314'}
+                          onMouseOut={(e) => e.currentTarget.style.color = '#333'}
                         >
+                          <i className="fa fa-thumbs-up" style={{ color: '#FF9800', cursor: 'pointer' }}></i>
                           {stats.likes}
                         </button>
                       </div>
@@ -501,9 +511,16 @@ const CandidateProfile = () => {
                             background: 'none',
                             border: 'none',
                             cursor: 'pointer',
-                            padding: 0
+                            padding: 0,
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            transition: 'color 0.2s ease'
                           }}
+                          onMouseOver={(e) => e.currentTarget.style.color = '#D36314'}
+                          onMouseOut={(e) => e.currentTarget.style.color = '#333'}
                         >
+                          <i className="fa fa-star" style={{ color: '#FF9800', cursor: 'pointer' }}></i>
                           {ratingValue} ({ratingCount})
                         </button>
                       </div>
