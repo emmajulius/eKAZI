@@ -5175,16 +5175,26 @@ section {
     
     .freelancer-profile-section .animated-writing-container {
         padding: 35px 30px;
-        min-height: 110px;
+        min-height: 120px;
         margin-top: -80px;
+        height: auto;
     }
     
     .freelancer-profile-section .animated-sentences {
-        min-height: 110px;
+        min-height: 120px;
+        align-items: flex-start;
+        padding-top: 10px;
+        height: auto;
     }
     
     .sentence {
-        font-size: 22px;
+        font-size: 20px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        word-break: break-word;
+        max-width: calc(100% - 60px);
+        width: auto;
+        text-align: left;
     }
     
     .animated-caret {
@@ -5407,17 +5417,27 @@ section {
     
     .freelancer-profile-section .animated-writing-container {
         padding: 30px 20px;
-        min-height: 100px;
+        min-height: 110px;
         margin-top: -60px;
+        height: auto;
     }
     
     .freelancer-profile-section .animated-sentences {
-        min-height: 100px;
+        min-height: 110px;
+        align-items: flex-start;
+        padding-top: 10px;
+        height: auto;
     }
     
     .sentence {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 1.5;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        word-break: break-word;
+        max-width: calc(100% - 40px);
+        width: auto;
+        text-align: left;
     }
     
     .animated-caret {
