@@ -3771,6 +3771,15 @@ section {
     flex-shrink: 0;
 }
 
+/* Ensure candidate profile images display fully without cropping */
+.freelancer-profile-card img {
+    max-width: 200px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: none !important;
+    object-position: center !important;
+}
+
 
 .candidate-btn {
     border-radius: 999px;

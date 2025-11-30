@@ -268,19 +268,23 @@ const CandidateProfile = () => {
                     marginBottom: '20px', 
                     display: 'flex', 
                     justifyContent: 'center', 
-                    alignItems: 'center',
-                    overflow: 'visible'
+                    alignItems: 'flex-start',
+                    overflow: 'visible',
+                    width: '100%',
+                    minHeight: 'auto'
                   }}>
                     <img
                       src={candidate.image || './assets/images/default.png'}
                       alt={candidate.name}
                       style={{
-                        maxWidth: '150px',
+                        maxWidth: '200px',
+                        width: 'auto',
                         height: 'auto',
                         borderRadius: '12px',
                         backgroundColor: '#E3F2FD',
                         marginBottom: '15px',
-                        display: 'block'
+                        display: 'block',
+                        padding: '5px'
                       }}
                       onError={handleImageError}
                     />
