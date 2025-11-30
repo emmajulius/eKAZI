@@ -2878,28 +2878,6 @@ section {
     gap: 15px;
 }
 
-.footer-hotline-section {
-    margin-top: 20px;
-}
-
-.footer-hotline-section p {
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-}
-
-.footer-hotline-section .row {
-    margin: 0;
-}
-
-.footer-hotline-section .col-md-10 {
-    padding: 0;
-}
-
-.footer-hotline-section .col-md-2 {
-    padding: 0;
-    text-align: right;
-}
-
 .footer-contact-details {
     display: flex;
     flex-direction: column;
@@ -2927,12 +2905,6 @@ section {
     margin-top: 10px;
     border: none;
     background: none;
-    text-decoration: none;
-    transition: transform 0.2s;
-}
-
-.whatsapp-button:hover {
-    transform: scale(1.1);
 }
 
 .whatsapp-button img {
@@ -2943,11 +2915,6 @@ section {
     background: rgba(255, 255, 255, 0.95);
     padding: 6px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.whatsapp-button i {
-    font-size: 30px;
-    color: #25d366;
 }
 
 .footer-bottom {
@@ -5156,7 +5123,7 @@ section {
         margin-bottom: 0 !important;
     }
     
-    /* Second row: For Employer (with Tel Hotline inside) */
+    /* Second row: For Employer and Tel Hotline */
     .footer-employer-section,
     .footer-employer-section.col-md-3 {
         order: 4;
@@ -5168,9 +5135,16 @@ section {
         padding-right: 5px !important;
     }
     
-    /* Tel Hotline inside For Employer section */
-    .footer-employer-section .footer-hotline-section {
-        margin-top: 15px !important;
+    .footer-hotline-section,
+    .footer-hotline-section.col-md-3 {
+        order: 5;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
+        box-sizing: border-box;
+        padding-left: 5px !important;
+        padding-right: 15px !important;
+        margin-top: -40px !important;
     }
     
     .footer-hotline-section .footer-contact-block {
@@ -5570,9 +5544,16 @@ section {
         padding-right: 5px !important;
     }
     
-    /* Tel Hotline inside For Employer section */
-    .footer-employer-section .footer-hotline-section {
-        margin-top: 15px !important;
+    .footer-hotline-section,
+    .footer-hotline-section.col-md-3 {
+        order: 5;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
+        box-sizing: border-box;
+        padding-left: 5px !important;
+        padding-right: 15px !important;
+        margin-top: -40px !important;
     }
     
     .footer-hotline-section .footer-contact-block {
