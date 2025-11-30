@@ -264,6 +264,16 @@ const CandidateProfile = () => {
                   boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
                   textAlign: 'center'
                 }}>
+                  <h3 style={{ 
+                    fontSize: '18px', 
+                    fontWeight: 'bold', 
+                    marginBottom: '15px',
+                    color: '#333',
+                    textAlign: 'left'
+                  }}>
+                    <i className="fa fa-user-circle" style={{ marginRight: '10px', color: '#D36314' }}></i>
+                    Profile Overview
+                  </h3>
                   <div style={{ marginBottom: '20px' }}>
                     <img
                       src={candidate.image || './assets/images/default.png'}
