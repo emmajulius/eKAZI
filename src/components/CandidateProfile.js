@@ -193,8 +193,7 @@ const CandidateProfile = () => {
     views: candidate.profileAssessment?.views ?? candidate.views ?? 0,
     likes: candidate.profileAssessment?.likes ?? candidate.likes ?? 0,
     rating: candidate.profileAssessment?.rating ?? candidate.rating ?? 0,
-    skillsRating: candidate.profileAssessment?.skillsRating ?? 0,
-    average: candidate.profileAssessment?.averageRating ?? candidate.profileAssessment?.average ?? 0
+    // skillsRating and average are only used in modal, not in main Profile Assessment card
   };
 
   const ratingValue = Number(stats.rating) || 0;
@@ -525,16 +524,6 @@ const CandidateProfile = () => {
                         </button>
                       </div>
                       <div style={{ fontSize: '14px' }}>{renderRatingStars()}</div>
-                    </div>
-                    <div style={{ borderTop: '1px solid #e0e0e0', paddingTop: '15px' }}>
-                      <div style={{ marginBottom: '10px' }}>
-                        <span style={{ fontSize: '14px', color: '#666' }}>Skills Score: </span>
-                        <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{stats.skillsRating}</span>
-                      </div>
-                      <div>
-                        <span style={{ fontSize: '14px', color: '#666' }}>Average Rating: </span>
-                        <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{stats.average}</span>
-                      </div>
                     </div>
                   </div>
                 </div>
