@@ -7207,6 +7207,11 @@ section {
         isolation: isolate;
     }
     
+    /* Increase WhatsApp logo width on desktop */
+    .whatsapp-button img {
+        width: 120px;
+    }
+    
     /* Additional map isolation */
     .map-container-wrapper {
         contain: strict !important;
