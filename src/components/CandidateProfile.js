@@ -466,7 +466,7 @@ const CandidateProfile = () => {
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                         <span style={{ fontSize: '14px', color: '#333' }}>Views</span>
                         <span style={{ fontSize: '14px', color: '#333', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                          <i className="fa fa-eye" style={{ color: '#2E58A6' }}></i>
+                          <i className="fa fa-eye" style={{ color: '#FF9800' }}></i>
                           {stats.views}
                         </span>
                       </div>
