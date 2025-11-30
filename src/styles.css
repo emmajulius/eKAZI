@@ -5870,6 +5870,7 @@ section {
         padding: 8px 14px;
         font-size: 13px;
         white-space: nowrap;
+        margin-left: -10px;
     }
     
     .nav-separator {
@@ -6236,6 +6237,7 @@ section {
     .btn-post-job {
         padding: 7px 10px;
         font-size: 11px;
+        margin-left: -10px;
     }
     
     .nav-menu {
