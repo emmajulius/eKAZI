@@ -455,7 +455,7 @@ const FreelancerProfile = () => {
                         marginRight: '12px',
                         flexShrink: 0
                       }}>
-                        <i className="fa fa-facebook" style={{ color: '#fff', fontSize: '16px' }}></i>
+                        <i className="fab fa-facebook-f" style={{ color: '#fff', fontSize: '16px' }}></i>
                       </div>
                       <span>{freelancer.socialMedia.facebook}</span>
                     </a>
@@ -484,7 +484,7 @@ const FreelancerProfile = () => {
                         marginRight: '12px',
                         flexShrink: 0
                       }}>
-                        <i className="fa fa-twitter" style={{ color: '#fff', fontSize: '16px' }}></i>
+                        <i className="fab fa-twitter" style={{ color: '#fff', fontSize: '16px' }}></i>
                       </div>
                       <span>{freelancer.socialMedia.twitter}</span>
                     </a>
@@ -513,7 +513,7 @@ const FreelancerProfile = () => {
                         marginRight: '12px',
                         flexShrink: 0
                       }}>
-                        <i className="fa fa-instagram" style={{ color: '#fff', fontSize: '16px' }}></i>
+                        <i className="fab fa-instagram" style={{ color: '#fff', fontSize: '16px' }}></i>
                       </div>
                       <span>{freelancer.socialMedia.instagram}</span>
                     </a>
