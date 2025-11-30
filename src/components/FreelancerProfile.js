@@ -209,18 +209,17 @@ const FreelancerProfile = () => {
           </div>
         </div>
         <div className="container">
-          {/* Centered Profile Card */}
           <div className="row">
-            <div className="col-md-12" style={{ display: 'flex', justifyContent: 'center', marginBottom: '30px' }}>
+            {/* Left Column */}
+            <div className="col-md-4">
+              {/* Main Profile Card */}
               <div className="freelancer-profile-card" style={{
                 backgroundColor: '#fff',
                 borderRadius: '12px',
                 padding: '20px',
                 marginBottom: '20px',
                 boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                textAlign: 'center',
-                maxWidth: '400px',
-                width: '100%'
+                textAlign: 'center'
               }}>
                 <div style={{ marginBottom: '20px' }}>
                   <img
@@ -285,12 +284,7 @@ const FreelancerProfile = () => {
                   Message
                 </button>
               </div>
-            </div>
-          </div>
-          
-          <div className="row">
-            {/* Left Column */}
-            <div className="col-md-4">
+
               {/* Contact/Completeness/Ratings Card */}
               <div className="freelancer-info-card" style={{
                 backgroundColor: '#fff',
