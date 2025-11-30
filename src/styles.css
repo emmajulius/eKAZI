@@ -2908,8 +2908,8 @@ section {
 }
 
 .whatsapp-button img {
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 120px;
     display: block;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.95);
@@ -7208,9 +7208,12 @@ section {
     }
     
     /* Increase WhatsApp logo width on desktop */
+    .footer-whatsapp-section .whatsapp-button img,
     .whatsapp-button img {
-        width: 180px;
-        height: 180px;
+        width: 300px !important;
+        height: 300px !important;
+        max-width: 300px !important;
+        max-height: 300px !important;
     }
     
     /* Additional map isolation */
