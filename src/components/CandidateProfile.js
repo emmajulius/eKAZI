@@ -274,10 +274,12 @@ const CandidateProfile = () => {
                       src={candidate.image || './assets/images/default.png'}
                       alt={candidate.name}
                       style={{
-                        width: '150px',
-                        height: '150px',
+                        maxWidth: '150px',
+                        width: 'auto',
+                        height: 'auto',
+                        maxHeight: '150px',
                         borderRadius: '12px',
-                        objectFit: 'cover',
+                        objectFit: 'contain',
                         backgroundColor: '#E3F2FD',
                         marginBottom: '15px',
                         display: 'block'
