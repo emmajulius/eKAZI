@@ -5178,12 +5178,12 @@ section {
     
     .freelancer-profile-section .animated-writing-container {
         padding: 35px 30px;
-        min-height: 110px;
+        min-height: 95px;
         margin-top: -80px;
     }
     
     .freelancer-profile-section .animated-sentences {
-        min-height: 110px;
+        min-height: 95px;
         height: auto;
         align-items: flex-start;
         padding-top: 10px;
@@ -5426,12 +5426,12 @@ section {
     
     .freelancer-profile-section .animated-writing-container {
         padding: 30px 20px;
-        min-height: 100px;
+        min-height: 85px;
         margin-top: -60px;
     }
     
     .freelancer-profile-section .animated-sentences {
-        min-height: 100px;
+        min-height: 85px;
         height: auto;
         align-items: flex-start;
         padding-top: 10px;
