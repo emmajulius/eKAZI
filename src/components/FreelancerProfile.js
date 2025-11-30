@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -11,6 +11,13 @@ const FreelancerProfile = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [activeTab, setActiveTab] = useState('Profile');
   const freelancer = fullFreelancersData[Number(id)];
+
+  // Memoize map URL to prevent unnecessary re-renders
+  const mapUrl = useMemo(() => {
+    if (!freelancer) return '';
+    const address = freelancer.mapLocation?.address || `${freelancer.location}, Tanzania`;
+    return `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
+  }, [freelancer?.id, freelancer?.mapLocation?.address, freelancer?.location]);
 
   const sentence1 = "Explore featured freelancers information";
   const sentence2 = "Discover skilled professionals ready to work on your projects";
@@ -351,17 +358,21 @@ const FreelancerProfile = () => {
                 <div style={{ 
                   width: '100%', 
                   height: '300px', 
+                  minHeight: '300px',
+                  maxHeight: '300px',
                   borderRadius: '8px',
                   overflow: 'hidden',
                   border: '1px solid #e0e0e0',
                   position: 'relative',
                   transform: 'translateZ(0)',
                   backfaceVisibility: 'hidden',
-                  perspective: '1000px'
+                  perspective: '1000px',
+                  isolation: 'isolate',
+                  contain: 'layout style paint'
                 }}>
                   <iframe
-                    key={`map-${freelancer.id}`}
-                    src={`https://www.google.com/maps?q=${encodeURIComponent(freelancer.mapLocation?.address || `${freelancer.location}, Tanzania`)}&output=embed`}
+                    key={`map-${freelancer?.id || id}`}
+                    src={mapUrl}
                     width="100%"
                     height="100%"
                     style={{ 
@@ -371,7 +382,8 @@ const FreelancerProfile = () => {
                       left: 0,
                       width: '100%',
                       height: '100%',
-                      transform: 'translateZ(0)'
+                      transform: 'translateZ(0)',
+                      pointerEvents: 'auto'
                     }}
                     allowFullScreen=""
                     loading="lazy"

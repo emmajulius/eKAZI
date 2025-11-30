@@ -6903,6 +6903,8 @@ section {
 .freelancer-location-card {
     position: relative;
     will-change: auto;
+    contain: layout style paint;
+    isolation: isolate;
 }
 
 .freelancer-location-card > div {
@@ -6912,6 +6914,10 @@ section {
     perspective: 1000px;
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
+    contain: layout style paint;
+    isolation: isolate;
+    min-height: 300px;
+    height: 300px;
 }
 
 .freelancer-location-card iframe {
@@ -6923,6 +6929,40 @@ section {
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
     will-change: auto;
+    pointer-events: auto;
+    isolation: isolate;
+}
+
+/* Desktop-specific fixes for map vibration */
+@media (min-width: 769px) {
+    .freelancer-location-card {
+        contain: layout style paint;
+        isolation: isolate;
+    }
+    
+    .freelancer-location-card > div {
+        contain: strict;
+        isolation: isolate;
+        transform: translateZ(0);
+        will-change: transform;
+    }
+    
+    .freelancer-location-card iframe {
+        transform: translateZ(0) scale(1);
+        will-change: transform;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        isolation: isolate;
+    }
+    
+    /* Prevent parent containers from affecting map */
+    .freelancer-profile-section .row {
+        contain: layout;
+    }
+    
+    .col-md-4 {
+        contain: layout;
+    }
 }
 
 /* Print Styles */
