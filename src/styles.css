@@ -5207,6 +5207,7 @@ section {
     
     .animated-caret {
         height: 34px;
+        display: none !important;
     }
     
     .candidate-welcome-banner {
@@ -5455,6 +5456,7 @@ section {
     
     .animated-caret {
         height: 28px;
+        display: none !important;
     }
     
     .candidate-welcome-banner {

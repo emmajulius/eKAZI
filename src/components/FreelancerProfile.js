@@ -85,14 +85,9 @@ const FreelancerProfile = () => {
         element.style.width = '';
         element.style.maxWidth = '';
         
-        // Position caret at the center bottom of the text area on mobile
-        // Since text wraps, we position it at the bottom center
-        caret.style.position = 'absolute';
-        caret.style.left = '50%';
-        caret.style.transform = 'translateX(-50%)';
-        caret.style.top = 'auto';
-        caret.style.bottom = '10px';
-        caret.classList.add('active');
+        // Hide caret on mobile - only show animated words
+        caret.style.display = 'none';
+        caret.classList.remove('active');
       } else {
         // On desktop: use absolute positioning for centered text
         // Only recalculate container width if it's not cached or changed
