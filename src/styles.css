@@ -5081,59 +5081,73 @@ section {
     }
     
     /* Footer mobile layout - arrange in two rows */
-    .footer-main-row {
-        display: flex;
-        flex-wrap: wrap;
+    .footer-main-row.row {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
     
-    .footer-about {
-        flex: 0 0 100%;
-        max-width: 100%;
+    .footer-about,
+    .footer-about.col-md-5 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
         margin-bottom: 30px;
         order: 1;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
     }
     
     /* First row: About and For Freelancer */
-    .footer-links:nth-of-type(2) {
+    .footer-links:nth-of-type(2),
+    .footer-links:nth-of-type(2).col-md-2 {
         order: 2;
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
         box-sizing: border-box;
-        padding-right: 10px;
+        padding-left: 15px !important;
+        padding-right: 5px !important;
     }
     
-    .footer-links:nth-of-type(3) {
+    .footer-links:nth-of-type(3),
+    .footer-links:nth-of-type(3).col-md-2 {
         order: 3;
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
         box-sizing: border-box;
-        padding-left: 10px;
+        padding-left: 5px !important;
+        padding-right: 15px !important;
     }
     
     /* Second row: For Employer and Tel Hotline */
-    .footer-employer-section {
+    .footer-employer-section,
+    .footer-employer-section.col-md-3 {
         order: 4;
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
         box-sizing: border-box;
-        padding-right: 10px;
+        padding-left: 15px !important;
+        padding-right: 5px !important;
     }
     
-    .footer-hotline-section {
+    .footer-hotline-section,
+    .footer-hotline-section.col-md-3 {
         order: 5;
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
         box-sizing: border-box;
-        padding-left: 10px;
+        padding-left: 5px !important;
+        padding-right: 15px !important;
         margin-top: 0;
     }
     
     .footer-hotline-section .footer-contact-block {
         margin-top: 0;
-    }
-    
-    .footer-hotline-section h6 {
-        display: none;
     }
     
     .banner-image {
@@ -5475,50 +5489,68 @@ section {
     }
     
     /* Footer mobile layout - arrange in two rows (small mobile) */
-    .footer-main-row {
-        display: flex;
-        flex-wrap: wrap;
+    .footer-main-row.row {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
     
-    .footer-about {
-        flex: 0 0 100%;
-        max-width: 100%;
+    .footer-about,
+    .footer-about.col-md-5 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
         margin-bottom: 30px;
         order: 1;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
     }
     
     /* First row: About and For Freelancer */
-    .footer-links:nth-of-type(2) {
+    .footer-links:nth-of-type(2),
+    .footer-links:nth-of-type(2).col-md-2 {
         order: 2;
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
         box-sizing: border-box;
-        padding-right: 10px;
+        padding-left: 15px !important;
+        padding-right: 5px !important;
     }
     
-    .footer-links:nth-of-type(3) {
+    .footer-links:nth-of-type(3),
+    .footer-links:nth-of-type(3).col-md-2 {
         order: 3;
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
         box-sizing: border-box;
-        padding-left: 10px;
+        padding-left: 5px !important;
+        padding-right: 15px !important;
     }
     
     /* Second row: For Employer and Tel Hotline */
-    .footer-employer-section {
+    .footer-employer-section,
+    .footer-employer-section.col-md-3 {
         order: 4;
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
         box-sizing: border-box;
-        padding-right: 10px;
+        padding-left: 15px !important;
+        padding-right: 5px !important;
     }
     
-    .footer-hotline-section {
+    .footer-hotline-section,
+    .footer-hotline-section.col-md-3 {
         order: 5;
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
         box-sizing: border-box;
-        padding-left: 10px;
+        padding-left: 5px !important;
+        padding-right: 15px !important;
         margin-top: 0;
     }
     
