@@ -580,102 +580,23 @@ const CandidateProfile = () => {
                       {/* About Text */}
                       {candidate.about && (
                         <div style={{ marginBottom: '20px' }}>
-                          <p style={{ margin: 0 }}>{candidate.about}</p>
+                          <p style={{ margin: 0, whiteSpace: 'pre-wrap' }}>{candidate.about}</p>
                         </div>
                       )}
                       
                       {/* Career Objectives */}
                       {candidate.careerObjectives && (
-                        <div style={{ marginBottom: '20px' }}>
+                        <div style={{ marginTop: '20px', paddingTop: '20px', borderTop: '1px solid #e0e0e0' }}>
                           <h4 style={{ fontSize: '16px', fontWeight: '600', color: '#333', marginBottom: '10px' }}>
                             <i className="fa fa-bullseye" style={{ marginRight: '8px', color: '#D36314' }}></i>
                             Career Objectives
                           </h4>
-                          <p style={{ margin: 0 }}>{candidate.careerObjectives}</p>
-                        </div>
-                      )}
-                      
-                      {/* Position */}
-                      {candidate.position && candidate.position !== 'No Position Records' && (
-                        <div style={{ marginBottom: '20px', paddingTop: '15px', borderTop: '1px solid #e0e0e0' }}>
-                          <h4 style={{ fontSize: '16px', fontWeight: '600', color: '#333', marginBottom: '10px' }}>
-                            <i className="fa fa-briefcase" style={{ marginRight: '8px', color: '#D36314' }}></i>
-                            Current Position
-                          </h4>
-                          <p style={{ margin: 0 }}>{candidate.position}</p>
-                        </div>
-                      )}
-                      
-                      {/* Status */}
-                      {candidate.status && (
-                        <div style={{ marginBottom: '20px', paddingTop: '15px', borderTop: candidate.position && candidate.position !== 'No Position Records' ? 'none' : '1px solid #e0e0e0' }}>
-                          <h4 style={{ fontSize: '16px', fontWeight: '600', color: '#333', marginBottom: '10px' }}>
-                            <i className="fa fa-info-circle" style={{ marginRight: '8px', color: '#D36314' }}></i>
-                            Status
-                          </h4>
-                          <p style={{ margin: 0 }}>{candidate.status}</p>
-                        </div>
-                      )}
-                      
-                      {/* Location */}
-                      {candidate.location && (
-                        <div style={{ marginBottom: '20px', paddingTop: '15px', borderTop: '1px solid #e0e0e0' }}>
-                          <h4 style={{ fontSize: '16px', fontWeight: '600', color: '#333', marginBottom: '10px' }}>
-                            <i className="fa fa-map-marker-alt" style={{ marginRight: '8px', color: '#D36314' }}></i>
-                            Location
-                          </h4>
-                          <p style={{ margin: 0 }}>{candidate.location}, Tanzania</p>
-                        </div>
-                      )}
-                      
-                      {/* Contact Information */}
-                      {(candidate.phone || candidate.email) && (
-                        <div style={{ marginBottom: '20px', paddingTop: '15px', borderTop: '1px solid #e0e0e0' }}>
-                          <h4 style={{ fontSize: '16px', fontWeight: '600', color: '#333', marginBottom: '10px' }}>
-                            <i className="fa fa-address-card" style={{ marginRight: '8px', color: '#D36314' }}></i>
-                            Contact Information
-                          </h4>
-                          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            {candidate.phone && (
-                              <p style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <i className="fa fa-phone" style={{ color: '#D36314' }}></i>
-                                <span>{candidate.phone}</span>
-                              </p>
-                            )}
-                            {candidate.email && (
-                              <p style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <i className="fa fa-envelope" style={{ color: '#D36314' }}></i>
-                                <span>{candidate.email}</span>
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      )}
-                      
-                      {/* Education Summary */}
-                      {candidate.education?.length > 0 && (
-                        <div style={{ marginBottom: '20px', paddingTop: '15px', borderTop: '1px solid #e0e0e0' }}>
-                          <h4 style={{ fontSize: '16px', fontWeight: '600', color: '#333', marginBottom: '10px' }}>
-                            <i className="fa fa-graduation-cap" style={{ marginRight: '8px', color: '#D36314' }}></i>
-                            Education Summary
-                          </h4>
-                          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                            {candidate.education.map((education, index) => (
-                              <div key={`about-edu-${index}`} style={{ marginBottom: '8px' }}>
-                                <p style={{ margin: 0, fontWeight: '500', color: '#333' }}>
-                                  {education.degree}
-                                </p>
-                                <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: '#666' }}>
-                                  {education.institution} {education.year && `• ${education.year}`}
-                                </p>
-                              </div>
-                            ))}
-                          </div>
+                          <p style={{ margin: 0, whiteSpace: 'pre-wrap' }}>{candidate.careerObjectives}</p>
                         </div>
                       )}
                       
                       {/* No information message */}
-                      {!candidate.about && !candidate.careerObjectives && !candidate.position && !candidate.status && !candidate.location && !candidate.phone && !candidate.email && !candidate.education?.length && (
+                      {!candidate.about && !candidate.careerObjectives && (
                         <p>No about information available.</p>
                       )}
                     </div>
