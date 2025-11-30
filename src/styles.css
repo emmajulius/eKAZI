@@ -5173,17 +5173,17 @@ section {
     .animated-writing-container {
         padding: 25px 30px;
         margin-bottom: 25px;
-        min-height: 80px;
+        min-height: 70px;
     }
     
     .freelancer-profile-section .animated-writing-container {
         padding: 35px 30px;
-        min-height: 80px;
+        min-height: 70px;
         margin-top: -80px;
     }
     
     .freelancer-profile-section .animated-sentences {
-        min-height: 80px;
+        min-height: 70px;
         height: auto;
         align-items: flex-start;
         padding-top: 10px;
@@ -5421,17 +5421,17 @@ section {
     .animated-writing-container {
         padding: 20px 20px;
         margin-bottom: 20px;
-        min-height: 70px;
+        min-height: 60px;
     }
     
     .freelancer-profile-section .animated-writing-container {
         padding: 30px 20px;
-        min-height: 70px;
+        min-height: 60px;
         margin-top: -60px;
     }
     
     .freelancer-profile-section .animated-sentences {
-        min-height: 70px;
+        min-height: 60px;
         height: auto;
         align-items: flex-start;
         padding-top: 10px;
