@@ -353,13 +353,26 @@ const FreelancerProfile = () => {
                   height: '300px', 
                   borderRadius: '8px',
                   overflow: 'hidden',
-                  border: '1px solid #e0e0e0'
+                  border: '1px solid #e0e0e0',
+                  position: 'relative',
+                  transform: 'translateZ(0)',
+                  backfaceVisibility: 'hidden',
+                  perspective: '1000px'
                 }}>
                   <iframe
+                    key={`map-${freelancer.id}`}
                     src={`https://www.google.com/maps?q=${encodeURIComponent(freelancer.mapLocation?.address || `${freelancer.location}, Tanzania`)}&output=embed`}
                     width="100%"
                     height="100%"
-                    style={{ border: 0 }}
+                    style={{ 
+                      border: 0,
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      transform: 'translateZ(0)'
+                    }}
                     allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
