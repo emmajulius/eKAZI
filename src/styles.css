@@ -4141,18 +4141,11 @@ section {
 /* Experience Timeline */
 .experience-timeline {
     position: relative;
-    padding-left: 30px;
+    padding-left: 0;
 }
 
 .experience-timeline::before {
-    content: '';
-    position: absolute;
-    left: 8px;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: linear-gradient(to bottom, #2E58A6, #FF9800, #2E58A6);
-    border-radius: 2px;
+    display: none;
 }
 
 .timeline-item {
@@ -4181,7 +4174,6 @@ section {
     background: #f8f9fa;
     border-radius: 12px;
     padding: 20px;
-    border-left: 4px solid #2E58A6;
 }
 
 .experience-title-row {
