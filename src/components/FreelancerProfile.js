@@ -317,8 +317,17 @@ const FreelancerProfile = () => {
                 borderRadius: '12px',
                 padding: '20px',
                 marginBottom: '20px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                border: '1px solid #e0e0e0'
               }}>
+                <h3 style={{ 
+                  fontSize: '16px', 
+                  fontWeight: '600', 
+                  marginBottom: '12px',
+                  color: '#333'
+                }}>
+                  Website
+                </h3>
                 <p style={{ fontSize: '14px', color: '#666', margin: 0 }}>
                   {freelancer.website}
                 </p>
@@ -330,10 +339,19 @@ const FreelancerProfile = () => {
                 borderRadius: '12px',
                 padding: '20px',
                 marginBottom: '20px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                border: '1px solid #e0e0e0'
               }}>
+                <h3 style={{ 
+                  fontSize: '16px', 
+                  fontWeight: '600', 
+                  marginBottom: '12px',
+                  color: '#333'
+                }}>
+                  Profile Completeness
+                </h3>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <span style={{ fontSize: '14px', color: '#333' }}>Profile Completeness</span>
+                  <span style={{ fontSize: '14px', color: '#333' }}>Progress</span>
                   <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{freelancer.profileCompleteness}%</span>
                 </div>
                 <div style={{
@@ -358,10 +376,19 @@ const FreelancerProfile = () => {
                 borderRadius: '12px',
                 padding: '20px',
                 marginBottom: '20px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                border: '1px solid #e0e0e0'
               }}>
+                <h3 style={{ 
+                  fontSize: '16px', 
+                  fontWeight: '600', 
+                  marginBottom: '12px',
+                  color: '#333'
+                }}>
+                  Rating
+                </h3>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <span style={{ fontSize: '14px', color: '#333' }}>Ratings</span>
+                  <span style={{ fontSize: '14px', color: '#333' }}>Score</span>
                   <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{freelancer.rating}</span>
                 </div>
                 <div style={{ fontSize: '18px' }}>
@@ -375,8 +402,17 @@ const FreelancerProfile = () => {
                 borderRadius: '12px',
                 padding: '20px',
                 marginBottom: '20px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                border: '1px solid #e0e0e0'
               }}>
+                <h3 style={{ 
+                  fontSize: '16px', 
+                  fontWeight: '600', 
+                  marginBottom: '12px',
+                  color: '#333'
+                }}>
+                  Working Rate
+                </h3>
                 <div style={{ marginBottom: '10px' }}>
                   <span style={{ fontSize: '14px', color: '#666' }}>Hourly Rate: </span>
                   <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{freelancer.hourlyRate}</span>
