@@ -21,9 +21,6 @@ const FreelancerProfile = () => {
   }, [id]);
 
   useEffect(() => {
-    const sentence1Words = sentence1.split(' ');
-    const sentence2Words = sentence2.split(' ');
-    const sentence3Words = sentence3.split(' ');
     const sentence1El = document.querySelector('.freelancer-profile-section .sentence-1');
     const sentence2El = document.querySelector('.freelancer-profile-section .sentence-2');
     const sentence3El = document.querySelector('.freelancer-profile-section .sentence-3');
@@ -33,38 +30,14 @@ const FreelancerProfile = () => {
     if (!sentence1El || !sentence2El || !sentence3El || !caret || !container) return;
 
     let currentSentence = 1;
-    let expansionIndex = 0; // How many words expanded on each side from center
+    let currentTextIndex = 0;
+    let isDeleting = false;
     let animationTimeout;
 
-    // Split words into left and right halves from center
-    const splitSentence = (words) => {
-      const mid = Math.floor(words.length / 2);
-      const isOdd = words.length % 2 === 1;
-      
-      if (isOdd) {
-        return {
-          center: [words[mid]],
-          left: words.slice(0, mid),
-          right: words.slice(mid + 1)
-        };
-      } else {
-        return {
-          center: [],
-          left: words.slice(0, mid),
-          right: words.slice(mid)
-        };
-      }
-    };
-
-    const positionCaretAtCenter = () => {
-      if (!caret || !container) return;
-      
-      const containerRect = container.getBoundingClientRect();
-      const centerX = containerRect.width / 2;
-      
-      caret.style.left = `${centerX}px`;
-      caret.style.top = `${containerRect.height / 2 - 21}px`;
-      caret.classList.add('active');
+    const getCurrentSentence = () => {
+      if (currentSentence === 1) return { text: sentence1, element: sentence1El };
+      if (currentSentence === 2) return { text: sentence2, element: sentence2El };
+      return { text: sentence3, element: sentence3El };
     };
 
     const updateCaretPosition = (element) => {
@@ -73,6 +46,7 @@ const FreelancerProfile = () => {
       const tempSpan = document.createElement('span');
       tempSpan.style.visibility = 'hidden';
       tempSpan.style.position = 'absolute';
+      tempSpan.style.whiteSpace = 'pre';
       tempSpan.style.fontSize = window.getComputedStyle(element).fontSize;
       tempSpan.style.fontWeight = window.getComputedStyle(element).fontWeight;
       tempSpan.style.fontFamily = window.getComputedStyle(element).fontFamily;
@@ -96,125 +70,45 @@ const FreelancerProfile = () => {
       sentence3El.textContent = '';
     };
 
-    const buildBilateralText = (words, expansionIdx) => {
-      const { center, left, right } = splitSentence(words);
-      
-      if (expansionIdx === 0) {
-        // Show only center word(s) if exists
-        const centerText = center.length > 0 ? center.join(' ') : '';
-        return { fullText: centerText };
-      }
-      
-      // Build text from center outward
-      // Start with words from left side (working from center outward)
-      const leftWordsToShow = Math.min(expansionIdx - 1, left.length);
-      const rightWordsToShow = Math.min(expansionIdx - 1, right.length);
-      
-      const leftPart = left.slice(left.length - leftWordsToShow);
-      const rightPart = right.slice(0, rightWordsToShow);
-      
-      // Combine: left part (reversed order) + center + right part
-      const allWords = [...leftPart, ...center, ...rightPart];
-      
-      return { fullText: allWords.join(' ') };
-    };
+    const type = () => {
+      const { text, element } = getCurrentSentence();
+      clearAllSentences();
 
-    const writeWord = () => {
-      let words, sentenceEl, maxExpansion;
-      
-      if (currentSentence === 1) {
-        words = sentence1Words;
-        sentenceEl = sentence1El;
-      } else if (currentSentence === 2) {
-        words = sentence2Words;
-        sentenceEl = sentence2El;
-      } else {
-        words = sentence3Words;
-        sentenceEl = sentence3El;
-      }
-
-      const { center, left, right } = splitSentence(words);
-      // maxExpansion: 1 (for center) + max words on either side
-      maxExpansion = Math.max(left.length, right.length) + 1;
-
-      if (expansionIndex === 0) {
-        // Start at center
-        clearAllSentences();
-        positionCaretAtCenter();
-        const result = buildBilateralText(words, 0);
-        if (result.fullText) {
-          sentenceEl.textContent = result.fullText;
-          positionCaretAtCenter();
-        }
-        expansionIndex = 1;
-        animationTimeout = setTimeout(writeWord, 300);
-      } else {
-        const result = buildBilateralText(words, expansionIndex);
+      if (!isDeleting && currentTextIndex <= text.length) {
+        // Typing forward
+        element.textContent = text.substring(0, currentTextIndex);
+        updateCaretPosition(element);
+        currentTextIndex++;
         
-        if (expansionIndex <= maxExpansion && result.fullText) {
-          clearAllSentences();
-          sentenceEl.textContent = result.fullText;
-          updateCaretPosition(sentenceEl);
-          expansionIndex++;
-          animationTimeout = setTimeout(writeWord, 300);
-        } else {
-          // Sentence complete, wait then erase
-          setTimeout(() => {
-            eraseWord();
-          }, 2000);
-        }
-      }
-    };
-
-    const eraseWord = () => {
-      let words, sentenceEl;
-      
-      if (currentSentence === 1) {
-        words = sentence1Words;
-        sentenceEl = sentence1El;
-      } else if (currentSentence === 2) {
-        words = sentence2Words;
-        sentenceEl = sentence2El;
-      } else {
-        words = sentence3Words;
-        sentenceEl = sentence3El;
-      }
-
-      const { center, left, right } = splitSentence(words);
-      const maxExpansion = Math.max(left.length, right.length) + (center.length > 0 ? 1 : 0);
-
-      if (expansionIndex > 0) {
-        expansionIndex--;
-        clearAllSentences();
+        const typingSpeed = 100 + Math.random() * 50; // Variable typing speed like real typing
+        animationTimeout = setTimeout(type, typingSpeed);
+      } else if (!isDeleting && currentTextIndex > text.length) {
+        // Finished typing, wait then start deleting
+        isDeleting = true;
+        animationTimeout = setTimeout(type, 2000);
+      } else if (isDeleting && currentTextIndex > 0) {
+        // Deleting backward
+        currentTextIndex--;
+        element.textContent = text.substring(0, currentTextIndex);
+        updateCaretPosition(element);
         
-        if (expansionIndex === 0) {
-          sentenceEl.textContent = '';
-          caret.classList.remove('active');
-          // Move to next sentence
-          currentSentence = currentSentence === 3 ? 1 : currentSentence + 1;
-          expansionIndex = 0;
-          setTimeout(() => {
-            positionCaretAtCenter();
-            setTimeout(writeWord, 500);
-          }, 500);
-        } else {
-          const result = buildBilateralText(words, expansionIndex);
-          
-          if (result.fullText) {
-            sentenceEl.textContent = result.fullText;
-            updateCaretPosition(sentenceEl);
-          } else {
-            sentenceEl.textContent = '';
-            positionCaretAtCenter();
-          }
-          animationTimeout = setTimeout(eraseWord, 200);
-        }
+        const deletingSpeed = 50; // Faster deleting
+        animationTimeout = setTimeout(type, deletingSpeed);
+      } else {
+        // Finished deleting, move to next sentence
+        isDeleting = false;
+        element.textContent = '';
+        caret.classList.remove('active');
+        
+        currentSentence = currentSentence === 3 ? 1 : currentSentence + 1;
+        currentTextIndex = 0;
+        
+        animationTimeout = setTimeout(type, 500);
       }
     };
 
-    // Start animation with cursor at center
-    positionCaretAtCenter();
-    setTimeout(writeWord, 500);
+    // Start typing animation
+    setTimeout(type, 500);
 
     return () => {
       caret?.classList.remove('active');
