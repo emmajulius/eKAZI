@@ -33,8 +33,39 @@ const FreelancerProfile = () => {
     if (!sentence1El || !sentence2El || !sentence3El || !caret || !container) return;
 
     let currentSentence = 1;
-    let currentWordIndex = 0;
+    let expansionIndex = 0; // How many words expanded on each side from center
     let animationTimeout;
+
+    // Split words into left and right halves from center
+    const splitSentence = (words) => {
+      const mid = Math.floor(words.length / 2);
+      const isOdd = words.length % 2 === 1;
+      
+      if (isOdd) {
+        return {
+          center: [words[mid]],
+          left: words.slice(0, mid),
+          right: words.slice(mid + 1)
+        };
+      } else {
+        return {
+          center: [],
+          left: words.slice(0, mid),
+          right: words.slice(mid)
+        };
+      }
+    };
+
+    const positionCaretAtCenter = () => {
+      if (!caret || !container) return;
+      
+      const containerRect = container.getBoundingClientRect();
+      const centerX = containerRect.width / 2;
+      
+      caret.style.left = `${centerX}px`;
+      caret.style.top = `${containerRect.height / 2 - 21}px`;
+      caret.classList.add('active');
+    };
 
     const updateCaretPosition = (element) => {
       if (!element || !caret || !container) return;
@@ -49,14 +80,14 @@ const FreelancerProfile = () => {
       document.body.appendChild(tempSpan);
       
       const textWidth = tempSpan.offsetWidth;
+      document.body.removeChild(tempSpan);
+      
       const containerRect = container.getBoundingClientRect();
       const elementRect = element.getBoundingClientRect();
       
       caret.style.left = `${elementRect.left - containerRect.left + textWidth + 4}px`;
       caret.style.top = `${elementRect.top - containerRect.top + elementRect.height / 2 - caret.offsetHeight / 2}px`;
       caret.classList.add('active');
-      
-      document.body.removeChild(tempSpan);
     };
 
     const clearAllSentences = () => {
@@ -65,44 +96,70 @@ const FreelancerProfile = () => {
       sentence3El.textContent = '';
     };
 
+    const buildBilateralText = (words, expansionIdx) => {
+      const { center, left, right } = splitSentence(words);
+      
+      if (expansionIdx === 0) {
+        // Show only center word(s) if exists
+        const centerText = center.length > 0 ? center.join(' ') : '';
+        return { fullText: centerText };
+      }
+      
+      // Build text from center outward
+      // Start with words from left side (working from center outward)
+      const leftWordsToShow = Math.min(expansionIdx - 1, left.length);
+      const rightWordsToShow = Math.min(expansionIdx - 1, right.length);
+      
+      const leftPart = left.slice(left.length - leftWordsToShow);
+      const rightPart = right.slice(0, rightWordsToShow);
+      
+      // Combine: left part (reversed order) + center + right part
+      const allWords = [...leftPart, ...center, ...rightPart];
+      
+      return { fullText: allWords.join(' ') };
+    };
+
     const writeWord = () => {
+      let words, sentenceEl, maxExpansion;
+      
       if (currentSentence === 1) {
-        if (currentWordIndex < sentence1Words.length) {
-          sentence1El.textContent = sentence1Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
-          clearAllSentences();
-          sentence1El.textContent = sentence1Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
-          updateCaretPosition(sentence1El);
-          currentWordIndex++;
-          animationTimeout = setTimeout(writeWord, 300);
-        } else {
-          setTimeout(() => {
-            currentWordIndex = sentence1Words.length - 1;
-            eraseWord();
-          }, 2000);
-        }
+        words = sentence1Words;
+        sentenceEl = sentence1El;
       } else if (currentSentence === 2) {
-        if (currentWordIndex < sentence2Words.length) {
-          clearAllSentences();
-          sentence2El.textContent = sentence2Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
-          updateCaretPosition(sentence2El);
-          currentWordIndex++;
-          animationTimeout = setTimeout(writeWord, 300);
-        } else {
-          setTimeout(() => {
-            currentWordIndex = sentence2Words.length - 1;
-            eraseWord();
-          }, 2000);
-        }
+        words = sentence2Words;
+        sentenceEl = sentence2El;
       } else {
-        if (currentWordIndex < sentence3Words.length) {
+        words = sentence3Words;
+        sentenceEl = sentence3El;
+      }
+
+      const { center, left, right } = splitSentence(words);
+      // maxExpansion: 1 (for center) + max words on either side
+      maxExpansion = Math.max(left.length, right.length) + 1;
+
+      if (expansionIndex === 0) {
+        // Start at center
+        clearAllSentences();
+        positionCaretAtCenter();
+        const result = buildBilateralText(words, 0);
+        if (result.fullText) {
+          sentenceEl.textContent = result.fullText;
+          positionCaretAtCenter();
+        }
+        expansionIndex = 1;
+        animationTimeout = setTimeout(writeWord, 300);
+      } else {
+        const result = buildBilateralText(words, expansionIndex);
+        
+        if (expansionIndex <= maxExpansion && result.fullText) {
           clearAllSentences();
-          sentence3El.textContent = sentence3Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
-          updateCaretPosition(sentence3El);
-          currentWordIndex++;
+          sentenceEl.textContent = result.fullText;
+          updateCaretPosition(sentenceEl);
+          expansionIndex++;
           animationTimeout = setTimeout(writeWord, 300);
         } else {
+          // Sentence complete, wait then erase
           setTimeout(() => {
-            currentWordIndex = sentence3Words.length - 1;
             eraseWord();
           }, 2000);
         }
@@ -110,49 +167,54 @@ const FreelancerProfile = () => {
     };
 
     const eraseWord = () => {
+      let words, sentenceEl;
+      
       if (currentSentence === 1) {
-        if (currentWordIndex >= 0) {
-          sentence1El.textContent = sentence1Words.slice(0, currentWordIndex).join(' ') + (currentWordIndex > 0 ? ' ' : '');
-          updateCaretPosition(sentence1El);
-          currentWordIndex--;
-          animationTimeout = setTimeout(eraseWord, 200);
-        } else {
-          sentence1El.textContent = '';
-          caret.classList.remove('active');
-          currentSentence = 2;
-          currentWordIndex = 0;
-          setTimeout(writeWord, 500);
-        }
+        words = sentence1Words;
+        sentenceEl = sentence1El;
       } else if (currentSentence === 2) {
-        if (currentWordIndex >= 0) {
-          sentence2El.textContent = sentence2Words.slice(0, currentWordIndex).join(' ') + (currentWordIndex > 0 ? ' ' : '');
-          updateCaretPosition(sentence2El);
-          currentWordIndex--;
-          animationTimeout = setTimeout(eraseWord, 200);
-        } else {
-          sentence2El.textContent = '';
-          caret.classList.remove('active');
-          currentSentence = 3;
-          currentWordIndex = 0;
-          setTimeout(writeWord, 500);
-        }
+        words = sentence2Words;
+        sentenceEl = sentence2El;
       } else {
-        if (currentWordIndex >= 0) {
-          sentence3El.textContent = sentence3Words.slice(0, currentWordIndex).join(' ') + (currentWordIndex > 0 ? ' ' : '');
-          updateCaretPosition(sentence3El);
-          currentWordIndex--;
-          animationTimeout = setTimeout(eraseWord, 200);
-        } else {
-          sentence3El.textContent = '';
+        words = sentence3Words;
+        sentenceEl = sentence3El;
+      }
+
+      const { center, left, right } = splitSentence(words);
+      const maxExpansion = Math.max(left.length, right.length) + (center.length > 0 ? 1 : 0);
+
+      if (expansionIndex > 0) {
+        expansionIndex--;
+        clearAllSentences();
+        
+        if (expansionIndex === 0) {
+          sentenceEl.textContent = '';
           caret.classList.remove('active');
-          currentSentence = 1;
-          currentWordIndex = 0;
-          setTimeout(writeWord, 500);
+          // Move to next sentence
+          currentSentence = currentSentence === 3 ? 1 : currentSentence + 1;
+          expansionIndex = 0;
+          setTimeout(() => {
+            positionCaretAtCenter();
+            setTimeout(writeWord, 500);
+          }, 500);
+        } else {
+          const result = buildBilateralText(words, expansionIndex);
+          
+          if (result.fullText) {
+            sentenceEl.textContent = result.fullText;
+            updateCaretPosition(sentenceEl);
+          } else {
+            sentenceEl.textContent = '';
+            positionCaretAtCenter();
+          }
+          animationTimeout = setTimeout(eraseWord, 200);
         }
       }
     };
 
-    writeWord();
+    // Start animation with cursor at center
+    positionCaretAtCenter();
+    setTimeout(writeWord, 500);
 
     return () => {
       caret?.classList.remove('active');

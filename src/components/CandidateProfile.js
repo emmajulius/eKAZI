@@ -37,8 +37,39 @@ const CandidateProfile = () => {
     if (!sentence1El || !sentence2El || !sentence3El || !caret || !container) return;
 
     let currentSentence = 1;
-    let currentWordIndex = 0;
+    let expansionIndex = 0; // How many words expanded on each side from center
     let animationTimeout;
+
+    // Split words into left and right halves from center
+    const splitSentence = (words) => {
+      const mid = Math.floor(words.length / 2);
+      const isOdd = words.length % 2 === 1;
+      
+      if (isOdd) {
+        return {
+          center: [words[mid]],
+          left: words.slice(0, mid),
+          right: words.slice(mid + 1)
+        };
+      } else {
+        return {
+          center: [],
+          left: words.slice(0, mid),
+          right: words.slice(mid)
+        };
+      }
+    };
+
+    const positionCaretAtCenter = () => {
+      if (!caret || !container) return;
+      
+      const containerRect = container.getBoundingClientRect();
+      const centerX = containerRect.width / 2;
+      
+      caret.style.left = `${centerX}px`;
+      caret.style.top = `${containerRect.height / 2 - 21}px`;
+      caret.classList.add('active');
+    };
 
     const updateCaretPosition = (element) => {
       if (!element || !caret || !container) return;
@@ -53,14 +84,14 @@ const CandidateProfile = () => {
       document.body.appendChild(tempSpan);
       
       const textWidth = tempSpan.offsetWidth;
+      document.body.removeChild(tempSpan);
+      
       const containerRect = container.getBoundingClientRect();
       const elementRect = element.getBoundingClientRect();
       
       caret.style.left = `${elementRect.left - containerRect.left + textWidth + 4}px`;
       caret.style.top = `${elementRect.top - containerRect.top + elementRect.height / 2 - caret.offsetHeight / 2}px`;
       caret.classList.add('active');
-      
-      document.body.removeChild(tempSpan);
     };
 
     const clearAllSentences = () => {
@@ -69,44 +100,73 @@ const CandidateProfile = () => {
       sentence3El.textContent = '';
     };
 
+    const buildBilateralText = (words, expansionIdx) => {
+      const { center, left, right } = splitSentence(words);
+      
+      if (expansionIdx === 0) {
+        // Show only center word(s) if exists
+        return { fullText: center.length > 0 ? center.join(' ') : '' };
+      }
+      
+      // Build text expanding from center outward
+      const layersToExpand = expansionIdx - 1; // Subtract 1 because first layer is just center
+      
+      // Calculate which words to show from left (working inward from edges)
+      const leftWordsToShow = Math.min(layersToExpand, left.length);
+      const rightWordsToShow = Math.min(layersToExpand, right.length);
+      
+      // Get words from left side (from the end, working toward center)
+      const leftPart = left.slice(left.length - leftWordsToShow);
+      // Get words from right side (from the start, working toward center)
+      const rightPart = right.slice(0, rightWordsToShow);
+      
+      // Combine: left words + center + right words
+      const allWords = [...leftPart, ...center, ...rightPart];
+      
+      return { fullText: allWords.join(' ') };
+    };
+
     const writeWord = () => {
+      let words, sentenceEl, maxExpansion;
+      
       if (currentSentence === 1) {
-        if (currentWordIndex < sentence1Words.length) {
-          sentence1El.textContent = sentence1Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
-          clearAllSentences();
-          sentence1El.textContent = sentence1Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
-          updateCaretPosition(sentence1El);
-          currentWordIndex++;
-          animationTimeout = setTimeout(writeWord, 300);
-        } else {
-          setTimeout(() => {
-            currentWordIndex = sentence1Words.length - 1;
-            eraseWord();
-          }, 2000);
-        }
+        words = sentence1Words;
+        sentenceEl = sentence1El;
       } else if (currentSentence === 2) {
-        if (currentWordIndex < sentence2Words.length) {
-          clearAllSentences();
-          sentence2El.textContent = sentence2Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
-          updateCaretPosition(sentence2El);
-          currentWordIndex++;
-          animationTimeout = setTimeout(writeWord, 300);
-        } else {
-          setTimeout(() => {
-            currentWordIndex = sentence2Words.length - 1;
-            eraseWord();
-          }, 2000);
-        }
+        words = sentence2Words;
+        sentenceEl = sentence2El;
       } else {
-        if (currentWordIndex < sentence3Words.length) {
+        words = sentence3Words;
+        sentenceEl = sentence3El;
+      }
+
+      const { center, left, right } = splitSentence(words);
+      // maxExpansion: 1 (for center) + max words on either side
+      maxExpansion = Math.max(left.length, right.length) + 1;
+
+      if (expansionIndex === 0) {
+        // Start at center
+        clearAllSentences();
+        positionCaretAtCenter();
+        const result = buildBilateralText(words, 0);
+        if (result.fullText) {
+          sentenceEl.textContent = result.fullText;
+          positionCaretAtCenter();
+        }
+        expansionIndex = 1;
+        animationTimeout = setTimeout(writeWord, 300);
+      } else {
+        const result = buildBilateralText(words, expansionIndex);
+        
+        if (expansionIndex <= maxExpansion && result.fullText) {
           clearAllSentences();
-          sentence3El.textContent = sentence3Words.slice(0, currentWordIndex + 1).join(' ') + ' ';
-          updateCaretPosition(sentence3El);
-          currentWordIndex++;
+          sentenceEl.textContent = result.fullText;
+          updateCaretPosition(sentenceEl);
+          expansionIndex++;
           animationTimeout = setTimeout(writeWord, 300);
         } else {
+          // Sentence complete, wait then erase
           setTimeout(() => {
-            currentWordIndex = sentence3Words.length - 1;
             eraseWord();
           }, 2000);
         }
@@ -114,49 +174,54 @@ const CandidateProfile = () => {
     };
 
     const eraseWord = () => {
+      let words, sentenceEl;
+      
       if (currentSentence === 1) {
-        if (currentWordIndex >= 0) {
-          sentence1El.textContent = sentence1Words.slice(0, currentWordIndex).join(' ') + (currentWordIndex > 0 ? ' ' : '');
-          updateCaretPosition(sentence1El);
-          currentWordIndex--;
-          animationTimeout = setTimeout(eraseWord, 200);
-        } else {
-          sentence1El.textContent = '';
-          caret.classList.remove('active');
-          currentSentence = 2;
-          currentWordIndex = 0;
-          setTimeout(writeWord, 500);
-        }
+        words = sentence1Words;
+        sentenceEl = sentence1El;
       } else if (currentSentence === 2) {
-        if (currentWordIndex >= 0) {
-          sentence2El.textContent = sentence2Words.slice(0, currentWordIndex).join(' ') + (currentWordIndex > 0 ? ' ' : '');
-          updateCaretPosition(sentence2El);
-          currentWordIndex--;
-          animationTimeout = setTimeout(eraseWord, 200);
-        } else {
-          sentence2El.textContent = '';
-          caret.classList.remove('active');
-          currentSentence = 3;
-          currentWordIndex = 0;
-          setTimeout(writeWord, 500);
-        }
+        words = sentence2Words;
+        sentenceEl = sentence2El;
       } else {
-        if (currentWordIndex >= 0) {
-          sentence3El.textContent = sentence3Words.slice(0, currentWordIndex).join(' ') + (currentWordIndex > 0 ? ' ' : '');
-          updateCaretPosition(sentence3El);
-          currentWordIndex--;
-          animationTimeout = setTimeout(eraseWord, 200);
-        } else {
-          sentence3El.textContent = '';
+        words = sentence3Words;
+        sentenceEl = sentence3El;
+      }
+
+      const { center, left, right } = splitSentence(words);
+      const maxExpansion = Math.max(left.length, right.length) + 1;
+
+      if (expansionIndex > 0) {
+        expansionIndex--;
+        clearAllSentences();
+        
+        if (expansionIndex === 0) {
+          sentenceEl.textContent = '';
           caret.classList.remove('active');
-          currentSentence = 1;
-          currentWordIndex = 0;
-          setTimeout(writeWord, 500);
+          // Move to next sentence
+          currentSentence = currentSentence === 3 ? 1 : currentSentence + 1;
+          expansionIndex = 0;
+          setTimeout(() => {
+            positionCaretAtCenter();
+            setTimeout(writeWord, 500);
+          }, 500);
+        } else {
+          const result = buildBilateralText(words, expansionIndex);
+          
+          if (result.fullText) {
+            sentenceEl.textContent = result.fullText;
+            updateCaretPosition(sentenceEl);
+          } else {
+            sentenceEl.textContent = '';
+            positionCaretAtCenter();
+          }
+          animationTimeout = setTimeout(eraseWord, 200);
         }
       }
     };
 
-    writeWord();
+    // Start animation with cursor at center
+    positionCaretAtCenter();
+    setTimeout(writeWord, 500);
 
     return () => {
       caret?.classList.remove('active');
@@ -334,14 +399,14 @@ const CandidateProfile = () => {
                 </div>
                 <div className="card-content">
                   <p className="about-text">{candidate.about || 'No about information available.'}</p>
-                  {candidate.careerObjectives && (
+            {candidate.careerObjectives && (
                     <div className="career-objectives-block">
                       <h4 className="subsection-title">
                         <i className="fa fa-bullseye"></i> Career Objectives
                       </h4>
-                      <p>{candidate.careerObjectives}</p>
-                    </div>
-                  )}
+                <p>{candidate.careerObjectives}</p>
+              </div>
+            )}
                 </div>
               </div>
 
@@ -381,16 +446,16 @@ const CandidateProfile = () => {
                             {experience.description && (
                               <p className="experience-description">{experience.description}</p>
                             )}
-                            {experience.responsibilities?.length ? (
+                  {experience.responsibilities?.length ? (
                               <div className="responsibilities-list">
                                 <h5 className="responsibilities-title">Key Responsibilities:</h5>
                                 <ul>
-                                  {experience.responsibilities.map((item, idx) => (
+                      {experience.responsibilities.map((item, idx) => (
                                     <li key={`${experience.title}-resp-${idx}`}>
                                       <i className="fa fa-check-circle"></i> {item}
                                     </li>
-                                  ))}
-                                </ul>
+                      ))}
+                    </ul>
                               </div>
                             ) : null}
                           </div>
@@ -411,7 +476,7 @@ const CandidateProfile = () => {
                   <h3 className="card-title">Education</h3>
                 </div>
                 <div className="card-content">
-                  {candidate.education?.length ? (
+            {candidate.education?.length ? (
                     <div className="education-list">
                       {candidate.education.map((education, index) => (
                         <div className="education-item" key={`${education.institution}-${index}`}>
@@ -423,9 +488,9 @@ const CandidateProfile = () => {
                               <span className="education-year">{education.year}</span>
                             )}
                           </div>
-                          <p className="education-degree">
+                  <p className="education-degree">
                             <i className="fa fa-certificate"></i> {education.degree}
-                          </p>
+                  </p>
                           {education.description && (
                             <p className="education-description">{education.description}</p>
                           )}
@@ -438,7 +503,7 @@ const CandidateProfile = () => {
                 </div>
               </div>
 
-              {candidate.skills ? (
+          {candidate.skills ? (
                 <div className="modern-card skills-card">
                   <div className="card-header">
                     <div className="card-icon">
@@ -448,12 +513,12 @@ const CandidateProfile = () => {
                   </div>
                   <div className="card-content">
                     <div className="skills-categories">
-                      {renderSkillsRow('Culture Fit', candidate.skills.cultureFit)}
-                      {renderSkillsRow('Personality', candidate.skills.personality)}
-                      {renderSkillsRow('Skills & Knowledge', candidate.skills.skillsKnowledge)}
-                      {renderSkillsRow('Software', candidate.skills.software)}
-                      {renderSkillsRow('Tools', candidate.skills.tools)}
-                    </div>
+                {renderSkillsRow('Culture Fit', candidate.skills.cultureFit)}
+                {renderSkillsRow('Personality', candidate.skills.personality)}
+                {renderSkillsRow('Skills & Knowledge', candidate.skills.skillsKnowledge)}
+                {renderSkillsRow('Software', candidate.skills.software)}
+                {renderSkillsRow('Tools', candidate.skills.tools)}
+              </div>
                   </div>
                 </div>
               ) : null}
@@ -520,9 +585,9 @@ const CandidateProfile = () => {
                     </div>
                   </div>
                 </div>
-              ) : null}
+          ) : null}
 
-              {candidate.jobFit && Object.keys(candidate.jobFit).length ? (
+          {candidate.jobFit && Object.keys(candidate.jobFit).length ? (
                 <div className="modern-card jobfit-card">
                   <div className="card-header">
                     <div className="card-icon">
@@ -532,7 +597,7 @@ const CandidateProfile = () => {
                   </div>
                   <div className="card-content">
                     <div className="jobfit-categories">
-                      {Object.entries(candidate.jobFit).map(([category, roles]) => (
+              {Object.entries(candidate.jobFit).map(([category, roles]) => (
                         <div className="jobfit-category" key={category}>
                           <h4 className="jobfit-category-title">{category}</h4>
                           <div className="jobfit-roles">
@@ -547,7 +612,7 @@ const CandidateProfile = () => {
                     </div>
                   </div>
                 </div>
-              ) : null}
+          ) : null}
 
               <div className="modern-card assessment-card">
                 <div className="card-header">
@@ -570,13 +635,13 @@ const CandidateProfile = () => {
                     <div className="assessment-stat-item">
                       <div className="stat-icon likes">
                         <i className="fa fa-thumbs-up"></i>
-                      </div>
+              </div>
                       <div className="stat-info">
                         <span className="stat-label">Likes</span>
                         <button type="button" className="stat-value-btn" onClick={handleLikeClick}>
                           {stats.likes}
-                        </button>
-                      </div>
+                </button>
+              </div>
                     </div>
                     <div className="assessment-stat-item rating-item">
                       <div className="stat-icon rating">
@@ -588,9 +653,9 @@ const CandidateProfile = () => {
                           <span className="rating-score">{ratingValue}</span>
                           <span className="rating-stars-display">{renderRatingStars()}</span>
                           <span className="rating-count">({ratingCount})</span>
-                        </button>
-                      </div>
-                    </div>
+                </button>
+              </div>
+            </div>
                   </div>
                   <div className="assessment-scores">
                     <div className="score-card">
@@ -612,7 +677,7 @@ const CandidateProfile = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+              </div>
               </div>
             </div>
           </div>
