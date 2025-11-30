@@ -3339,7 +3339,7 @@ section {
     color: #fff;
     line-height: 1.6;
     white-space: normal;
-    display: block;
+    display: inline-block;
     text-align: center;
     margin: 0;
     position: absolute;
@@ -3347,7 +3347,8 @@ section {
     top: 50%;
     transform: translate(-50%, -50%);
     width: calc(100% - 120px);
-    max-width: 100%;
+    max-width: calc(100% - 120px);
+    padding: 0 20px;
 }
 
 .animated-caret {
