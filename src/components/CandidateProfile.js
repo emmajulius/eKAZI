@@ -446,72 +446,77 @@ const CandidateProfile = () => {
                 ) : null}
 
                 {/* Profile Assessment Card */}
-                <div className="modern-card assessment-card" style={{
+                <div className="freelancer-info-card" style={{
                   backgroundColor: '#fff',
                   borderRadius: '12px',
                   padding: '20px',
                   boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
                 }}>
-                  <div className="card-header">
-                    <div className="card-icon">
-                      <i className="fa fa-chart-line"></i>
-                    </div>
-                    <h3 className="card-title">Profile Assessment</h3>
-                  </div>
-                  <div className="card-content">
-                    <div className="assessment-stats-grid">
-                      <div className="assessment-stat-item">
-                        <div className="stat-icon views">
-                          <i className="fa fa-eye"></i>
-                        </div>
-                        <div className="stat-info">
-                          <span className="stat-label">Views</span>
-                          <span className="stat-value">{stats.views}</span>
-                        </div>
-                      </div>
-                      <div className="assessment-stat-item">
-                        <div className="stat-icon likes">
-                          <i className="fa fa-thumbs-up"></i>
-                        </div>
-                        <div className="stat-info">
-                          <span className="stat-label">Likes</span>
-                          <button type="button" className="stat-value-btn" onClick={handleLikeClick}>
-                            {stats.likes}
-                          </button>
-                        </div>
-                      </div>
-                      <div className="assessment-stat-item rating-item">
-                        <div className="stat-icon rating">
-                          <i className="fa fa-star"></i>
-                        </div>
-                        <div className="stat-info">
-                          <span className="stat-label">Rating</span>
-                          <button type="button" className="stat-rating-btn" onClick={handleRateClick}>
-                            <span className="rating-score">{ratingValue}</span>
-                            <span className="rating-stars-display">{renderRatingStars()}</span>
-                            <span className="rating-count">({ratingCount})</span>
-                          </button>
-                        </div>
+                  <h3 style={{ 
+                    fontSize: '18px', 
+                    fontWeight: 'bold', 
+                    marginBottom: '15px',
+                    color: '#333'
+                  }}>
+                    <i className="fa fa-chart-line" style={{ marginRight: '10px', color: '#D36314' }}></i>
+                    Profile Assessment
+                  </h3>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                    <div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                        <span style={{ fontSize: '14px', color: '#333' }}>Views</span>
+                        <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{stats.views}</span>
                       </div>
                     </div>
-                    <div className="assessment-scores">
-                      <div className="score-card">
-                        <div className="score-icon">
-                          <i className="fa fa-trophy"></i>
-                        </div>
-                        <div className="score-details">
-                          <span className="score-label">Skills Score</span>
-                          <span className="score-value">{stats.skillsRating}</span>
-                        </div>
+                    <div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                        <span style={{ fontSize: '14px', color: '#333' }}>Likes</span>
+                        <button 
+                          type="button" 
+                          onClick={handleLikeClick}
+                          style={{ 
+                            fontSize: '14px', 
+                            color: '#333', 
+                            fontWeight: '600',
+                            background: 'none',
+                            border: 'none',
+                            cursor: 'pointer',
+                            padding: 0
+                          }}
+                        >
+                          {stats.likes}
+                        </button>
                       </div>
-                      <div className="score-card">
-                        <div className="score-icon">
-                          <i className="fa fa-chart-bar"></i>
-                        </div>
-                        <div className="score-details">
-                          <span className="score-label">Average Rating</span>
-                          <span className="score-value">{stats.average}</span>
-                        </div>
+                    </div>
+                    <div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                        <span style={{ fontSize: '14px', color: '#333' }}>Rating</span>
+                        <button 
+                          type="button" 
+                          onClick={handleRateClick}
+                          style={{ 
+                            fontSize: '14px', 
+                            color: '#333', 
+                            fontWeight: '600',
+                            background: 'none',
+                            border: 'none',
+                            cursor: 'pointer',
+                            padding: 0
+                          }}
+                        >
+                          {ratingValue} ({ratingCount})
+                        </button>
+                      </div>
+                      <div style={{ fontSize: '14px' }}>{renderRatingStars()}</div>
+                    </div>
+                    <div style={{ borderTop: '1px solid #e0e0e0', paddingTop: '15px' }}>
+                      <div style={{ marginBottom: '10px' }}>
+                        <span style={{ fontSize: '14px', color: '#666' }}>Skills Score: </span>
+                        <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{stats.skillsRating}</span>
+                      </div>
+                      <div>
+                        <span style={{ fontSize: '14px', color: '#666' }}>Average Rating: </span>
+                        <span style={{ fontSize: '14px', color: '#333', fontWeight: '600' }}>{stats.average}</span>
                       </div>
                     </div>
                   </div>
