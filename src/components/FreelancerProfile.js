@@ -21,19 +21,14 @@ const FreelancerProfile = () => {
   }, [id]);
 
   useEffect(() => {
-    const freelancerSection = document.querySelector('.freelancer-profile-section');
-    if (!freelancerSection) return;
-    
     const sentence1Words = sentence1.split(' ');
     const sentence2Words = sentence2.split(' ');
     const sentence3Words = sentence3.split(' ');
-    const container = freelancerSection.querySelector('.animated-sentences');
-    if (!container) return;
-    
-    const sentence1El = container.querySelector('.freelancer-sentence-1');
-    const sentence2El = container.querySelector('.freelancer-sentence-2');
-    const sentence3El = container.querySelector('.freelancer-sentence-3');
-    const caret = container.querySelector('.freelancer-animated-caret');
+    const sentence1El = document.querySelector('.freelancer-profile-section .sentence-1');
+    const sentence2El = document.querySelector('.freelancer-profile-section .sentence-2');
+    const sentence3El = document.querySelector('.freelancer-profile-section .sentence-3');
+    const caret = document.querySelector('.freelancer-profile-section .animated-caret');
+    const container = document.querySelector('.freelancer-profile-section .animated-sentences');
     
     if (!sentence1El || !sentence2El || !sentence3El || !caret || !container) return;
 
@@ -206,17 +201,17 @@ const FreelancerProfile = () => {
       />
 
       <section className="freelancer-profile-section" style={{ padding: '40px 0', backgroundColor: '#f5f5f5', minHeight: '80vh' }}>
-        <div className="container">
-          <div className="candidate-shell">
-            <div className="animated-writing-container">
-              <div className="animated-sentences">
-                <span className="sentence freelancer-sentence-1"></span>
-                <span className="sentence freelancer-sentence-2"></span>
-                <span className="sentence freelancer-sentence-3"></span>
-                <div className="animated-caret freelancer-animated-caret"></div>
-              </div>
+        <div className="candidate-shell">
+          <div className="animated-writing-container">
+            <div className="animated-sentences">
+              <span className="sentence sentence-1"></span>
+              <span className="sentence sentence-2"></span>
+              <span className="sentence sentence-3"></span>
+              <div className="animated-caret"></div>
             </div>
           </div>
+        </div>
+        <div className="container">
           <div className="row">
             {/* Left Column */}
             <div className="col-md-4">
