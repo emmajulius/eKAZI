@@ -2917,6 +2917,21 @@ section {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+.footer-hotline-section {
+    margin-top: 24px;
+}
+
+.footer-hotline-section h6 {
+    color: #2E58A6;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+.footer-whatsapp-section {
+    margin-top: 18px;
+}
+
 .footer-bottom {
     background-color: #1E65A6;
     text-align: center;
@@ -5123,7 +5138,7 @@ section {
         margin-bottom: 0 !important;
     }
     
-    /* Second row: For Employer and Tel Hotline */
+    /* Second row: For Employer */
     .footer-employer-section,
     .footer-employer-section.col-md-3 {
         order: 4;
@@ -5131,24 +5146,21 @@ section {
         max-width: 50% !important;
         width: 50% !important;
         box-sizing: border-box;
-        padding-left: 15px !important;
-        padding-right: 5px !important;
-    }
-    
-    .footer-hotline-section,
-    .footer-hotline-section.col-md-3 {
-        order: 5;
-        flex: 0 0 50% !important;
-        max-width: 50% !important;
-        width: 50% !important;
-        box-sizing: border-box;
         padding-left: 5px !important;
         padding-right: 15px !important;
-        margin-top: -40px !important;
     }
     
-    .footer-hotline-section .footer-contact-block {
+    /* Nested sections within columns */
+    .footer-links .footer-hotline-section {
+        margin-top: 20px;
+    }
+    
+    .footer-links .footer-hotline-section .footer-contact-details {
         margin-top: 0;
+    }
+    
+    .footer-employer-section .footer-whatsapp-section {
+        margin-top: 20px;
     }
     
     .banner-image {
@@ -5532,7 +5544,7 @@ section {
         margin-bottom: 0 !important;
     }
     
-    /* Second row: For Employer and Tel Hotline */
+    /* Second row: For Employer */
     .footer-employer-section,
     .footer-employer-section.col-md-3 {
         order: 4;
@@ -5540,24 +5552,21 @@ section {
         max-width: 50% !important;
         width: 50% !important;
         box-sizing: border-box;
-        padding-left: 15px !important;
-        padding-right: 5px !important;
-    }
-    
-    .footer-hotline-section,
-    .footer-hotline-section.col-md-3 {
-        order: 5;
-        flex: 0 0 50% !important;
-        max-width: 50% !important;
-        width: 50% !important;
-        box-sizing: border-box;
         padding-left: 5px !important;
         padding-right: 15px !important;
-        margin-top: -40px !important;
     }
     
-    .footer-hotline-section .footer-contact-block {
+    /* Nested sections within columns */
+    .footer-links .footer-hotline-section {
+        margin-top: 20px;
+    }
+    
+    .footer-links .footer-hotline-section .footer-contact-details {
         margin-top: 0;
+    }
+    
+    .footer-employer-section .footer-whatsapp-section {
+        margin-top: 20px;
     }
     
     .animated-writing-container {

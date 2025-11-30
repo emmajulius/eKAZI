@@ -74,6 +74,14 @@ const Footer = ({ onLoginClick }) => {
                 <span className="footer-static-link">Post Project</span>
               </li>
             </ul>
+            <div className="footer-hotline-section">
+              <h6>TEL HOTLINE</h6>
+              <div className="footer-contact-details">
+                <a href="tel:+255677400206">+255 677 400 206</a>
+                <a href="tel:+255677400205">+255 677 400 205</a>
+                <a href="tel:+255677014718">+255 677 014 718</a>
+              </div>
+            </div>
           </div>
 
           <div className="col-md-3 footer-links footer-employer-section">
@@ -88,16 +96,7 @@ const Footer = ({ onLoginClick }) => {
                 </a>
               </li>
             </ul>
-          </div>
-
-          <div className="col-md-3 footer-links footer-hotline-section">
-            <h6>TEL HOTLINE</h6>
-            <div className="footer-contact-block">
-              <div className="footer-contact-details">
-                <a href="tel:+255677400206">+255 677 400 206</a>
-                <a href="tel:+255677400205">+255 677 400 205</a>
-                <a href="tel:+255677014718">+255 677 014 718</a>
-              </div>
+            <div className="footer-whatsapp-section">
               <a className="whatsapp-button" href="https://wa.me/+255677975251" target="_blank" rel="noreferrer" aria-label="Chat with us on WhatsApp">
                 <img src={whatsappLogo} alt="WhatsApp" />
               </a>
