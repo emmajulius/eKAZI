@@ -62,15 +62,22 @@ const FreelancerProfile = () => {
       return width;
     };
 
+    // Cache container width to avoid repeated getBoundingClientRect calls
+    let cachedContainerWidth = container ? container.offsetWidth : 0;
+    
     const updateTextAndCaret = (element, currentText, fullText) => {
       if (!element || !caret || !container) return;
+      
+      // Only recalculate container width if it's not cached or changed
+      if (cachedContainerWidth === 0 || Math.abs(cachedContainerWidth - container.offsetWidth) > 1) {
+        cachedContainerWidth = container.offsetWidth;
+      }
       
       // Set the current text
       element.textContent = currentText;
       
-      // Calculate positions
-      const containerRect = container.getBoundingClientRect();
-      const containerCenterX = containerRect.width / 2;
+      // Calculate positions using cached width
+      const containerCenterX = cachedContainerWidth / 2;
       const fullTextWidth = getTextWidth(fullText);
       const currentTextWidth = getTextWidth(currentText);
       
@@ -345,7 +352,9 @@ const FreelancerProfile = () => {
                 padding: '20px',
                 marginTop: '30px',
                 marginBottom: '20px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                position: 'relative',
+                zIndex: 1
               }}>
                 <h3 style={{ 
                   fontSize: '18px', 
@@ -355,21 +364,25 @@ const FreelancerProfile = () => {
                 }}>
                   Location {freelancer.mapLocation?.address || `${freelancer.location}, Tanzania`}
                 </h3>
-                <div style={{ 
-                  width: '100%', 
-                  height: '300px', 
-                  minHeight: '300px',
-                  maxHeight: '300px',
-                  borderRadius: '8px',
-                  overflow: 'hidden',
-                  border: '1px solid #e0e0e0',
-                  position: 'relative',
-                  transform: 'translateZ(0)',
-                  backfaceVisibility: 'hidden',
-                  perspective: '1000px',
-                  isolation: 'isolate',
-                  contain: 'layout style paint'
-                }}>
+                <div 
+                  className="map-container-wrapper"
+                  style={{ 
+                    width: '100%', 
+                    height: '300px', 
+                    minHeight: '300px',
+                    maxHeight: '300px',
+                    borderRadius: '8px',
+                    overflow: 'hidden',
+                    border: '1px solid #e0e0e0',
+                    position: 'relative',
+                    transform: 'translate3d(0, 0, 0)',
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    isolation: 'isolate',
+                    contain: 'strict',
+                    willChange: 'auto'
+                  }}
+                >
                   <iframe
                     key={`map-${freelancer?.id || id}`}
                     src={mapUrl}
@@ -382,13 +395,16 @@ const FreelancerProfile = () => {
                       left: 0,
                       width: '100%',
                       height: '100%',
-                      transform: 'translateZ(0)',
-                      pointerEvents: 'auto'
+                      transform: 'translate3d(0, 0, 0)',
+                      pointerEvents: 'auto',
+                      zIndex: 1
                     }}
                     allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Location Map"
+                    frameBorder="0"
+                    scrolling="no"
                   ></iframe>
                 </div>
               </div>
