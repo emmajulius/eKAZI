@@ -54,21 +54,21 @@ const Footer = ({ onLoginClick }) => {
     flex: '0 0 calc(33.333% - 4px)',
     maxWidth: 'calc(33.333% - 4px)',
     width: 'calc(33.333% - 4px)',
-    order: 4
+    order: 5
   } : {};
   
   const mobileHotlineStyle = isMobile ? {
     flex: '0 0 calc(50% - 3px)',
     maxWidth: 'calc(50% - 3px)',
     width: 'calc(50% - 3px)',
-    order: 5
+    order: 6
   } : {};
   
   const mobileWhatsappStyle = isMobile ? {
-    flex: '0 0 calc(50% - 3px)',
-    maxWidth: 'calc(50% - 3px)',
-    width: 'calc(50% - 3px)',
-    order: 6
+    flex: '0 0 calc(33.333% - 4px)',
+    maxWidth: 'calc(33.333% - 4px)',
+    width: 'calc(33.333% - 4px)',
+    order: 4
   } : {};
 
   return (
