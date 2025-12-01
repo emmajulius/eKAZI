@@ -1211,8 +1211,8 @@ export const fullFreelancersData = {
       address: "Dar Es Salaam, Tanzania",
       lat: -6.7924,
       lng: 39.2083
+        }
     }
-  }
 };
 
 // Employer logos data
