@@ -5129,25 +5129,34 @@ section {
     }
     
     /* Footer mobile layout - arrange in two rows, compact */
+    /* Override Bootstrap row behavior */
     .footer .container .row.footer-main-row,
     .footer-main-row.row,
-    .footer .footer-main-row.row {
+    .footer .footer-main-row.row,
+    footer .footer .container .row.footer-main-row {
         display: flex !important;
         flex-wrap: wrap !important;
         flex-direction: row !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
         gap: 5px !important;
+        align-items: flex-start !important;
     }
     
+    /* Override all Bootstrap column classes in footer on mobile */
     .footer-main-row.row > *,
-    .footer .footer-main-row.row > * {
+    .footer .footer-main-row.row > *,
+    .footer .container .row.footer-main-row > * {
+        float: none !important;
         display: block !important;
+        position: relative !important;
     }
     
-    /* Make About section compact on mobile */
+    /* Make About section compact on mobile - full width first row */
     .footer-about,
-    .footer-about.col-md-5 {
+    .footer-about.col-md-5,
+    .footer .footer-main-row .footer-about,
+    .footer .container .row.footer-main-row .footer-about {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         width: 100% !important;
@@ -5157,6 +5166,7 @@ section {
         padding-right: 15px !important;
         padding-top: 10px !important;
         padding-bottom: 10px !important;
+        float: none !important;
     }
     
     .footer-about img {
@@ -5172,86 +5182,114 @@ section {
         margin-bottom: 0 !important;
     }
     
-    /* First row: About links, For Freelancer, For Employer - all in one row */
+    /* First row: About links, For Freelancer, For Employer - all in one row (33.333% each) */
     .footer-about-links,
     .footer-about-links.col-md-2,
     .footer-links:nth-of-type(2),
-    .footer-links:nth-of-type(2).col-md-2 {
+    .footer-links:nth-of-type(2).col-md-2,
+    .footer .footer-main-row .footer-about-links,
+    .footer .container .row.footer-main-row .footer-about-links {
         order: 2 !important;
         flex: 0 0 calc(33.333% - 4px) !important;
+        flex-basis: calc(33.333% - 4px) !important;
         max-width: calc(33.333% - 4px) !important;
         width: calc(33.333% - 4px) !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
         padding-left: 15px !important;
         padding-right: 3px !important;
         margin-bottom: 5px !important;
         padding-top: 10px !important;
         padding-bottom: 10px !important;
+        float: none !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
     
     .footer-freelancer-section,
-    .footer-freelancer-section.col-md-2 {
+    .footer-freelancer-section.col-md-2,
+    .footer .footer-main-row .footer-freelancer-section,
+    .footer .container .row.footer-main-row .footer-freelancer-section {
         order: 3 !important;
         flex: 0 0 calc(33.333% - 4px) !important;
+        flex-basis: calc(33.333% - 4px) !important;
         max-width: calc(33.333% - 4px) !important;
         width: calc(33.333% - 4px) !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
         padding-left: 3px !important;
         padding-right: 3px !important;
         margin-bottom: 5px !important;
         padding-top: 10px !important;
         padding-bottom: 10px !important;
+        float: none !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
     
     .footer-employer-section,
-    .footer-employer-section.col-md-3 {
+    .footer-employer-section.col-md-3,
+    .footer .footer-main-row .footer-employer-section,
+    .footer .container .row.footer-main-row .footer-employer-section {
         order: 4 !important;
         flex: 0 0 calc(33.333% - 4px) !important;
+        flex-basis: calc(33.333% - 4px) !important;
         max-width: calc(33.333% - 4px) !important;
         width: calc(33.333% - 4px) !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
         padding-left: 3px !important;
         padding-right: 15px !important;
         margin-bottom: 5px !important;
         padding-top: 10px !important;
         padding-bottom: 10px !important;
+        float: none !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
     
-    /* Second row: Tel Hotline and WhatsApp */
+    /* Second row: Tel Hotline and WhatsApp (50% each) */
     .footer-hotline-standalone,
     .footer-hotline-standalone.col-md-2,
-    .footer-main-row .footer-hotline-standalone {
+    .footer-main-row .footer-hotline-standalone,
+    .footer .footer-main-row .footer-hotline-standalone,
+    .footer .container .row.footer-main-row .footer-hotline-standalone {
         order: 5 !important;
         flex: 0 0 calc(50% - 3px) !important;
+        flex-basis: calc(50% - 3px) !important;
         max-width: calc(50% - 3px) !important;
         width: calc(50% - 3px) !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
         padding-left: 15px !important;
         padding-right: 3px !important;
         margin-bottom: 5px !important;
-        display: block !important;
+        display: flex !important;
+        flex-direction: column !important;
         visibility: visible !important;
         opacity: 1 !important;
         padding-top: 10px !important;
         padding-bottom: 10px !important;
+        float: none !important;
     }
     
     .footer-whatsapp-standalone,
     .footer-whatsapp-standalone.col-md-2,
-    .footer-main-row .footer-whatsapp-standalone {
+    .footer-main-row .footer-whatsapp-standalone,
+    .footer .footer-main-row .footer-whatsapp-standalone,
+    .footer .container .row.footer-main-row .footer-whatsapp-standalone {
         order: 6 !important;
         flex: 0 0 calc(50% - 3px) !important;
+        flex-basis: calc(50% - 3px) !important;
         max-width: calc(50% - 3px) !important;
         width: calc(50% - 3px) !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
         padding-left: 3px !important;
         padding-right: 15px !important;
         margin-bottom: 5px !important;
-        display: block !important;
+        display: flex !important;
+        flex-direction: column !important;
         visibility: visible !important;
         opacity: 1 !important;
         padding-top: 10px !important;
         padding-bottom: 10px !important;
+        float: none !important;
     }
     
     /* Reduce spacing in footer links on mobile */
@@ -5273,49 +5311,6 @@ section {
     .footer-hotline-nested,
     .footer-whatsapp-nested {
         display: none !important;
-    }
-    
-    /* Additional footer mobile layout overrides */
-    .footer .footer-main-row .footer-about {
-        order: 1 !important;
-        flex: 0 0 100% !important;
-        max-width: 100% !important;
-        width: 100% !important;
-    }
-    
-    .footer .footer-main-row .footer-about-links {
-        order: 2 !important;
-        flex: 0 0 calc(33.333% - 4px) !important;
-        max-width: calc(33.333% - 4px) !important;
-        width: calc(33.333% - 4px) !important;
-    }
-    
-    .footer .footer-main-row .footer-freelancer-section {
-        order: 3 !important;
-        flex: 0 0 calc(33.333% - 4px) !important;
-        max-width: calc(33.333% - 4px) !important;
-        width: calc(33.333% - 4px) !important;
-    }
-    
-    .footer .footer-main-row .footer-employer-section {
-        order: 4 !important;
-        flex: 0 0 calc(33.333% - 4px) !important;
-        max-width: calc(33.333% - 4px) !important;
-        width: calc(33.333% - 4px) !important;
-    }
-    
-    .footer .footer-main-row .footer-hotline-standalone {
-        order: 5 !important;
-        flex: 0 0 calc(50% - 3px) !important;
-        max-width: calc(50% - 3px) !important;
-        width: calc(50% - 3px) !important;
-    }
-    
-    .footer .footer-main-row .footer-whatsapp-standalone {
-        order: 6 !important;
-        flex: 0 0 calc(50% - 3px) !important;
-        max-width: calc(50% - 3px) !important;
-        width: calc(50% - 3px) !important;
     }
     
     /* Hide standalone sections on desktop */
@@ -5670,22 +5665,34 @@ section {
     }
     
     /* Footer mobile layout - arrange in two rows (small mobile), compact */
-    .footer-main-row.row {
+    /* Override Bootstrap row behavior */
+    .footer .container .row.footer-main-row,
+    .footer-main-row.row,
+    .footer .footer-main-row.row,
+    footer .footer .container .row.footer-main-row {
         display: flex !important;
         flex-wrap: wrap !important;
         flex-direction: row !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
         gap: 5px !important;
+        align-items: flex-start !important;
     }
     
-    .footer-main-row.row > * {
+    /* Override all Bootstrap column classes in footer on mobile */
+    .footer-main-row.row > *,
+    .footer .footer-main-row.row > *,
+    .footer .container .row.footer-main-row > * {
+        float: none !important;
         display: block !important;
+        position: relative !important;
     }
     
-    /* Make About section compact on mobile */
+    /* Make About section compact on mobile - full width first row */
     .footer-about,
-    .footer-about.col-md-5 {
+    .footer-about.col-md-5,
+    .footer .footer-main-row .footer-about,
+    .footer .container .row.footer-main-row .footer-about {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         width: 100% !important;
@@ -5695,6 +5702,7 @@ section {
         padding-right: 15px !important;
         padding-top: 10px !important;
         padding-bottom: 10px !important;
+        float: none !important;
     }
     
     .footer-about img {
@@ -5710,86 +5718,114 @@ section {
         margin-bottom: 0 !important;
     }
     
-    /* First row: About links, For Freelancer, For Employer - all in one row */
+    /* First row: About links, For Freelancer, For Employer - all in one row (33.333% each) */
     .footer-about-links,
     .footer-about-links.col-md-2,
     .footer-links:nth-of-type(2),
-    .footer-links:nth-of-type(2).col-md-2 {
+    .footer-links:nth-of-type(2).col-md-2,
+    .footer .footer-main-row .footer-about-links,
+    .footer .container .row.footer-main-row .footer-about-links {
         order: 2 !important;
         flex: 0 0 calc(33.333% - 4px) !important;
+        flex-basis: calc(33.333% - 4px) !important;
         max-width: calc(33.333% - 4px) !important;
         width: calc(33.333% - 4px) !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
         padding-left: 15px !important;
         padding-right: 3px !important;
         margin-bottom: 5px !important;
         padding-top: 10px !important;
         padding-bottom: 10px !important;
+        float: none !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
     
     .footer-freelancer-section,
-    .footer-freelancer-section.col-md-2 {
+    .footer-freelancer-section.col-md-2,
+    .footer .footer-main-row .footer-freelancer-section,
+    .footer .container .row.footer-main-row .footer-freelancer-section {
         order: 3 !important;
         flex: 0 0 calc(33.333% - 4px) !important;
+        flex-basis: calc(33.333% - 4px) !important;
         max-width: calc(33.333% - 4px) !important;
         width: calc(33.333% - 4px) !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
         padding-left: 3px !important;
         padding-right: 3px !important;
         margin-bottom: 5px !important;
         padding-top: 10px !important;
         padding-bottom: 10px !important;
+        float: none !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
     
     .footer-employer-section,
-    .footer-employer-section.col-md-3 {
+    .footer-employer-section.col-md-3,
+    .footer .footer-main-row .footer-employer-section,
+    .footer .container .row.footer-main-row .footer-employer-section {
         order: 4 !important;
         flex: 0 0 calc(33.333% - 4px) !important;
+        flex-basis: calc(33.333% - 4px) !important;
         max-width: calc(33.333% - 4px) !important;
         width: calc(33.333% - 4px) !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
         padding-left: 3px !important;
         padding-right: 15px !important;
         margin-bottom: 5px !important;
         padding-top: 10px !important;
         padding-bottom: 10px !important;
+        float: none !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
     
-    /* Second row: Tel Hotline and WhatsApp */
+    /* Second row: Tel Hotline and WhatsApp (50% each) */
     .footer-hotline-standalone,
     .footer-hotline-standalone.col-md-2,
-    .footer-main-row .footer-hotline-standalone {
+    .footer-main-row .footer-hotline-standalone,
+    .footer .footer-main-row .footer-hotline-standalone,
+    .footer .container .row.footer-main-row .footer-hotline-standalone {
         order: 5 !important;
         flex: 0 0 calc(50% - 3px) !important;
+        flex-basis: calc(50% - 3px) !important;
         max-width: calc(50% - 3px) !important;
         width: calc(50% - 3px) !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
         padding-left: 15px !important;
         padding-right: 3px !important;
         margin-bottom: 5px !important;
-        display: block !important;
+        display: flex !important;
+        flex-direction: column !important;
         visibility: visible !important;
         opacity: 1 !important;
         padding-top: 10px !important;
         padding-bottom: 10px !important;
+        float: none !important;
     }
     
     .footer-whatsapp-standalone,
     .footer-whatsapp-standalone.col-md-2,
-    .footer-main-row .footer-whatsapp-standalone {
+    .footer-main-row .footer-whatsapp-standalone,
+    .footer .footer-main-row .footer-whatsapp-standalone,
+    .footer .container .row.footer-main-row .footer-whatsapp-standalone {
         order: 6 !important;
         flex: 0 0 calc(50% - 3px) !important;
+        flex-basis: calc(50% - 3px) !important;
         max-width: calc(50% - 3px) !important;
         width: calc(50% - 3px) !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
         padding-left: 3px !important;
         padding-right: 15px !important;
         margin-bottom: 5px !important;
-        display: block !important;
+        display: flex !important;
+        flex-direction: column !important;
         visibility: visible !important;
         opacity: 1 !important;
         padding-top: 10px !important;
         padding-bottom: 10px !important;
+        float: none !important;
     }
     
     /* Reduce spacing in footer links on mobile */
@@ -5811,49 +5847,6 @@ section {
     .footer-hotline-nested,
     .footer-whatsapp-nested {
         display: none !important;
-    }
-    
-    /* Additional footer mobile layout overrides for small mobile */
-    .footer .footer-main-row .footer-about {
-        order: 1 !important;
-        flex: 0 0 100% !important;
-        max-width: 100% !important;
-        width: 100% !important;
-    }
-    
-    .footer .footer-main-row .footer-about-links {
-        order: 2 !important;
-        flex: 0 0 calc(33.333% - 4px) !important;
-        max-width: calc(33.333% - 4px) !important;
-        width: calc(33.333% - 4px) !important;
-    }
-    
-    .footer .footer-main-row .footer-freelancer-section {
-        order: 3 !important;
-        flex: 0 0 calc(33.333% - 4px) !important;
-        max-width: calc(33.333% - 4px) !important;
-        width: calc(33.333% - 4px) !important;
-    }
-    
-    .footer .footer-main-row .footer-employer-section {
-        order: 4 !important;
-        flex: 0 0 calc(33.333% - 4px) !important;
-        max-width: calc(33.333% - 4px) !important;
-        width: calc(33.333% - 4px) !important;
-    }
-    
-    .footer .footer-main-row .footer-hotline-standalone {
-        order: 5 !important;
-        flex: 0 0 calc(50% - 3px) !important;
-        max-width: calc(50% - 3px) !important;
-        width: calc(50% - 3px) !important;
-    }
-    
-    .footer .footer-main-row .footer-whatsapp-standalone {
-        order: 6 !important;
-        flex: 0 0 calc(50% - 3px) !important;
-        max-width: calc(50% - 3px) !important;
-        width: calc(50% - 3px) !important;
     }
     
     .animated-writing-container {
