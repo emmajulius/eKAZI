@@ -95,6 +95,9 @@ const Footer = ({ onLoginClick }) => {
             width: 100% !important;
             order: 1 !important;
             display: block !important;
+            margin-bottom: 3px !important;
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
           }
           .footer .footer-main-row .footer-about-links {
             flex: 0 0 calc(33.333% - 4px) !important;
@@ -125,6 +128,9 @@ const Footer = ({ onLoginClick }) => {
             width: calc(50% - 3px) !important;
             order: 5 !important;
             display: block !important;
+            margin-bottom: 2px !important;
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
           }
           .footer .footer-main-row .footer-hotline-standalone {
             flex: 0 0 calc(50% - 3px) !important;
@@ -134,6 +140,9 @@ const Footer = ({ onLoginClick }) => {
             display: block !important;
             visibility: visible !important;
             opacity: 1 !important;
+            margin-bottom: 2px !important;
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
           }
         `}</style>
       )}
