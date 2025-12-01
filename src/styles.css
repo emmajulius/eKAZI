@@ -5129,8 +5129,12 @@ section {
     }
     
     /* Footer mobile layout - arrange in two rows, compact */
-    /* Override Bootstrap row behavior */
+    /* Override Bootstrap row behavior - HIGHEST PRIORITY */
+    footer.footer .container .row.footer-main-row.footer-mobile-layout,
+    footer.footer .container .row.footer-main-row,
+    .footer .container .row.footer-main-row.footer-mobile-layout,
     .footer .container .row.footer-main-row,
+    .footer-main-row.row.footer-mobile-layout,
     .footer-main-row.row,
     .footer .footer-main-row.row,
     footer .footer .container .row.footer-main-row {

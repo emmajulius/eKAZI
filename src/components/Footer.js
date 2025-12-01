@@ -73,9 +73,73 @@ const Footer = ({ onLoginClick }) => {
 
   return (
     <footer className="footer">
+      {isMobile && (
+        <style>{`
+          .footer .container .row.footer-main-row.footer-mobile-layout,
+          .footer .container .row.footer-main-row {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            flex-direction: row !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+          }
+          .footer .footer-main-row > [class*="col-md-"] {
+            float: none !important;
+            width: auto !important;
+            max-width: none !important;
+            flex: none !important;
+          }
+          .footer .footer-main-row .footer-about {
+            flex: 0 0 100% !important;
+            max-width: 100% !important;
+            width: 100% !important;
+            order: 1 !important;
+            display: block !important;
+          }
+          .footer .footer-main-row .footer-about-links {
+            flex: 0 0 calc(33.333% - 4px) !important;
+            max-width: calc(33.333% - 4px) !important;
+            width: calc(33.333% - 4px) !important;
+            order: 2 !important;
+            display: block !important;
+          }
+          .footer .footer-main-row .footer-freelancer-section {
+            flex: 0 0 calc(33.333% - 4px) !important;
+            max-width: calc(33.333% - 4px) !important;
+            width: calc(33.333% - 4px) !important;
+            order: 3 !important;
+            display: block !important;
+          }
+          .footer .footer-main-row .footer-whatsapp-standalone {
+            flex: 0 0 calc(33.333% - 4px) !important;
+            max-width: calc(33.333% - 4px) !important;
+            width: calc(33.333% - 4px) !important;
+            order: 4 !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+          }
+          .footer .footer-main-row .footer-employer-section {
+            flex: 0 0 calc(50% - 3px) !important;
+            max-width: calc(50% - 3px) !important;
+            width: calc(50% - 3px) !important;
+            order: 5 !important;
+            display: block !important;
+          }
+          .footer .footer-main-row .footer-hotline-standalone {
+            flex: 0 0 calc(50% - 3px) !important;
+            max-width: calc(50% - 3px) !important;
+            width: calc(50% - 3px) !important;
+            order: 6 !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+          }
+        `}</style>
+      )}
       <div className="container">
         <div 
-          className="row footer-main-row"
+          className={`row footer-main-row ${isMobile ? 'footer-mobile-layout' : ''}`}
           style={mobileRowStyle}
         >
           <div 
