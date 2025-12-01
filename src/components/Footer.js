@@ -1,19 +1,87 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import whatsappLogo from '../assets/images/watsapp.jpeg';
 
 const Footer = ({ onLoginClick }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleLoginClick = () => {
     if (onLoginClick) {
       onLoginClick();
     }
   };
+  
+  const mobileRowStyle = isMobile ? {
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    marginLeft: 0,
+    marginRight: 0
+  } : {};
+  
+  const mobileAboutStyle = isMobile ? {
+    flex: '0 0 100%',
+    maxWidth: '100%',
+    width: '100%',
+    order: 1
+  } : {};
+  
+  const mobileAboutLinksStyle = isMobile ? {
+    flex: '0 0 calc(33.333% - 4px)',
+    maxWidth: 'calc(33.333% - 4px)',
+    width: 'calc(33.333% - 4px)',
+    order: 2
+  } : {};
+  
+  const mobileFreelancerStyle = isMobile ? {
+    flex: '0 0 calc(33.333% - 4px)',
+    maxWidth: 'calc(33.333% - 4px)',
+    width: 'calc(33.333% - 4px)',
+    order: 3
+  } : {};
+  
+  const mobileEmployerStyle = isMobile ? {
+    flex: '0 0 calc(33.333% - 4px)',
+    maxWidth: 'calc(33.333% - 4px)',
+    width: 'calc(33.333% - 4px)',
+    order: 4
+  } : {};
+  
+  const mobileHotlineStyle = isMobile ? {
+    flex: '0 0 calc(50% - 3px)',
+    maxWidth: 'calc(50% - 3px)',
+    width: 'calc(50% - 3px)',
+    order: 5
+  } : {};
+  
+  const mobileWhatsappStyle = isMobile ? {
+    flex: '0 0 calc(50% - 3px)',
+    maxWidth: 'calc(50% - 3px)',
+    width: 'calc(50% - 3px)',
+    order: 6
+  } : {};
 
   return (
     <footer className="footer">
       <div className="container">
-        <div className="row footer-main-row">
-          <div className="col-md-5 footer-about mb-4 mb-md-0">
+        <div 
+          className="row footer-main-row"
+          style={mobileRowStyle}
+        >
+          <div 
+            className="col-md-5 footer-about mb-4 mb-md-0"
+            style={mobileAboutStyle}
+          >
             <a href="https://ekazi.co.tz/about" rel="noreferrer" target="_blank">
               <img
                 alt="eKazi Logo"
@@ -29,7 +97,10 @@ const Footer = ({ onLoginClick }) => {
             </p>
           </div>
 
-          <div className="col-md-2 footer-links footer-about-links mb-4 mb-md-0">
+          <div 
+            className="col-md-2 footer-links footer-about-links mb-4 mb-md-0"
+            style={mobileAboutLinksStyle}
+          >
             <h6>ABOUT</h6>
             <ul>
               <li>
@@ -61,7 +132,10 @@ const Footer = ({ onLoginClick }) => {
             </ul>
           </div>
 
-          <div className="col-md-2 footer-links footer-freelancer-section mb-4 mb-md-0">
+          <div 
+            className="col-md-2 footer-links footer-freelancer-section mb-4 mb-md-0"
+            style={mobileFreelancerStyle}
+          >
             <h6>FOR FREELANCER</h6>
             <ul>
               <li>
@@ -84,7 +158,10 @@ const Footer = ({ onLoginClick }) => {
             </div>
           </div>
 
-          <div className="col-md-3 footer-links footer-employer-section">
+          <div 
+            className="col-md-3 footer-links footer-employer-section"
+            style={mobileEmployerStyle}
+          >
             <h6>FOR EMPLOYER</h6>
             <ul>
               <li>
@@ -104,7 +181,10 @@ const Footer = ({ onLoginClick }) => {
           </div>
 
           {/* Separate Tel Hotline for mobile */}
-          <div className="col-md-2 footer-links footer-hotline-standalone">
+          <div 
+            className="col-md-2 footer-links footer-hotline-standalone"
+            style={mobileHotlineStyle}
+          >
             <h6>TEL HOTLINE</h6>
             <div className="footer-contact-details">
               <a href="tel:+255677400206">+255 677 400 206</a>
@@ -114,7 +194,10 @@ const Footer = ({ onLoginClick }) => {
           </div>
 
           {/* Separate WhatsApp for mobile */}
-          <div className="col-md-2 footer-links footer-whatsapp-standalone">
+          <div 
+            className="col-md-2 footer-links footer-whatsapp-standalone"
+            style={mobileWhatsappStyle}
+          >
             <h6>WHATSAPP</h6>
             <a className="whatsapp-button" href="https://wa.me/+255677975251" target="_blank" rel="noreferrer" aria-label="Chat with us on WhatsApp">
               <img src={whatsappLogo} alt="WhatsApp" />

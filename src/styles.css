@@ -5146,10 +5146,25 @@ section {
     /* Override all Bootstrap column classes in footer on mobile */
     .footer-main-row.row > *,
     .footer .footer-main-row.row > *,
-    .footer .container .row.footer-main-row > * {
+    .footer .container .row.footer-main-row > *,
+    .footer .footer-main-row [class*="col-md-"],
+    .footer .container .row.footer-main-row [class*="col-md-"] {
         float: none !important;
         display: block !important;
         position: relative !important;
+        width: auto !important;
+    }
+    
+    /* Override Bootstrap's default column width on mobile */
+    .footer .footer-main-row .col-md-2,
+    .footer .footer-main-row .col-md-3,
+    .footer .footer-main-row .col-md-5,
+    .footer .container .row.footer-main-row .col-md-2,
+    .footer .container .row.footer-main-row .col-md-3,
+    .footer .container .row.footer-main-row .col-md-5 {
+        width: auto !important;
+        max-width: none !important;
+        flex: none !important;
     }
     
     /* Make About section compact on mobile - full width first row */
@@ -5682,10 +5697,25 @@ section {
     /* Override all Bootstrap column classes in footer on mobile */
     .footer-main-row.row > *,
     .footer .footer-main-row.row > *,
-    .footer .container .row.footer-main-row > * {
+    .footer .container .row.footer-main-row > *,
+    .footer .footer-main-row [class*="col-md-"],
+    .footer .container .row.footer-main-row [class*="col-md-"] {
         float: none !important;
         display: block !important;
         position: relative !important;
+        width: auto !important;
+    }
+    
+    /* Override Bootstrap's default column width on mobile */
+    .footer .footer-main-row .col-md-2,
+    .footer .footer-main-row .col-md-3,
+    .footer .footer-main-row .col-md-5,
+    .footer .container .row.footer-main-row .col-md-2,
+    .footer .container .row.footer-main-row .col-md-3,
+    .footer .container .row.footer-main-row .col-md-5 {
+        width: auto !important;
+        max-width: none !important;
+        flex: none !important;
     }
     
     /* Make About section compact on mobile - full width first row */
